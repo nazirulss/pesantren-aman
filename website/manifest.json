@@ -4,20 +4,20 @@
   "description": "Gerakan Penguatan Sistem Perlindungan Santri oleh PC RMI NU Kabupaten Demak",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#145A42",
+  "background_color": "#FFFFFF",
   "theme_color": "#145A42",
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "/logo-utama.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/splash-logo.png",
+      "src": "/logo-utama.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ]
 }
-
