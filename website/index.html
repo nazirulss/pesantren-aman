@@ -244,20 +244,183 @@
             Ikhtiar khidmah Pengurus Cabang RMI NU Kabupaten Demak mendampingi <strong>150 pondok pesantren</strong> membangun tata kelola pengasuhan yang amanah, ramah anak, dan bebas dari perundungan. Memastikan setiap bilik asrama dinaungi rasa damai dan kasih sayang.
           </p>
 
-          <!-- Tombol CTA Hero (Sejajar Horizontal 1 Baris pada Mobile & Desktop) -->
-          <div class="pt-1 sm:pt-2 flex items-center gap-2.5 sm:gap-3">
-            <a href="/kontak" class="flex-1 sm:flex-none justify-center bg-pa-gold hover:bg-[#B39049] text-pa-ink font-bold text-[13px] sm:text-sm py-2.5 sm:py-3 px-3.5 sm:px-5 rounded-lg transition-colors shadow-md flex items-center gap-1.5 whitespace-nowrap text-center">
-              <svg class="w-4 h-4 text-pa-ink shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-              </svg>
-              <span>Ajukan Jadwal</span>
-            </a>
-            <a href="/sambang" class="flex-1 sm:flex-none justify-center bg-white/10 hover:bg-white/20 text-white font-semibold text-[13px] sm:text-sm py-2.5 sm:py-3 px-3.5 sm:px-5 rounded-lg border border-white/20 transition-colors flex items-center gap-1.5 whitespace-nowrap text-center">
-              <svg class="w-4 h-4 text-emerald-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-              <span>Pelajari Alur</span>
-            </a>
+          <!-- ================= 3D COVERFLOW MENU SLIDER (1 BARIS 11 MENU) ================= -->
+          <div class="pt-2 sm:pt-3">
+            <div class="flex items-center justify-between mb-1 px-1">
+              <span class="text-xs font-bold text-pa-gold uppercase tracking-wider font-sans flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Jelajahi 11 Menu Gerakan</span>
+              </span>
+              <div class="flex items-center gap-1 text-[11px] text-emerald-200/90 font-mono">
+                <span id="coverflow-counter">1 / 11</span>
+              </div>
+            </div>
+
+            <!-- Wadah Stage Coverflow -->
+            <div id="coverflow-stage" class="relative overflow-hidden select-none w-full h-[180px] sm:h-[200px] flex items-center justify-center">
+              
+              <!-- Track / Wadah Kartu 3D -->
+              <div id="coverflow-track" class="relative w-full h-full flex items-center justify-center">
+
+                <!-- 01: Beranda -->
+                <a href="/" data-index="0" class="coverflow-card absolute rounded-xl overflow-hidden shadow-xl border border-white/20 group cursor-pointer" aria-label="Menu 1: Beranda">
+                  <img src="/img/pesantren-senja.jpg" alt="Beranda" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20"></div>
+                  <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 text-[10px] font-bold text-pa-gold flex items-center gap-1">
+                    <span>🏠</span> <span>01</span>
+                  </span>
+                  <div class="absolute bottom-2 left-2.5 right-2.5 text-white">
+                    <span class="text-[10px] uppercase font-bold text-emerald-300 block tracking-wider">Portal Utama</span>
+                    <strong class="text-xs sm:text-sm font-bold text-white block leading-snug truncate">Beranda</strong>
+                  </div>
+                </a>
+
+                <!-- 02: Profil Satgas -->
+                <a href="/tentang" data-index="1" class="coverflow-card absolute rounded-xl overflow-hidden shadow-xl border border-white/20 group cursor-pointer" aria-label="Menu 2: Profil & Struktur RMI NU">
+                  <img src="/img/hero-silaturahmi.jpg" alt="Profil Satgas RMI" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20"></div>
+                  <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 text-[10px] font-bold text-pa-gold flex items-center gap-1">
+                    <span>🏛️</span> <span>02</span>
+                  </span>
+                  <div class="absolute bottom-2 left-2.5 right-2.5 text-white">
+                    <span class="text-[10px] uppercase font-bold text-emerald-300 block tracking-wider">PC RMI NU</span>
+                    <strong class="text-xs sm:text-sm font-bold text-white block leading-snug truncate">Profil Satgas</strong>
+                  </div>
+                </a>
+
+                <!-- 03: Mitra & SOP -->
+                <a href="/mitra" data-index="2" class="coverflow-card absolute rounded-xl overflow-hidden shadow-xl border border-white/20 group cursor-pointer" aria-label="Menu 3: Mitra & SOP Alur Rujukan">
+                  <img src="/img/hero-tabayyun.jpg" alt="Mitra & SOP" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20"></div>
+                  <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 text-[10px] font-bold text-pa-gold flex items-center gap-1">
+                    <span>🤝</span> <span>03</span>
+                  </span>
+                  <div class="absolute bottom-2 left-2.5 right-2.5 text-white">
+                    <span class="text-[10px] uppercase font-bold text-emerald-300 block tracking-wider">Polres & Dinsos</span>
+                    <strong class="text-xs sm:text-sm font-bold text-white block leading-snug truncate">Mitra & SOP</strong>
+                  </div>
+                </a>
+
+                <!-- 04: Alur Sambang -->
+                <a href="/sambang" data-index="3" class="coverflow-card absolute rounded-xl overflow-hidden shadow-xl border border-white/20 group cursor-pointer" aria-label="Menu 4: Alur Sambang 120 Menit">
+                  <img src="/img/hero-sowan.jpg" alt="Alur Sambang 120 Menit" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20"></div>
+                  <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 text-[10px] font-bold text-pa-gold flex items-center gap-1">
+                    <span>⏱️</span> <span>04</span>
+                  </span>
+                  <div class="absolute bottom-2 left-2.5 right-2.5 text-white">
+                    <span class="text-[10px] uppercase font-bold text-emerald-300 block tracking-wider">120 Menit</span>
+                    <strong class="text-xs sm:text-sm font-bold text-white block leading-snug truncate">Alur Sambang</strong>
+                  </div>
+                </a>
+
+                <!-- 05: 5 Pilar Asrama -->
+                <a href="/lima-pilar" data-index="4" class="coverflow-card absolute rounded-xl overflow-hidden shadow-xl border border-white/20 group cursor-pointer" aria-label="Menu 5: 5 Pilar Perlindungan Santri">
+                  <img src="/img/hero-bimtek.jpg" alt="5 Pilar Perlindungan" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20"></div>
+                  <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 text-[10px] font-bold text-pa-gold flex items-center gap-1">
+                    <span>🛡️</span> <span>05</span>
+                  </span>
+                  <div class="absolute bottom-2 left-2.5 right-2.5 text-white">
+                    <span class="text-[10px] uppercase font-bold text-emerald-300 block tracking-wider">Ta'dib Nabawi</span>
+                    <strong class="text-xs sm:text-sm font-bold text-white block leading-snug truncate">5 Pilar Utama</strong>
+                  </div>
+                </a>
+
+                <!-- 06: Pusat Unduhan -->
+                <a href="/unduhan" data-index="5" class="coverflow-card absolute rounded-xl overflow-hidden shadow-xl border border-white/20 group cursor-pointer" aria-label="Menu 6: Pusat Unduhan Field Kit">
+                  <img src="/img/poster-preview.jpg" alt="Pusat Unduhan Field Kit" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20"></div>
+                  <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 text-[10px] font-bold text-pa-gold flex items-center gap-1">
+                    <span>📥</span> <span>06</span>
+                  </span>
+                  <div class="absolute bottom-2 left-2.5 right-2.5 text-white">
+                    <span class="text-[10px] uppercase font-bold text-emerald-300 block tracking-wider">Field Kit PDF</span>
+                    <strong class="text-xs sm:text-sm font-bold text-white block leading-snug truncate">Pusat Unduhan</strong>
+                  </div>
+                </a>
+
+                <!-- 07: Asesmen Mandiri -->
+                <a href="/asesmen" data-index="6" class="coverflow-card absolute rounded-xl overflow-hidden shadow-xl border border-white/20 group cursor-pointer" aria-label="Menu 7: Asesmen Mandiri 5 Menit">
+                  <img src="/img/santri-mengaji.jpg" alt="Asesmen Mandiri 5 Menit" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20"></div>
+                  <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 text-[10px] font-bold text-pa-gold flex items-center gap-1">
+                    <span>📋</span> <span>07</span>
+                  </span>
+                  <div class="absolute bottom-2 left-2.5 right-2.5 text-white">
+                    <span class="text-[10px] uppercase font-bold text-emerald-300 block tracking-wider">Simulasi 5 Mnt</span>
+                    <strong class="text-xs sm:text-sm font-bold text-white block leading-snug truncate">Asesmen Mandiri</strong>
+                  </div>
+                </a>
+
+                <!-- 08: Video & Media -->
+                <a href="/media" data-index="7" class="coverflow-card absolute rounded-xl overflow-hidden shadow-xl border border-white/20 group cursor-pointer" aria-label="Menu 8: Video & Media Kampanye">
+                  <img src="/img/bimtek-asatidz.jpg" alt="Video & Media Kampanye" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20"></div>
+                  <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 text-[10px] font-bold text-pa-gold flex items-center gap-1">
+                    <span>🎬</span> <span>08</span>
+                  </span>
+                  <div class="absolute bottom-2 left-2.5 right-2.5 text-white">
+                    <span class="text-[10px] uppercase font-bold text-emerald-300 block tracking-wider">Publikasi</span>
+                    <strong class="text-xs sm:text-sm font-bold text-white block leading-snug truncate">Video & Media</strong>
+                  </div>
+                </a>
+
+                <!-- 09: Peta 14 Kecamatan -->
+                <a href="/perkembangan" data-index="8" class="coverflow-card absolute rounded-xl overflow-hidden shadow-xl border border-white/20 group cursor-pointer" aria-label="Menu 9: Perkembangan Gerakan 14 Kecamatan">
+                  <img src="/img/santri-putri.jpg" alt="Perkembangan 14 Kecamatan" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20"></div>
+                  <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 text-[10px] font-bold text-pa-gold flex items-center gap-1">
+                    <span>🗺️</span> <span>09</span>
+                  </span>
+                  <div class="absolute bottom-2 left-2.5 right-2.5 text-white">
+                    <span class="text-[10px] uppercase font-bold text-emerald-300 block tracking-wider">Sebaran Demak</span>
+                    <strong class="text-xs sm:text-sm font-bold text-white block leading-snug truncate">Peta 14 Kec.</strong>
+                  </div>
+                </a>
+
+                <!-- 10: Warta & Kabar -->
+                <a href="/kabar" data-index="9" class="coverflow-card absolute rounded-xl overflow-hidden shadow-xl border border-white/20 group cursor-pointer" aria-label="Menu 10: Warta & Dokumentasi">
+                  <img src="/img/hero-komitmen.jpg" alt="Warta & Dokumentasi" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20"></div>
+                  <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 text-[10px] font-bold text-pa-gold flex items-center gap-1">
+                    <span>📰</span> <span>10</span>
+                  </span>
+                  <div class="absolute bottom-2 left-2.5 right-2.5 text-white">
+                    <span class="text-[10px] uppercase font-bold text-emerald-300 block tracking-wider">Kabar Lapangan</span>
+                    <strong class="text-xs sm:text-sm font-bold text-white block leading-snug truncate">Warta Terkini</strong>
+                  </div>
+                </a>
+
+                <!-- 11: Kontak & Jadwal -->
+                <a href="/kontak" data-index="10" class="coverflow-card absolute rounded-xl overflow-hidden shadow-xl border border-white/20 group cursor-pointer" aria-label="Menu 11: Kontak & Permohonan Jadwal">
+                  <img src="/img/sowan-ndalem.jpg" alt="Kontak & Jadwal Sambang" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/20"></div>
+                  <span class="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/20 text-[10px] font-bold text-pa-gold flex items-center gap-1">
+                    <span>📞</span> <span>11</span>
+                  </span>
+                  <div class="absolute bottom-2 left-2.5 right-2.5 text-white">
+                    <span class="text-[10px] uppercase font-bold text-emerald-300 block tracking-wider">Silaturahmi</span>
+                    <strong class="text-xs sm:text-sm font-bold text-white block leading-snug truncate">Ajukan Jadwal</strong>
+                  </div>
+                </a>
+
+              </div>
+
+              <!-- Tombol Panah Kiri (<) dan Kanan (>) -->
+              <button id="coverflow-prev-btn" type="button" aria-label="Menu Sebelumnya" class="absolute left-1 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-black/85 text-white flex items-center justify-center backdrop-blur-sm border border-pa-gold/50 transition-all z-40 focus:outline-none cursor-pointer shadow-md">
+                <svg class="w-4 h-4 text-pa-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+              </button>
+              <button id="coverflow-next-btn" type="button" aria-label="Menu Berikutnya" class="absolute right-1 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-black/85 text-white flex items-center justify-center backdrop-blur-sm border border-pa-gold/50 transition-all z-40 focus:outline-none cursor-pointer shadow-md">
+                <svg class="w-4 h-4 text-pa-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+              </button>
+
+            </div>
+
+            <!-- Mini Indikator Baris Bawah -->
+            <div id="coverflow-dots" class="flex items-center justify-center gap-1 pt-1">
+              <!-- JS render 11 dots -->
+            </div>
           </div>
 
           <!-- 3 Nilai Garansi Program Sambang (Slider Bergantian 1 per 1 Otomatis) -->
@@ -1515,6 +1678,137 @@
           dots[current].className = 'val-dot w-2 h-1 rounded-full bg-pa-gold transition-all';
         }
       }, 3000);
+    })();
+
+    /* ================= 3D COVERFLOW MENU SLIDER JS ================= */
+    (function initCoverflowMenu() {
+      const stage = document.getElementById('coverflow-stage');
+      const track = document.getElementById('coverflow-track');
+      if (!stage || !track) return;
+      const cards = Array.from(track.querySelectorAll('.coverflow-card'));
+      const prevBtn = document.getElementById('coverflow-prev-btn');
+      const nextBtn = document.getElementById('coverflow-next-btn');
+      const counter = document.getElementById('coverflow-counter');
+      const dotsContainer = document.getElementById('coverflow-dots');
+      const total = cards.length;
+      if (total === 0) return;
+
+      let currentIndex = 0;
+      let autoTimer = null;
+
+      // Render indicator dots
+      if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        cards.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'w-1.5 h-1.5 rounded-full transition-all cursor-pointer ' + (i === 0 ? 'bg-pa-gold w-3' : 'bg-emerald-800');
+          dot.setAttribute('aria-label', 'Pilih menu ' + (i + 1));
+          dot.addEventListener('click', () => {
+            setIndex(i);
+            startAutoPlay();
+          });
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      function update() {
+        cards.forEach((card, i) => {
+          card.classList.remove('cf-active', 'cf-prev-1', 'cf-next-1', 'cf-prev-2', 'cf-next-2', 'cf-hidden');
+
+          let diff = (i - currentIndex) % total;
+          if (diff > total / 2) diff -= total;
+          if (diff < -total / 2) diff += total;
+
+          if (diff === 0) {
+            card.classList.add('cf-active');
+          } else if (diff === -1) {
+            card.classList.add('cf-prev-1');
+          } else if (diff === 1) {
+            card.classList.add('cf-next-1');
+          } else if (diff === -2) {
+            card.classList.add('cf-prev-2');
+          } else if (diff === 2) {
+            card.classList.add('cf-next-2');
+          } else {
+            card.classList.add('cf-hidden');
+          }
+        });
+
+        if (counter) {
+          counter.textContent = (currentIndex + 1) + ' / ' + total;
+        }
+
+        if (dotsContainer) {
+          const dots = dotsContainer.querySelectorAll('button');
+          dots.forEach((dot, i) => {
+            if (i === currentIndex) {
+              dot.className = 'w-3 h-1.5 rounded-full bg-pa-gold transition-all cursor-pointer';
+            } else {
+              dot.className = 'w-1.5 h-1.5 rounded-full bg-emerald-800 hover:bg-emerald-600 transition-all cursor-pointer';
+            }
+          });
+        }
+      }
+
+      function setIndex(idx) {
+        currentIndex = (idx + total) % total;
+        update();
+      }
+
+      function next() { setIndex(currentIndex + 1); }
+      function prev() { setIndex(currentIndex - 1); }
+
+      function startAutoPlay() {
+        stopAutoPlay();
+        autoTimer = setInterval(next, 3500);
+      }
+
+      function stopAutoPlay() {
+        if (autoTimer) clearInterval(autoTimer);
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); prev(); startAutoPlay(); });
+      if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); next(); startAutoPlay(); });
+
+      // Click card behavior: if side card, center it. If center card, proceed to link.
+      cards.forEach((card, i) => {
+        card.addEventListener('click', (e) => {
+          if (i !== currentIndex) {
+            e.preventDefault();
+            setIndex(i);
+            startAutoPlay();
+          }
+        });
+      });
+
+      // Touch swipe gestures
+      let touchStartX = 0;
+      let touchEndX = 0;
+      stage.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        stopAutoPlay();
+      }, { passive: true });
+
+      stage.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        const diff = touchEndX - touchStartX;
+        if (Math.abs(diff) > 40) {
+          if (diff > 0) {
+            prev();
+          } else {
+            next();
+          }
+        }
+        startAutoPlay();
+      }, { passive: true });
+
+      stage.addEventListener('mouseenter', stopAutoPlay);
+      stage.addEventListener('mouseleave', startAutoPlay);
+
+      // Initial setup
+      update();
+      startAutoPlay();
     })();
   </script>
 

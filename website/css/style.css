@@ -250,3 +250,88 @@ h1, h2, h3, h4, h5, h6, .font-display {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ==========================================================================
+   3D COVERFLOW MENU SLIDER (1 BARIS HORIZONTAL DI HERO SECTION)
+   ========================================================================== */
+#coverflow-stage {
+  perspective: 900px;
+  perspective-origin: center center;
+}
+
+#coverflow-track {
+  transform-style: preserve-3d;
+}
+
+.coverflow-card {
+  width: 122px;
+  height: 168px;
+  top: 50%;
+  left: 50%;
+  margin-top: -84px;
+  margin-left: -61px;
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 0.42s ease,
+              filter 0.42s ease,
+              box-shadow 0.42s ease;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@media (min-width: 640px) {
+  .coverflow-card {
+    width: 138px;
+    height: 185px;
+    margin-top: -92px;
+    margin-left: -69px;
+  }
+}
+
+/* Status Kartu 3D Coverflow */
+.coverflow-card.cf-active {
+  transform: translateX(0) translateZ(50px) scale(1.08);
+  opacity: 1;
+  z-index: 30;
+  box-shadow: 0 16px 30px -6px rgba(0, 0, 0, 0.8), 0 0 0 2px #C7A45B;
+  pointer-events: auto;
+}
+
+.coverflow-card.cf-prev-1 {
+  transform: translateX(-78%) translateZ(-15px) scale(0.86) rotateY(14deg);
+  opacity: 0.72;
+  filter: brightness(0.8);
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.coverflow-card.cf-next-1 {
+  transform: translateX(78%) translateZ(-15px) scale(0.86) rotateY(-14deg);
+  opacity: 0.72;
+  filter: brightness(0.8);
+  z-index: 20;
+  pointer-events: auto;
+}
+
+.coverflow-card.cf-prev-2 {
+  transform: translateX(-145%) translateZ(-50px) scale(0.72) rotateY(22deg);
+  opacity: 0.38;
+  filter: brightness(0.65);
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.coverflow-card.cf-next-2 {
+  transform: translateX(145%) translateZ(-50px) scale(0.72) rotateY(-22deg);
+  opacity: 0.38;
+  filter: brightness(0.65);
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.coverflow-card.cf-hidden {
+  transform: translateX(0) translateZ(-100px) scale(0.5);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
