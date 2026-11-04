@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "name": "pesantren-aman",
   "functions": {
     "api/index.js": {
       "includeFiles": "website/**,perangkat-lapangan/**,media-dan-kampanye/**,brand/**,data/**",

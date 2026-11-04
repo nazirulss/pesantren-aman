@@ -31,3 +31,5 @@ $RECYCLE.BIN/
 # Temporary scratch scripts
 download_logos.js
 get_lpbh.js
+
+.vercel
