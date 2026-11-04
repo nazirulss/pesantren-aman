@@ -8,13 +8,13 @@
   "theme_color": "#145A42",
   "icons": [
     {
-      "src": "/logo-utama.png",
+      "src": "/icon-pwa-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/logo-utama.png",
+      "src": "/icon-pwa-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

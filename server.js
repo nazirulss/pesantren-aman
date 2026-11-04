@@ -178,6 +178,11 @@ app.get('/favicon.ico', (req, res) => {
   res.sendFile(path.join(__dirname, 'website', 'favicon.png'));
 });
 
+// Apple Touch Icon direct route for iOS Home Screen
+app.get(['/apple-touch-icon.png', '/apple-touch-icon-precomposed.png'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'website', 'apple-touch-icon.png'));
+});
+
 // Service Worker route with root scope
 app.get('/sw.js', (req, res) => {
   res.setHeader('Service-Worker-Allowed', '/');
