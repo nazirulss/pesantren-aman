@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perkembangan Gerakan — Pangkalan Data & Sebaran 14 Kecamatan | PESANTREN AMAN</title>
+  <meta name="description" content="Pangkalan data terbuka dan transparansi perkembangan Gerakan Pesantren Aman PC RMI NU Kabupaten Demak. Pantau capaian target 150 pesantren, sebaran 14 kecamatan, dan direktori pesantren berkomitmen.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Font Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pa-primary': '#145A42',
+            'pa-secondary': '#23966B',
+            'pa-accent': '#1C3D32',
+            'pa-paper': '#F4F0E6',
+            'pa-gold': '#C7A45B',
+            'pa-ink': '#1E2321',
+          },
+          fontFamily: {
+            display: ['Cinzel', 'serif'],
+            editorial: ['Playfair Display', 'serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .kpi-card { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+    .kpi-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px -10px rgba(20, 90, 66, 0.15); }
+    .kecamatan-card { transition: all 0.2s ease-in-out; cursor: pointer; }
+    .kecamatan-card:hover { border-color: #23966B; transform: translateY(-2px); box-shadow: 0 8px 16px -6px rgba(0,0,0,0.08); }
+    .kecamatan-card.selected { border-color: #145A42; background-color: #F0FDF4; outline: 2px solid #145A42; }
+  </style>
+</head>
+<body class="bg-[#F8F9F8] text-pa-ink font-body antialiased selection:bg-pa-gold selection:text-pa-ink">
+
+  <!-- TOPBAR INFORMASI -->
+  <div class="bg-[#0E3D2D] text-white text-[11px] border-b border-[#1C5340]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex justify-between items-center">
+      <div class="flex items-center gap-2 text-emerald-100 font-medium tracking-wide">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-pa-gold"></span>
+        <span>PC RMI NU KABUPATEN DEMAK — SATGAS PERLINDUNGAN SANTRI</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-emerald-200/90 text-[11px]">
+        <span>Hotline: <strong class="text-white font-mono">+62 812-3456-7890</strong></span>
+        <span class="text-emerald-600">|</span>
+        <span>Gedung PCNU Kab. Demak</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR DENGAN DROPDOWN ELEGAN -->
+  <header class="site-header sticky top-0 z-40 bg-white shadow-sm border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-2 sm:py-2.5">
+        
+        <!-- Logo Resmi -->
+        <a href="/" class="flex items-center focus:outline-none">
+          <img src="/logo-utama.png" alt="Logo Resmi PESANTREN AMAN - RMI NU" class="h-11 sm:h-14 md:h-16 w-auto object-contain">
+        </a>
+
+        <!-- Desktop Navigation dengan Dropdown -->
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-6 text-[13px] font-semibold text-gray-700">
+          <a href="/" class="hover:text-pa-primary transition-colors">Beranda</a>
+
+          <!-- Dropdown 1: Tentang Gerakan -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 hover:text-pa-primary py-2 transition-colors">
+              <span>Tentang Kami</span>
+              <svg class="w-3.5 h-3.5 text-gray-400 group-hover:text-pa-primary transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block w-56 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 divide-y divide-gray-50 text-xs font-medium">
+                <a href="/tentang" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Profil Gerakan & RMI NU</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Visi, misi, dan struktur Satgas</span>
+                </a>
+                <a href="/mitra" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Mitra & Kolaborasi</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Jejaring PPA Polres, Dinsos, LPBH</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 2: Program Sambang -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 hover:text-pa-primary py-2 transition-colors">
+              <span>Program Sambang</span>
+              <svg class="w-3.5 h-3.5 text-gray-400 group-hover:text-pa-primary transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block w-60 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 divide-y divide-gray-50 text-xs font-medium">
+                <a href="/sambang" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Alur Sambang 120 Menit</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Metodologi sowan & simulasi kasus</span>
+                </a>
+                <a href="/lima-pilar" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">5 Pilar Perlindungan</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Standar instrumen pengasuhan aman</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 3: Pusat Edukasi & Media -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 hover:text-pa-primary py-2 transition-colors">
+              <span>Edukasi & Media</span>
+              <svg class="w-3.5 h-3.5 text-gray-400 group-hover:text-pa-primary transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block w-64 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 divide-y divide-gray-50 text-xs font-medium">
+                <a href="/unduhan" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Field Kit v1.0 (PDF)</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Modul, instrumen PR-01 s.d PR-06</span>
+                </a>
+                <a href="/asesmen" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Asesmen Mandiri 5 Menit</strong>
+                  <span class="text-[10px] text-amber-700 font-editorial">Cek kesiapan perlindungan santri</span>
+                </a>
+                <a href="/media" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Video & Materi Kampanye</strong>
+                  <span class="text-[10px] text-emerald-700 font-editorial">Infografis, template medsos & video</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Perkembangan (Active) -->
+          <a href="/perkembangan" class="text-pa-primary border-b-2 border-pa-primary pb-0.5 font-bold">Perkembangan</a>
+          <a href="/kabar" class="hover:text-pa-primary transition-colors">Warta</a>
+          <a href="/kontak" class="hover:text-pa-primary transition-colors">Kontak</a>
+        </nav>
+
+        <!-- CTA Tunggal -->
+        <div class="hidden lg:flex items-center">
+          <a href="/kontak" class="btn-primary text-xs py-2 px-4 shadow-sm whitespace-nowrap">
+            Ajukan Sambang
+          </a>
+        </div>
+
+        <!-- Tombol Menu Mobile -->
+        <div class="lg:hidden flex items-center">
+          <button id="mobile-menu-btn" type="button" class="p-2 rounded border border-gray-200 text-gray-700 hover:bg-gray-50 focus:outline-none" aria-label="Menu Mobile">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-3 pb-6 space-y-3">
+      <div class="space-y-1">
+        <a href="/" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Beranda</a>
+        <a href="/tentang" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Profil & Struktur RMI NU</a>
+        <a href="/mitra" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Mitra & SOP Alur Rujukan</a>
+        <a href="/sambang" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Alur Sambang 120 Menit</a>
+        <a href="/lima-pilar" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">5 Pilar Perlindungan Santri</a>
+        <a href="/unduhan" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Pusat Unduhan Field Kit</a>
+        <a href="/asesmen" class="block px-3 py-2 text-sm font-medium text-amber-800 bg-amber-50/60 rounded">Asesmen Mandiri 5 Menit</a>
+        <a href="/media" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Video & Media Kampanye</a>
+        <a href="/perkembangan" class="block px-3 py-2 text-sm font-bold text-pa-primary bg-emerald-50 rounded">Perkembangan Gerakan (14 Kec)</a>
+        <a href="/kabar" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Warta & Dokumentasi</a>
+        <a href="/kontak" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Kontak & Permohonan</a>
+      </div>
+      <div class="pt-2">
+        <a href="/kontak" class="btn-primary w-full text-center text-xs py-2.5 block">
+          Ajukan Jadwal Sambang Pesantren
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION: TRANSPARANSI & SEBARAN 14 KECAMATAN -->
+  <section class="relative bg-gradient-to-b from-[#092B20] via-[#0E3D2D] to-[#145A42] text-white pt-14 pb-20 overflow-hidden">
+    <!-- Ornamen Geometris Islami Samar -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#C7A45B_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        
+        <!-- Badge Resmi Data Terbuka -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-pa-gold/40 text-emerald-200 text-xs font-medium mb-5 shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="font-mono text-pa-gold font-bold">PANGKALAN DATA TERBUKA</span>
+          <span class="text-gray-400">|</span>
+          <span>PC RMI NU KABUPATEN DEMAK</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold leading-tight tracking-tight mb-5">
+          Transparansi Khidmah,<br>
+          <span class="text-pa-gold italic font-editorial">Nyata Perubahannya.</span>
+        </h1>
+
+        <p class="text-emerald-100/90 text-sm sm:text-base leading-relaxed mb-6 font-editorial">
+          Ikhtiar terukur mengawal <strong>150 pondok pesantren</strong> di <strong>14 kecamatan</strong> se-Kabupaten Demak menuju ekosistem pengasuhan bermartabat tanpa kekerasan fisik, ramah santri, dan berkepastian hukum.
+        </p>
+
+        <!-- Indikator Update Real-Time -->
+        <div class="inline-flex items-center gap-2 text-[11px] text-emerald-200/80 bg-white/5 border border-white/10 px-3 py-1 rounded-md">
+          <svg class="w-3.5 h-3.5 text-pa-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          <span>Pembaruan Terakhir Sistem: <strong class="text-white font-mono" id="last-updated-text">Sinkronisasi Real-Time</strong></span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PAPAN METRIK KPI PUBLIK REAL-TIME (6 INDIKATOR) -->
+  <section class="relative -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+      
+      <!-- KPI 1: Target Kabupaten -->
+      <div class="kpi-card bg-white rounded-xl p-4 sm:p-5 border border-gray-200 shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between text-gray-500 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-gray-500">Target Kab.</span>
+          <span class="text-lg">🎯</span>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-display font-bold text-pa-ink" id="kpi-target">150</div>
+          <div class="text-[11px] text-gray-500 font-editorial mt-0.5">Pondok Pesantren</div>
+        </div>
+      </div>
+
+      <!-- KPI 2: Pesantren Tersambang -->
+      <div class="kpi-card bg-white rounded-xl p-4 sm:p-5 border border-emerald-200 shadow-sm flex flex-col justify-between ring-1 ring-emerald-500/10">
+        <div class="flex items-center justify-between text-emerald-700 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-700">Tersambang</span>
+          <span class="text-lg">🕌</span>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-display font-bold text-pa-primary" id="kpi-tersambang">--</div>
+          <div class="text-[11px] text-emerald-700 font-editorial mt-0.5">Berkomitmen Resmi</div>
+        </div>
+      </div>
+
+      <!-- KPI 3: Santri Terlindungi -->
+      <div class="kpi-card bg-white rounded-xl p-4 sm:p-5 border border-gray-200 shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between text-gray-500 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-gray-500">Santri Dampingan</span>
+          <span class="text-lg">👦👧</span>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-display font-bold text-pa-ink font-mono" id="kpi-santri">--</div>
+          <div class="text-[11px] text-gray-500 font-editorial mt-0.5">Santri Mukim Asrama</div>
+        </div>
+      </div>
+
+      <!-- KPI 4: Fasilitator Terlatih -->
+      <div class="kpi-card bg-white rounded-xl p-4 sm:p-5 border border-gray-200 shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between text-gray-500 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-gray-500">Fasilitator</span>
+          <span class="text-lg">🤝</span>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-display font-bold text-pa-ink" id="kpi-fasilitator">64</div>
+          <div class="text-[11px] text-gray-500 font-editorial mt-0.5">Ustadz Muda & LPBH</div>
+        </div>
+      </div>
+
+      <!-- KPI 5: Siklus Aksi 90 Hari -->
+      <div class="kpi-card bg-white rounded-xl p-4 sm:p-5 border border-amber-200 shadow-sm flex flex-col justify-between bg-amber-50/20">
+        <div class="flex items-center justify-between text-amber-800 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-amber-800">Siklus 90 Hari</span>
+          <span class="text-lg">📜</span>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-display font-bold text-amber-900" id="kpi-siklus">--</div>
+          <div class="text-[11px] text-amber-800 font-editorial mt-0.5">Aksi Nyata Berjalan</div>
+        </div>
+      </div>
+
+      <!-- KPI 6: Cakupan Kecamatan -->
+      <div class="kpi-card bg-white rounded-xl p-4 sm:p-5 border border-gray-200 shadow-sm flex flex-col justify-between">
+        <div class="flex items-center justify-between text-gray-500 mb-2">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-gray-500">Cakupan Wilayah</span>
+          <span class="text-lg">🗺️</span>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-display font-bold text-pa-ink" id="kpi-kecamatan">14</div>
+          <div class="text-[11px] text-gray-500 font-editorial mt-0.5">Kecamatan se-Demak</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEBARAN 14 KECAMATAN SE-KABUPATEN DEMAK -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-pa-primary uppercase tracking-wider mb-1">
+          <svg class="w-4 h-4 text-pa-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A2 2 0 013 15.382V6.618a2 2 0 011.053-1.789L9 2m0 18l6-3m-6 3V2m6 15l4.947 2.474A2 2 0 0021 17.618V8.83a2 2 0 00-1.053-1.789L15 4m0 13V4m0 0L9 2"/>
+          </svg>
+          <span>Peta Sebaran Wilayah</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-pa-ink">
+          Capaian Sambang di 14 Kecamatan
+        </h2>
+        <p class="text-gray-600 text-xs sm:text-sm mt-1 font-editorial">
+          Klik salah satu kecamatan di bawah ini untuk memfilter direktori pesantren di tabel pencarian.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="btn-reset-kecamatan" type="button" class="text-xs font-semibold px-3.5 py-2 rounded-lg border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 transition-colors shadow-sm flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+          <span>Tampilkan Semua Kecamatan</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Grid 14 Kecamatan Cards -->
+    <div id="grid-kecamatan" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-3">
+      <!-- Loading placeholder 14 skeleton cards -->
+      <div class="col-span-full py-8 text-center text-gray-400 text-sm">
+        Memuat data sebaran 14 kecamatan...
+      </div>
+    </div>
+  </section>
+
+  <!-- DIREKTORI PENCARIAN PESANTREN PUBLIK -->
+  <section id="direktori-section" class="bg-white border-t border-b border-gray-200 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mb-8">
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold text-pa-primary uppercase tracking-wider mb-1">
+          <svg class="w-4 h-4 text-pa-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+          <span>Direktori Terbuka</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-display font-bold text-pa-ink">
+          Daftar Pondok Pesantren Berkomitmen
+        </h2>
+        <p class="text-gray-600 text-xs sm:text-sm mt-1 font-editorial">
+          Daftar lembaga pesantren yang telah mengikuti program Sambang 120 Menit dan resmi menandatangani Piagam Komitmen Perlindungan Santri bersama Satgas PC RMI NU Kabupaten Demak.
+        </p>
+      </div>
+
+      <!-- Filter Bar Live Search -->
+      <div class="bg-[#F8F9F8] p-4 rounded-xl border border-gray-200 mb-6 shadow-sm flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+        
+        <!-- Search Input -->
+        <div class="relative flex-1">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Cari nama pesantren atau pengasuh..." 
+            class="w-full pl-9 pr-4 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:ring-2 focus:ring-pa-primary focus:border-pa-primary text-gray-800 placeholder-gray-400">
+        </div>
+
+        <!-- Filter Dropdown Kecamatan -->
+        <div class="w-full md:w-56">
+          <select id="filter-kecamatan" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:ring-2 focus:ring-pa-primary focus:border-pa-primary text-gray-700">
+            <option value="all">Semua Kecamatan (14)</option>
+            <option value="Mranggen">Mranggen</option>
+            <option value="Sayung">Sayung</option>
+            <option value="Bonang">Bonang</option>
+            <option value="Demak Kota">Demak Kota</option>
+            <option value="Guntur">Guntur</option>
+            <option value="Karangawen">Karangawen</option>
+            <option value="Dempet">Dempet</option>
+            <option value="Karangtengah">Karangtengah</option>
+            <option value="Wedung">Wedung</option>
+            <option value="Wonosalam">Wonosalam</option>
+            <option value="Karanganyar">Karanganyar</option>
+            <option value="Gajah">Gajah</option>
+            <option value="Mijen">Mijen</option>
+            <option value="Kebonagung">Kebonagung</option>
+          </select>
+        </div>
+
+        <!-- Filter Status -->
+        <div class="w-full md:w-48">
+          <select id="filter-status" class="w-full px-3 py-2 bg-white border border-gray-300 rounded-lg text-xs focus:ring-2 focus:ring-pa-primary focus:border-pa-primary text-gray-700">
+            <option value="all">Semua Status</option>
+            <option value="Tersambang">Tersambang (Resmi)</option>
+            <option value="Terjadwal">Terjadwal</option>
+          </select>
+        </div>
+
+        <!-- Counter info -->
+        <div class="text-right text-xs text-gray-500 font-mono flex items-center justify-end px-1 whitespace-nowrap">
+          <span id="counter-info">Menampilkan -- data</span>
+        </div>
+
+      </div>
+
+      <!-- Tabel Responsif -->
+      <div class="overflow-x-auto rounded-xl border border-gray-200 bg-white shadow-sm">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200 text-gray-600 font-bold uppercase tracking-wider text-[10px]">
+              <th class="py-3.5 px-4">No / ID</th>
+              <th class="py-3.5 px-4">Nama Pesantren & Pengasuh</th>
+              <th class="py-3.5 px-4">Kecamatan & Alamat</th>
+              <th class="py-3.5 px-4 text-center">Santri</th>
+              <th class="py-3.5 px-4 text-center">Status Sambang</th>
+              <th class="py-3.5 px-4">Fokus Komitmen 90 Hari</th>
+            </tr>
+          </thead>
+          <tbody id="pesantren-table-body" class="divide-y divide-gray-100">
+            <tr>
+              <td colspan="6" class="py-8 text-center text-gray-400">
+                Memuat data direktori pesantren...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SHOWCASE STUDI KASUS: SATU PESANTREN, SATU PERUBAHAN NYATA -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-1.5 text-xs font-bold text-pa-primary uppercase tracking-wider mb-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-pa-gold"></span>
+        <span>Praktik Baik Lapangan</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-display font-bold text-pa-ink">
+        Satu Pesantren, Satu Perubahan Nyata
+      </h2>
+      <p class="text-gray-600 text-xs sm:text-sm mt-2 font-editorial">
+        Gerakan Pesantren Aman tidak berhenti pada penandatanganan piagam di atas kertas. Berikut adalah potret perubahan konkret dalam siklus aksi 90 hari pertama yang telah dipraktikkan langsung di lingkungan asrama.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Kartu 1: PP Futuhiyyah Mranggen -->
+      <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm flex flex-col justify-between hover:border-emerald-300 transition-all">
+        <div>
+          <div class="flex items-center justify-between text-xs mb-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-pa-primary font-bold text-[10px] uppercase">Pilar 4: Kanal Aduan</span>
+            <span class="text-gray-400 font-mono text-[11px]">Mranggen</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-pa-ink mb-1">
+            PP. Futuhiyyah Mranggen
+          </h3>
+          <p class="text-xs text-gray-500 font-editorial mb-4">Pengasuh: KH. Muhammad Hanif Muslih, Lc.</p>
+
+          <div class="space-y-3 text-xs text-gray-700 leading-relaxed font-editorial">
+            <div class="p-3 rounded-lg bg-emerald-50/50 border border-emerald-100">
+              <strong class="text-pa-primary block font-sans text-[11px] uppercase tracking-wide mb-1">Inovasi Konkret 90 Hari:</strong>
+              Pemasangan <strong>6 Kotak Curhat Tertutup</strong> di lorong asrama santri putri dan penetapan 4 ustadzah konselor khusus.
+            </div>
+            <p>
+              Santri kini memiliki sarana bercerita tanpa takut dihakimi. Aduan ditindaklanjuti secara rahasia oleh ustadzah pendamping sebelum gesekan fisik antar-kamar terjadi.
+            </p>
+          </div>
+        </div>
+
+        <div class="pt-4 mt-4 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-500">
+          <span>Dampak: <strong class="text-emerald-700">3.450 Santri</strong></span>
+          <span class="text-emerald-600 font-semibold flex items-center gap-1">
+            <svg class="w-3.5 h-3.5 text-pa-gold" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Tervalidasi RMI
+          </span>
+        </div>
+      </div>
+
+      <!-- Kartu 2: PP Girikusumo Mranggen -->
+      <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm flex flex-col justify-between hover:border-emerald-300 transition-all">
+        <div>
+          <div class="flex items-center justify-between text-xs mb-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-800 font-bold text-[10px] uppercase">Pilar 3: Asrama Sehat</span>
+            <span class="text-gray-400 font-mono text-[11px]">Banyumeneng</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-pa-ink mb-1">
+            PP. Girikusumo Mranggen
+          </h3>
+          <p class="text-xs text-gray-500 font-editorial mb-4">Pengasuh: KH. Munif Muhammad Zuhri</p>
+
+          <div class="space-y-3 text-xs text-gray-700 leading-relaxed font-editorial">
+            <div class="p-3 rounded-lg bg-blue-50/50 border border-blue-100">
+              <strong class="text-blue-900 block font-sans text-[11px] uppercase tracking-wide mb-1">Inovasi Konkret 90 Hari:</strong>
+              Penghapusan total tradisi titip cuci pakaian antarsantri dan penerapan jadwal ronda malam pengurus pukul 23.00 - 03.30 WIB.
+            </div>
+            <p>
+              Mengikis relasi kuasa senioritas yang rentan menindas santri junior di lingkungan kamar mandi dan tempat jemuran pakaian santri.
+            </p>
+          </div>
+        </div>
+
+        <div class="pt-4 mt-4 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-500">
+          <span>Dampak: <strong class="text-blue-800">1.850 Santri</strong></span>
+          <span class="text-emerald-600 font-semibold flex items-center gap-1">
+            <svg class="w-3.5 h-3.5 text-pa-gold" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Tervalidasi RMI
+          </span>
+        </div>
+      </div>
+
+      <!-- Kartu 3: PP Al-Hidayat Krasak Demak Kota -->
+      <div class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm flex flex-col justify-between hover:border-emerald-300 transition-all">
+        <div>
+          <div class="flex items-center justify-between text-xs mb-3">
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-50 text-amber-900 font-bold text-[10px] uppercase">Pilar 1: Disiplin Positif</span>
+            <span class="text-gray-400 font-mono text-[11px]">Demak Kota</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-pa-ink mb-1">
+            PP. Al-Hidayat Krasak
+          </h3>
+          <p class="text-xs text-gray-500 font-editorial mb-4">Pengasuh: KH. Baidhowi Misbah</p>
+
+          <div class="space-y-3 text-xs text-gray-700 leading-relaxed font-editorial">
+            <div class="p-3 rounded-lg bg-amber-50/50 border border-amber-100">
+              <strong class="text-amber-900 block font-sans text-[11px] uppercase tracking-wide mb-1">Inovasi Konkret 90 Hari:</strong>
+              Transisi takzir fisik menjadi <strong>Sanksi Edukatif</strong> bertingkat (setoran hafalan bait nadhom & piket perpustakaan).
+            </div>
+            <p>
+              Penegakan ketertiban asrama tetap disegani dan wibawa, namun terbebas dari kontak kekerasan tubuh, sejalan dengan prinsip risalah Nabi SAW.
+            </p>
+          </div>
+        </div>
+
+        <div class="pt-4 mt-4 border-t border-gray-100 flex items-center justify-between text-[11px] text-gray-500">
+          <span>Dampak: <strong class="text-amber-900">1.230 Santri</strong></span>
+          <span class="text-emerald-600 font-semibold flex items-center gap-1">
+            <svg class="w-3.5 h-3.5 text-pa-gold" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+            Tervalidasi RMI
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA: DAFTARKAN PESANTREN ANDA -->
+  <section class="bg-gradient-to-r from-[#092B20] to-[#145A42] text-white py-14 border-t border-[#1C5340]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-display font-bold">
+        Pondok Pesantren Anda Belum Masuk dalam Peta Sebaran?
+      </h2>
+      <p class="text-emerald-100/90 text-sm max-w-2xl mx-auto leading-relaxed font-editorial">
+        Satgas PC RMI NU Kabupaten Demak siap sowan bersilaturahmi menyelenggarakan program Sambang 120 Menit secara dialogis, penuh kekeluargaan, dan 100% bebas biaya.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 pt-2">
+        <a href="/kontak" class="bg-pa-gold hover:bg-[#B39049] text-pa-ink font-bold text-xs py-3 px-6 rounded-lg transition-colors shadow-md">
+          Ajukan Sambang Pesantren Sekarang
+        </a>
+        <a href="/sambang" class="bg-white/10 hover:bg-white/20 text-white font-semibold text-xs py-3 px-6 rounded-lg border border-white/20 transition-colors">
+          Pelajari Alur 120 Menit
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTITUTIONAL FOOTER -->
+  <footer class="bg-[#092B20] text-emerald-100/90 text-xs border-t border-emerald-900/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="space-y-3 md:col-span-1">
+          <img src="/logo-utama.png" alt="Logo Pesantren Aman" class="h-14 w-auto brightness-110">
+          <p class="text-[11px] leading-relaxed text-emerald-200/80 font-editorial">
+            Gerakan Penguatan Sistem Perlindungan Santri di bawah naungan Pengurus Cabang Rabithah Ma’ahid Islamiyah (PC RMI) Nahdlatul Ulama Kabupaten Demak.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-white font-display font-bold uppercase text-[11px] tracking-wider text-pa-gold">Navigasi Program</h4>
+          <ul class="space-y-1.5 text-[11px]">
+            <li><a href="/sambang" class="hover:text-white transition-colors">Program Sambang 120 Menit</a></li>
+            <li><a href="/lima-pilar" class="hover:text-white transition-colors">5 Pilar Perlindungan</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Mitra & Kolaborasi Strategis</a></li>
+            <li><a href="/media" class="hover:text-white transition-colors">Video & Galeri Media</a></li>
+            <li><a href="/unduhan" class="hover:text-white transition-colors">Pusat Unduhan Field Kit (PDF)</a></li>
+            <li><a href="/perkembangan" class="text-white font-bold hover:underline">Peta Sebaran 14 Kecamatan</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-white font-display font-bold uppercase text-[11px] tracking-wider text-pa-gold">Jejaring Mitra</h4>
+          <ul class="space-y-1.5 text-[11px]">
+            <li><a href="/mitra" class="hover:text-white transition-colors">Unit PPA Satreskrim Polres Demak</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Dinas Sosial P2PA Kab. Demak</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Kementerian Agama Kab. Demak</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Lembaga Penyuluhan Bantuan Hukum NU</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">14 MWC NU se-Kabupaten Demak</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-white font-display font-bold uppercase text-[11px] tracking-wider text-pa-gold">Sekretariat Satgas</h4>
+          <p class="text-[11px] text-emerald-200/80 leading-relaxed font-editorial">
+            Gedung PCNU Kabupaten Demak<br>
+            Jl. Sultan Fatah No. 83, Demak, Jawa Tengah 59511
+          </p>
+          <p class="text-[11px] font-mono text-pa-gold">
+            Hotline Satgas: +62 812-3456-7890
+          </p>
+          <div class="pt-2">
+            <a href="/admin" class="text-[10px] text-emerald-400/70 hover:text-emerald-200 underline font-mono">
+              Portal Khusus Fasilitator Satgas →
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-emerald-900/60 flex flex-col sm:flex-row justify-between items-center text-[11px] text-emerald-300/70">
+        <p>© 2026 PC RMI NU Kabupaten Demak. Khidmah Menjaga Amanah Santri.</p>
+        <p class="mt-2 sm:mt-0 font-editorial italic">"Menjaga Amanah, Melindungi Santri, Memuliakan Pesantren."</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIKA HALAMAN & FETCH DATA DARI API -->
+  <script>
+    // State lokal halaman
+    let rawPesantren = [];
+    let rawKecamatan = [];
+    let selectedKecamatan = 'all';
+
+    // 1. Ambil data dari API publik
+    async function loadPerkembanganData() {
+      try {
+        const res = await fetch('/api/perkembangan-publik');
+        const json = await res.json();
+
+        if (json.success && json.data) {
+          const { metrics, kecamatan, pesantren } = json.data;
+          
+          rawPesantren = pesantren || [];
+          rawKecamatan = kecamatan || [];
+
+          // Render metrik KPI
+          renderMetrics(metrics);
+
+          // Render Grid 14 Kecamatan
+          renderKecamatanGrid(rawKecamatan);
+
+          // Render Tabel Pesantren
+          renderPesantrenTable();
+
+          // Update timestamp
+          const now = new Date();
+          const options = { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+          const formatted = now.toLocaleDateString('id-ID', options) + ' WIB';
+          document.getElementById('last-updated-text').textContent = formatted;
+        }
+      } catch (err) {
+        console.error('Gagal memuat data perkembangan:', err);
+        document.getElementById('grid-kecamatan').innerHTML = `
+          <div class="col-span-full py-4 text-center text-red-500 text-xs">
+            Gagal memuat data live. Silakan segarkan halaman.
+          </div>
+        `;
+      }
+    }
+
+    // 2. Render Papan KPI
+    function renderMetrics(m) {
+      if (!m) return;
+      document.getElementById('kpi-target').textContent = m.totalTargetKabupaten || 150;
+      document.getElementById('kpi-tersambang').textContent = m.totalPesantrenTersambang || 0;
+      document.getElementById('kpi-santri').textContent = (m.totalSantriTerlindungi || 0).toLocaleString('id-ID');
+      document.getElementById('kpi-fasilitator').textContent = m.fasilitatorTerlatih || 64;
+      document.getElementById('kpi-siklus').textContent = m.totalKomitmen90Hari || 42;
+      document.getElementById('kpi-kecamatan').textContent = m.kecamatanCakupan || 14;
+    }
+
+    // 3. Render Grid 14 Kecamatan
+    function renderKecamatanGrid(list) {
+      const container = document.getElementById('grid-kecamatan');
+      if (!container) return;
+
+      if (!list || list.length === 0) {
+        container.innerHTML = `<div class="col-span-full py-4 text-center text-gray-500 text-xs">Tidak ada data kecamatan.</div>`;
+        return;
+      }
+
+      container.innerHTML = list.map(kec => {
+        const isSelected = selectedKecamatan.toLowerCase() === kec.nama.toLowerCase();
+        return `
+          <div 
+            class="kecamatan-card bg-white p-3.5 rounded-xl border border-gray-200 flex flex-col justify-between ${isSelected ? 'selected' : ''}"
+            onclick="pilihKecamatan('${kec.nama}')"
+            title="Klik untuk memfilter daftar pondok di Kecamatan ${kec.nama}">
+            
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1">
+                <strong class="font-display font-bold text-pa-ink text-xs">${kec.nama}</strong>
+                <span class="font-mono text-[10px] text-gray-500 font-bold">${kec.tersambang}/${kec.target}</span>
+              </div>
+              
+              <!-- Progress Bar -->
+              <div class="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden my-2">
+                <div class="bg-gradient-to-r from-pa-primary to-pa-secondary h-1.5 rounded-full" style="width: ${Math.max(kec.persen, 5)}%"></div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between text-[10px] text-gray-500 mt-1">
+              <span>${kec.persen}% tercapai</span>
+              <span class="font-mono text-emerald-700 font-semibold">${(kec.santri || 0).toLocaleString('id-ID')} santri</span>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 4. Pilih Kecamatan & Scroll ke Tabel
+    window.pilihKecamatan = function(namaKec) {
+      selectedKecamatan = namaKec;
+      
+      // Update dropdown filter
+      const dropdown = document.getElementById('filter-kecamatan');
+      if (dropdown) dropdown.value = namaKec;
+
+      // Update highlight kartu
+      renderKecamatanGrid(rawKecamatan);
+
+      // Filter tabel
+      renderPesantrenTable();
+
+      // Smooth scroll ke tabel
+      const el = document.getElementById('direktori-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    // 5. Render Tabel Direktori
+    function renderPesantrenTable() {
+      const tbody = document.getElementById('pesantren-table-body');
+      const searchVal = (document.getElementById('search-input')?.value || '').toLowerCase().trim();
+      const statusVal = document.getElementById('filter-status')?.value || 'all';
+      const kecVal = selectedKecamatan.toLowerCase();
+
+      const filtered = rawPesantren.filter(p => {
+        // Filter nama / pengasuh
+        const matchSearch = !searchVal || 
+          (p.namaPesantren && p.namaPesantren.toLowerCase().includes(searchVal)) ||
+          (p.pengasuh && p.pengasuh.toLowerCase().includes(searchVal)) ||
+          (p.alamat && p.alamat.toLowerCase().includes(searchVal));
+
+        // Filter kecamatan
+        const matchKec = kecVal === 'all' || 
+          (p.kecamatan && p.kecamatan.toLowerCase() === kecVal);
+
+        // Filter status
+        const matchStatus = statusVal === 'all' || 
+          (p.statusSambang && p.statusSambang.toLowerCase() === statusVal.toLowerCase());
+
+        return matchSearch && matchKec && matchStatus;
+      });
+
+      // Update counter text
+      const counterEl = document.getElementById('counter-info');
+      if (counterEl) {
+        counterEl.textContent = `Menampilkan ${filtered.length} dari ${rawPesantren.length} lembaga`;
+      }
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="py-10 text-center text-gray-500">
+              <svg class="w-8 h-8 mx-auto text-gray-300 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Tidak ditemukan data pesantren sesuai kriteria pencarian.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = filtered.map((p, idx) => {
+        const isTersambang = p.statusSambang === 'Tersambang';
+        const badgeColor = isTersambang ? 'bg-emerald-100 text-emerald-800 border-emerald-200' : 'bg-blue-100 text-blue-800 border-blue-200';
+        
+        return `
+          <tr class="hover:bg-gray-50/80 transition-colors">
+            <td class="py-3 px-4 font-mono text-[11px] text-gray-500 whitespace-nowrap">
+              <div class="font-bold text-pa-ink">${p.id || `PS-${idx+1}`}</div>
+              <div class="text-[9px] text-gray-400">NSP: ${p.nsp || '-'}</div>
+            </td>
+            
+            <td class="py-3 px-4">
+              <div class="font-bold text-pa-ink text-xs">${p.namaPesantren}</div>
+              <div class="text-[11px] text-gray-500 font-editorial">Pengasuh: ${p.pengasuh || '-'}</div>
+            </td>
+
+            <td class="py-3 px-4">
+              <span class="inline-block px-2 py-0.5 rounded bg-gray-100 text-gray-700 font-medium text-[10px] mb-0.5">${p.kecamatan || '-'}</span>
+              <div class="text-[10px] text-gray-500 truncate max-w-xs">${p.alamat || '-'}</div>
+            </td>
+
+            <td class="py-3 px-4 text-center font-mono font-semibold text-gray-700 text-xs">
+              ${(parseInt(p.totalSantri) || 0).toLocaleString('id-ID')}
+            </td>
+
+            <td class="py-3 px-4 text-center whitespace-nowrap">
+              <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${badgeColor}">
+                <span class="w-1.5 h-1.5 rounded-full ${isTersambang ? 'bg-emerald-600' : 'bg-blue-600'}"></span>
+                ${p.statusSambang || 'Tersambang'}
+              </span>
+              ${p.tanggalSambang ? `<div class="text-[9px] text-gray-400 mt-0.5 font-mono">${p.tanggalSambang}</div>` : ''}
+            </td>
+
+            <td class="py-3 px-4 text-gray-700 font-editorial text-[11px]">
+              ${p.prioritasPilar || '<span class="text-gray-400 italic">Disiplin Positif & Penguatan Fasilitas</span>'}
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    // 6. Event Listeners Filter
+    document.getElementById('search-input')?.addEventListener('input', renderPesantrenTable);
+
+    document.getElementById('filter-kecamatan')?.addEventListener('change', (e) => {
+      selectedKecamatan = e.target.value;
+      renderKecamatanGrid(rawKecamatan);
+      renderPesantrenTable();
+    });
+
+    document.getElementById('filter-status')?.addEventListener('change', renderPesantrenTable);
+
+    document.getElementById('btn-reset-kecamatan')?.addEventListener('click', () => {
+      selectedKecamatan = 'all';
+      const dd = document.getElementById('filter-kecamatan');
+      if (dd) dd.value = 'all';
+      renderKecamatanGrid(rawKecamatan);
+      renderPesantrenTable();
+    });
+
+    // 7. Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Inisialisasi awal saat DOM siap
+    document.addEventListener('DOMContentLoaded', loadPerkembanganData);
+  </script>
+
+</body>
+</html>

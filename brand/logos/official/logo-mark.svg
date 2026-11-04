@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="paShieldMarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#196349"/>
+      <stop offset="100%" stop-color="#0E4331"/>
+    </linearGradient>
+    <linearGradient id="paGoldMarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFBA6D"/>
+      <stop offset="100%" stop-color="#B68E42"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Shield Outline -->
+  <path d="M100 12 C145 12 186 32 188 64 C188 134 145 180 100 196 C55 180 12 134 12 64 C14 32 55 12 100 12 Z" 
+        fill="url(#paShieldMarkGrad)" stroke="#C7A45B" stroke-width="4" stroke-linejoin="round"/>
+
+  <!-- Inner Border Line -->
+  <path d="M100 22 C136 22 172 40 174 66 C174 126 136 166 100 182 C64 166 26 126 26 66 C28 40 64 22 100 22 Z" 
+        fill="none" stroke="#F4F0E6" stroke-width="1.6" stroke-opacity="0.45"/>
+
+  <!-- Dome (Kubah) Siluet Atas -->
+  <path d="M100 35 C118 53 134 74 134 94 L66 94 C66 74 82 53 100 35 Z" 
+        fill="#F4F0E6"/>
+  
+  <!-- Puncak Kubah (Bintang/Hilal) -->
+  <circle cx="100" cy="31" r="4" fill="url(#paGoldMarkGrad)"/>
+
+  <!-- Lembaran Kitab Terbuka (Knowledge / Syariat) -->
+  <path d="M100 122 C116 110 142 112 155 120 C155 142 120 152 100 160 C80 152 45 142 45 120 C58 112 84 110 100 122 Z" 
+        fill="#FFFFFF" opacity="0.95"/>
+  <path d="M100 124 L100 159" stroke="#145A42" stroke-width="2.6" stroke-linecap="round"/>
+  
+  <!-- Lengkungan Emas Pengasuhan -->
+  <path d="M60 88 C73 72 127 72 140 88" fill="none" stroke="url(#paGoldMarkGrad)" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

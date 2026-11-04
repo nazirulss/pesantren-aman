@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="100%" height="100%">
+  <!-- LOGO EMBLEM (White Reversed) -->
+  <g transform="translate(15, 8)">
+    <path d="M72 8 C105 8 134 22 136 44 C136 94 105 126 72 138 C39 126 8 94 8 44 C10 22 39 8 72 8 Z" 
+          fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M72 15 C98 15 124 28 126 46 C126 88 100 117 72 128 C44 117 18 88 18 46 C20 28 46 15 72 15 Z" 
+          fill="none" stroke="#C7A45B" stroke-width="1.2"/>
+    <path d="M72 24 C84 36 95 50 95 64 C95 65 49 65 49 64 C49 50 60 36 72 24 Z" 
+          fill="#FFFFFF"/>
+    <circle cx="72" cy="22" r="2.8" fill="#C7A45B"/>
+    <path d="M72 84 C83 75 101 77 110 82 C110 98 84 105 72 110 C60 105 34 98 34 82 C43 77 61 75 72 84 Z" 
+          fill="#FFFFFF"/>
+    <path d="M72 86 L72 109" stroke="#145A42" stroke-width="1.8"/>
+  </g>
+
+  <!-- LOGO TEXT (White) -->
+  <g transform="translate(175, 34)">
+    <text x="0" y="38" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="38" font-weight="800" fill="#FFFFFF" letter-spacing="1.2">
+      PESANTREN <tspan fill="#C7A45B">AMAN</tspan>
+    </text>
+    <text x="2" y="64" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#E8F5F0" letter-spacing="2.8">
+      GERAKAN PENGUATAN SISTEM PERLINDUNGAN SANTRI
+    </text>
+    <text x="2" y="86" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11.5" font-style="italic" font-weight="400" fill="#C7A45B" letter-spacing="0.4">
+      Menjaga Amanah • Melindungi Santri • Memuliakan Pesantren
+    </text>
+    <g transform="translate(0, 98)">
+      <rect x="0" y="0" width="165" height="19" rx="3.5" fill="#FFFFFF" fill-opacity="0.15"/>
+      <text x="8" y="13.5" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#FFFFFF" letter-spacing="0.8">
+        RABITHAH MA'AHID ISLAMIYAH NU
+      </text>
+    </g>
+  </g>
+</svg>

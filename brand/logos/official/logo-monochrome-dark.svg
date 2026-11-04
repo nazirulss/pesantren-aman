@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="100%" height="100%">
+  <!-- Monochrome Dark (100% Black / Dark Gray for Photocopy, Stencils, Stamps) -->
+  <g transform="translate(15, 8)">
+    <path d="M72 8 C105 8 134 22 136 44 C136 94 105 126 72 138 C39 126 8 94 8 44 C10 22 39 8 72 8 Z" 
+          fill="#111111"/>
+    <path d="M72 15 C98 15 124 28 126 46 C126 88 100 117 72 128 C44 117 18 88 18 46 C20 28 46 15 72 15 Z" 
+          fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+    <path d="M72 24 C84 36 95 50 95 64 C95 65 49 65 49 64 C49 50 60 36 72 24 Z" 
+          fill="#FFFFFF"/>
+    <circle cx="72" cy="22" r="2.8" fill="#FFFFFF"/>
+    <path d="M72 84 C83 75 101 77 110 82 C110 98 84 105 72 110 C60 105 34 98 34 82 C43 77 61 75 72 84 Z" 
+          fill="#FFFFFF"/>
+    <path d="M72 86 L72 109" stroke="#111111" stroke-width="1.8"/>
+  </g>
+
+  <g transform="translate(175, 34)">
+    <text x="0" y="38" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="38" font-weight="800" fill="#111111" letter-spacing="1.2">
+      PESANTREN AMAN
+    </text>
+    <text x="2" y="64" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#222222" letter-spacing="2.8">
+      GERAKAN PENGUATAN SISTEM PERLINDUNGAN SANTRI
+    </text>
+    <text x="2" y="86" font-family="'Inter', system-ui, -apple-system, sans-serif" font-size="11.5" font-style="italic" font-weight="500" fill="#444444" letter-spacing="0.4">
+      Menjaga Amanah • Melindungi Santri • Memuliakan Pesantren
+    </text>
+    <g transform="translate(0, 98)">
+      <rect x="0" y="0" width="165" height="19" rx="3.5" fill="#EEEEEE"/>
+      <text x="8" y="13.5" font-family="'Inter', sans-serif" font-size="9.5" font-weight="700" fill="#111111" letter-spacing="0.8">
+        RABITHAH MA'AHID ISLAMIYAH NU
+      </text>
+    </g>
+  </g>
+</svg>

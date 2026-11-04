@@ -1,0 +1,21 @@
+<!-- Pilar 2: Kepatuhan Hukum dan Literasi Perlindungan -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="100%" height="100%" fill="none">
+  <rect width="64" height="64" rx="14" fill="#145A42"/>
+  <!-- Timbangan Keadilan / Neraca Hukum -->
+  <line x1="32" y1="16" x2="32" y2="46" stroke="#C7A45B" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="20" y1="22" x2="44" y2="22" stroke="#C7A45B" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="32" cy="18" r="3" fill="#DFBA6D"/>
+  
+  <!-- Piringan Kiri -->
+  <line x1="22" y1="23" x2="17" y2="33" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="22" y1="23" x2="27" y2="33" stroke="#FFFFFF" stroke-width="1.5"/>
+  <path d="M15 33 C15 37 29 37 29 33 Z" fill="#FFFFFF"/>
+
+  <!-- Piringan Kanan -->
+  <line x1="42" y1="23" x2="37" y2="33" stroke="#FFFFFF" stroke-width="1.5"/>
+  <line x1="42" y1="23" x2="47" y2="33" stroke="#FFFFFF" stroke-width="1.5"/>
+  <path d="M35 33 C35 37 49 37 49 33 Z" fill="#FFFFFF"/>
+
+  <!-- Alas Neraca -->
+  <path d="M25 46 L39 46" stroke="#C7A45B" stroke-width="3" stroke-linecap="round"/>
+</svg>

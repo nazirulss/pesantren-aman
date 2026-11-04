@@ -1,0 +1,23 @@
+{
+  "name": "pesantren-aman-website",
+  "version": "1.0.0",
+  "description": "Website Publik Resmi PESANTREN AMAN - RMI NU Demak",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "generate:pdf": "node scripts/generate-all-pdfs.js"
+  },
+  "keywords": [
+    "pesantren-aman",
+    "rmi-nu",
+    "demak",
+    "perlindungan-santri"
+  ],
+  "author": "RMI NU Demak - Satgas Perlindungan Santri",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
+

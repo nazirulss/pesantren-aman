@@ -1,0 +1,68 @@
+/**
+ * PESANTREN AMAN - Design System CSS Tokens
+ * Inisiator: RMI NU Demak - Satgas Perlindungan Santri
+ * Slogan: Menjaga Amanah, Melindungi Santri, Memuliakan Pesantren
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+:root {
+  /* Brand Primary */
+  --pa-color-primary: #145A42;
+  --pa-color-primary-dark: #0E4331;
+  --pa-color-primary-light: #1E7356;
+
+  /* Brand Secondary */
+  --pa-color-secondary: #23966B;
+  --pa-color-secondary-light: #E8F5F0;
+
+  /* Accent */
+  --pa-color-gold: #C7A45B;
+  --pa-color-gold-light: #F7F2E7;
+
+  /* Neutrals */
+  --pa-color-cream: #F4F0E6;
+  --pa-color-white: #FFFFFF;
+  --pa-color-peat: #232E28;
+  --pa-color-muted: #5A6D63;
+  --pa-color-border: #DCE3DE;
+
+  /* Semantics */
+  --pa-color-success: #1E8E5A;
+  --pa-color-warning: #D97706;
+  --pa-color-danger: #DC2626;
+  --pa-color-info: #2563EB;
+
+  /* Typography */
+  --pa-font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --pa-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Spacing & Radii */
+  --pa-radius-sm: 6px;
+  --pa-radius-md: 10px;
+  --pa-radius-lg: 16px;
+  --pa-radius-full: 9999px;
+
+  /* Shadows */
+  --pa-shadow-sm: 0 1px 3px rgba(20, 90, 66, 0.08);
+  --pa-shadow-md: 0 4px 12px rgba(20, 90, 66, 0.10);
+  --pa-shadow-lg: 0 10px 25px rgba(20, 90, 66, 0.12);
+}
+
+/* Base Utility Classes */
+.pa-bg-primary { background-color: var(--pa-color-primary); }
+.pa-bg-secondary { background-color: var(--pa-color-secondary); }
+.pa-bg-cream { background-color: var(--pa-color-cream); }
+.pa-bg-white { background-color: var(--pa-color-white); }
+
+.pa-text-primary { color: var(--pa-color-primary); }
+.pa-text-secondary { color: var(--pa-color-secondary); }
+.pa-text-gold { color: var(--pa-color-gold); }
+.pa-text-peat { color: var(--pa-color-peat); }
+.pa-text-muted { color: var(--pa-color-muted); }
+
+.pa-border-brand { border-color: var(--pa-color-border); }
+.pa-border-gold { border-color: var(--pa-color-gold); }
+
+.pa-font-display { font-family: var(--pa-font-display); }
+.pa-font-body { font-family: var(--pa-font-body); }

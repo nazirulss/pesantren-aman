@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="100%" height="100%">
+  <defs>
+    <linearGradient id="storyBgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#145A42"/>
+      <stop offset="45%" stop-color="#0E4331"/>
+      <stop offset="100%" stop-color="#08261B"/>
+    </linearGradient>
+    <linearGradient id="goldStoryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFBA6D"/>
+      <stop offset="100%" stop-color="#B68E42"/>
+    </linearGradient>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect width="1080" height="1920" fill="url(#storyBgGrad)"/>
+
+  <!-- DECORATIVE CURVES -->
+  <circle cx="1080" cy="400" r="400" fill="#23966B" fill-opacity="0.08" filter="blur(50px)"/>
+  <circle cx="0" cy="1500" r="500" fill="#C7A45B" fill-opacity="0.06" filter="blur(70px)"/>
+
+  <!-- TOP HEADER (Safely below Instagram status bar & notch) -->
+  <g transform="translate(80, 240)">
+    <!-- Pill Tag -->
+    <rect x="0" y="0" width="280" height="46" rx="23" fill="#C7A45B" fill-opacity="0.2" stroke="#C7A45B" stroke-width="1.8"/>
+    <text x="140" y="29" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700" fill="#DFBA6D" text-anchor="middle" letter-spacing="1.5">
+      KABAR SAMBANG
+    </text>
+
+    <!-- Movement Brand in Story -->
+    <g transform="translate(620, -10)">
+      <text x="300" y="28" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="800" fill="#FFFFFF" text-anchor="end">
+        PESANTREN <tspan fill="#C7A45B">AMAN</tspan>
+      </text>
+      <text x="300" y="50" font-family="'Inter', sans-serif" font-size="13" font-weight="500" fill="#A3B8AD" text-anchor="end">
+        RMI NU Demak
+      </text>
+    </g>
+  </g>
+
+  <!-- CENTER MEDIA / PHOTO CONTAINER PLACEHOLDER -->
+  <g transform="translate(80, 360)">
+    <!-- Photo Frame Card -->
+    <rect x="0" y="0" width="920" height="740" rx="24" fill="#FFFFFF" fill-opacity="0.06" stroke="#C7A45B" stroke-opacity="0.4" stroke-width="2"/>
+    
+    <!-- Central Icon/Symbol for Placeholder -->
+    <circle cx="460" cy="320" r="60" fill="#145A42" stroke="#C7A45B" stroke-width="3"/>
+    <path d="M460 290 C475 305 485 320 485 332 L435 332 C435 320 445 305 460 290 Z" fill="#F4F0E6"/>
+    <path d="M460 340 L460 360" stroke="#C7A45B" stroke-width="3"/>
+    
+    <text x="460" y="420" font-family="'Plus Jakarta Sans', sans-serif" font-size="26" font-weight="700" fill="#FFFFFF" text-anchor="middle">
+      Area Dokumentasi Kunjungan Lapangan
+    </text>
+    <text x="460" y="460" font-family="'Inter', sans-serif" font-size="18" font-weight="400" fill="#A3B8AD" text-anchor="middle">
+      (Sowan Pengasuh, Dialog 5 Pilar, atau Serah Terima Piagam)
+    </text>
+
+    <!-- Location Pill Inside Photo -->
+    <rect x="35" y="655" width="360" height="50" rx="12" fill="#0E4331" fill-opacity="0.9" stroke="#C7A45B" stroke-width="1.2"/>
+    <text x="180" y="687" font-family="'Inter', sans-serif" font-size="17" font-weight="600" fill="#DFBA6D" text-anchor="middle">
+      📍 Ponpes Al-Hidayah, Demak
+    </text>
+  </g>
+
+  <!-- HEADLINE & HIGHLIGHT TEXT -->
+  <g transform="translate(80, 1150)">
+    <text x="0" y="40" font-family="'Plus Jakarta Sans', sans-serif" font-size="44" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">
+      Komitmen Bersama
+    </text>
+    <text x="0" y="95" font-family="'Plus Jakarta Sans', sans-serif" font-size="44" font-weight="800" fill="#DFBA6D" letter-spacing="-0.5">
+      Mewujudkan Kamar Santri Nyaman
+    </text>
+
+    <!-- Story Description -->
+    <foreignObject x="0" y="130" width="920" height="240">
+      <p xmlns="http://www.w3.org/1999/xhtml" style="font-family: 'Inter', sans-serif; font-size: 26px; line-height: 1.6; color: #E8F5F0; margin: 0;">
+        Alhamdulillah, hari ini Tim Satgas RMI NU Demak bersilaturahmi dalam agenda Sambang Pesantren. Disepakati target 90 hari: Pembentukan Ustadz Konselor kamar & jadwal piket adil tanpa senioritas berlebihan!
+      </p>
+    </foreignObject>
+  </g>
+
+  <!-- BOTTOM CALL TO ACTION (Safely above reply input) -->
+  <g transform="translate(80, 1580)">
+    <!-- Interactive Sticker Lookalike -->
+    <rect x="0" y="0" width="920" height="96" rx="48" fill="#DFBA6D"/>
+    <text x="460" y="58" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="800" fill="#0E4331" text-anchor="middle" letter-spacing="1">
+      BACA SELENGKAPNYA DI WEBSITE ➔
+    </text>
+    <text x="460" y="130" font-family="'Inter', sans-serif" font-size="18" font-style="italic" fill="#C7A45B" text-anchor="middle">
+      pesantrenaman.rminudemak.org
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Monitoring Sambang Pesantren — PC RMI NU Kabupaten Demak</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="/brand/tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pa-primary': '#145A42',
+            'pa-primary-dark': '#0E3D2D',
+            'pa-secondary': '#23966B',
+            'pa-gold': '#C7A45B',
+            'pa-gold-dark': '#9E7D37',
+            'pa-paper': '#FAF8F5',
+            'pa-ink': '#1A2420',
+            'pa-border': '#DDE5E0',
+          },
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            editorial: ['Lora', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    @media print {
+      body { background: #fff !important; font-size: 10pt; }
+      .no-print, header, nav, .btn-action, #toast-container, button { display: none !important; }
+      .print-kop { display: block !important; }
+      .tab-content { display: block !important; }
+      .card-frame { border: 1px solid #ccc !important; box-shadow: none !important; }
+    }
+    .print-kop { display: none; }
+    .tab-btn.active {
+      background-color: #145A42;
+      color: #ffffff;
+      border-color: #145A42;
+    }
+  </style>
+</head>
+<body class="bg-[#F6F7F5] text-pa-ink font-body antialiased">
+
+  <!-- TOPBAR ADMIN -->
+  <div class="no-print bg-[#0E3D2D] text-white text-[11px] border-b border-[#1C5340]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-2 text-emerald-100 font-medium tracking-wide">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-pa-gold"></span>
+        <span>SISTEM INFORMASI MONITORING SAMBANG PESANTREN — SATGAS PC RMI NU DEMAK</span>
+      </div>
+      <div class="flex items-center gap-3 text-emerald-200 text-[11px]">
+        <!-- User Badge & Role -->
+        <div class="flex items-center gap-2 bg-[#08241A] px-2.5 py-0.5 rounded border border-emerald-800">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span id="user-display-name" class="font-bold text-pa-gold">Memuat akun...</span>
+          <span id="user-display-role" class="bg-emerald-900 text-emerald-200 text-[9px] px-1.5 py-0.2 rounded font-mono font-bold uppercase">Petugas</span>
+        </div>
+
+        <a href="/" target="_blank" class="hover:text-white transition-colors flex items-center gap-1">
+          <span>Web Publik</span>
+          <span>↗</span>
+        </a>
+
+        <!-- Logout Button -->
+        <button id="btn-logout" type="button" class="text-emerald-300 hover:text-red-300 font-semibold flex items-center gap-1 border border-emerald-800/80 hover:border-red-500/60 px-2 py-0.5 rounded bg-black/20 transition-all" title="Keluar">
+          <span>Keluar</span>
+          <span>⎋</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER PANEL -->
+  <header class="no-print bg-white border-b border-gray-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-col md:flex-row md:items-center justify-between gap-3">
+      
+      <div class="flex items-center gap-3">
+        <img src="/logo-utama.png" alt="Logo PESANTREN AMAN" class="h-10 sm:h-12 w-auto object-contain">
+        <div class="border-l border-gray-200 pl-3">
+          <h1 class="text-xs sm:text-sm font-bold font-display text-pa-primary uppercase tracking-wide leading-tight">
+            Dashboard Pemantauan Lapangan
+          </h1>
+          <p id="user-display-wilayah" class="text-[10px] text-gray-500 font-mono">14 Kecamatan se-Kabupaten Demak</p>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="flex items-center gap-2 overflow-x-auto">
+        <button id="btn-refresh-data" type="button" class="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1.5 text-gray-700">
+          <svg class="w-3.5 h-3.5 text-pa-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+          </svg>
+          Segarkan Data
+        </button>
+
+        <a href="/api/admin/export-csv" class="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1.5 text-gray-700 hover:text-pa-primary">
+          <svg class="w-3.5 h-3.5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          Ekspor CSV
+        </a>
+
+        <button onclick="window.print()" type="button" class="btn-secondary text-xs py-1.5 px-3 flex items-center gap-1.5 text-gray-700">
+          <svg class="w-3.5 h-3.5 text-pa-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+          </svg>
+          Cetak Rekap
+        </button>
+
+        <button id="btn-modal-tambah-pesantren" type="button" class="btn-primary text-xs py-1.5 px-3 font-bold whitespace-nowrap flex items-center gap-1">
+          <span>+</span>
+          <span>Pesantren Baru</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- TAB NAVIGASI PANEL -->
+    <div class="border-t border-gray-200 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-1 overflow-x-auto py-1">
+        <button class="tab-btn active px-3.5 py-1.5 rounded text-xs font-bold transition-all" data-tab="tab-overview">
+          Ringkasan & Sebaran 14 Kecamatan
+        </button>
+        <button class="tab-btn px-3.5 py-1.5 rounded text-xs font-semibold text-gray-600 hover:text-gray-900 transition-all flex items-center gap-1.5" data-tab="tab-permohonan">
+          <span>Verifikasi Permohonan</span>
+          <span id="badge-permohonan-count" class="bg-amber-500 text-white text-[10px] px-1.5 py-0.2 rounded-full font-mono font-bold">0</span>
+        </button>
+        <button class="tab-btn px-3.5 py-1.5 rounded text-xs font-semibold text-gray-600 hover:text-gray-900 transition-all" data-tab="tab-pesantren">
+          Data Induk Pesantren
+        </button>
+        <button class="tab-btn px-3.5 py-1.5 rounded text-xs font-semibold text-gray-600 hover:text-gray-900 transition-all" data-tab="tab-komitmen">
+          Monitoring Siklus 90 Hari
+        </button>
+        <button id="tab-btn-pengguna" class="tab-btn hidden px-3.5 py-1.5 rounded text-xs font-semibold text-gray-600 hover:text-gray-900 transition-all flex items-center gap-1.5" data-tab="tab-pengguna">
+          <span>Tim & Pengguna</span>
+          <span class="bg-emerald-800 text-white text-[9px] px-1.5 py-0.2 rounded font-mono font-bold">Super Admin</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- KOP PRINT KHUSUS CETAK -->
+  <div class="print-kop p-6 border-b-2 border-pa-gold mb-6">
+    <div class="flex items-center gap-4">
+      <img src="/logo-utama.png" alt="Logo Kop" class="h-16 w-auto">
+      <div>
+        <h2 class="text-base font-bold font-display text-[#145A42] uppercase">Pengurus Cabang Nahdlatul Ulama Kabupaten Demak</h2>
+        <h3 class="text-sm font-semibold text-gray-800 uppercase">Rabithah Ma'ahid Islamiyah — Satgas Perlindungan Santri</h3>
+        <p class="text-[10px] text-gray-600">Laporan Agregat Monitoring Sambang Pesantren 14 Kecamatan — Dicetak pada: <span id="print-date"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <main class="py-6 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+
+    <!-- BANNER PERINGATAN MODE OBSERVER / VIEWER -->
+    <div id="banner-viewer-mode" class="hidden p-3.5 bg-blue-50 border border-blue-200 rounded-lg text-xs text-blue-900 flex items-center justify-between shadow-sm">
+      <div class="flex items-center gap-2.5">
+        <span class="text-base">ℹ️</span>
+        <div>
+          <strong class="font-bold">Mode Monitoring (Hanya Baca):</strong>
+          <span class="text-blue-800"> Anda masuk sebagai Pengamat MWC / Tamu. Fitur modifikasi, penjadwalan, dan verifikasi dinonaktifkan.</span>
+        </div>
+      </div>
+      <span class="bg-blue-200 text-blue-800 text-[10px] font-mono px-2 py-0.5 rounded font-bold">Hanya Baca</span>
+    </div>
+
+    <!-- =========================================================================
+         TAB 1: OVERVIEW & SEBARAN 14 KECAMATAN
+         ========================================================================= -->
+    <div id="tab-overview" class="tab-content space-y-6">
+      
+      <!-- KPI Metrik Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        
+        <div class="bg-white p-3.5 rounded border border-gray-200">
+          <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Target Demak</span>
+          <div class="flex items-baseline gap-1 mt-1">
+            <span class="text-2xl font-extrabold font-display text-pa-ink" id="kpi-target">150</span>
+            <span class="text-[11px] text-gray-500">Pondok</span>
+          </div>
+          <span class="text-[10px] text-emerald-700 font-medium">Kabupaten Demak</span>
+        </div>
+
+        <div class="bg-white p-3.5 rounded border border-emerald-300 bg-emerald-50/40">
+          <span class="text-[10px] font-bold text-pa-primary uppercase tracking-wider block">Tersambang</span>
+          <div class="flex items-baseline gap-1 mt-1">
+            <span class="text-2xl font-extrabold font-display text-pa-primary" id="kpi-tersambang">0</span>
+            <span class="text-[11px] text-gray-500">Pondok</span>
+          </div>
+          <span id="kpi-persen-tersambang" class="text-[10px] text-emerald-800 font-bold">0% tercapai</span>
+        </div>
+
+        <div class="bg-white p-3.5 rounded border border-gray-200">
+          <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Terjadwal</span>
+          <div class="flex items-baseline gap-1 mt-1">
+            <span class="text-2xl font-extrabold font-display text-amber-700" id="kpi-terjadwal">0</span>
+            <span class="text-[11px] text-gray-500">Pondok</span>
+          </div>
+          <span class="text-[10px] text-amber-700 font-medium">Kunjungan Mendatang</span>
+        </div>
+
+        <div class="bg-white p-3.5 rounded border border-gray-200">
+          <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Santri Terlindungi</span>
+          <div class="flex items-baseline gap-1 mt-1">
+            <span class="text-2xl font-extrabold font-display text-pa-primary font-mono" id="kpi-santri">0</span>
+          </div>
+          <span class="text-[10px] text-gray-500">Putra & Putri</span>
+        </div>
+
+        <div class="bg-white p-3.5 rounded border border-gray-200">
+          <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Komitmen 90 Hari</span>
+          <div class="flex items-baseline gap-1 mt-1">
+            <span class="text-2xl font-extrabold font-display text-[#C7A45B] font-mono" id="kpi-komitmen">0</span>
+            <span class="text-[11px] text-gray-500">Aksi</span>
+          </div>
+          <span class="text-[10px] text-gray-500">Satu Perubahan Nyata</span>
+        </div>
+
+        <div class="bg-white p-3.5 rounded border border-amber-300 bg-amber-50/40">
+          <span class="text-[10px] font-bold text-amber-800 uppercase tracking-wider block">Permohonan Baru</span>
+          <div class="flex items-baseline gap-1 mt-1">
+            <span class="text-2xl font-extrabold font-display text-amber-700" id="kpi-permohonan">0</span>
+            <span class="text-[11px] text-gray-500">Antrean</span>
+          </div>
+          <span class="text-[10px] text-amber-800 font-bold">Perlu Verifikasi</span>
+        </div>
+
+      </div>
+
+      <!-- SEBARAN 14 KECAMATAN DI DEMAK -->
+      <div class="bg-white rounded border border-gray-200 p-5 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-gray-200 gap-2">
+          <div>
+            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Pemetaan Wilayah Kerja</span>
+            <h3 class="text-sm sm:text-base font-bold font-display text-pa-ink">
+              Monitoring Progres Sambang di 14 Kecamatan Kab. Demak
+            </h3>
+          </div>
+          <span class="text-xs text-gray-500 font-editorial">Target Total: 150 Pondok Pesantren</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" id="kecamatan-cards-grid">
+          <!-- Rendered by admin.js -->
+        </div>
+      </div>
+
+      <!-- DUA KOLOM: KUNJUNGAN TERAKHIR & ANTREAN PERMOHONAN -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        <!-- Kunjungan Terakhir -->
+        <div class="bg-white rounded border border-gray-200 p-4 shadow-sm space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-gray-100">
+            <h4 class="text-xs font-bold font-display text-pa-ink uppercase tracking-wider">
+              ✦ Kunjungan Sambang Terbaru
+            </h4>
+            <span class="text-[10px] text-emerald-700 font-medium font-mono">Status Tersambang</span>
+          </div>
+          <div class="divide-y divide-gray-100" id="list-recent-sambang">
+            <!-- Rendered by admin.js -->
+          </div>
+        </div>
+
+        <!-- Antrean Permohonan Masuk -->
+        <div class="bg-white rounded border border-gray-200 p-4 shadow-sm space-y-3">
+          <div class="flex items-center justify-between pb-2 border-b border-gray-100">
+            <h4 class="text-xs font-bold font-display text-pa-ink uppercase tracking-wider">
+              ✦ Permohonan Kunjungan Masuk (Web)
+            </h4>
+            <span class="text-[10px] text-amber-700 font-medium font-mono">Perlu Ditindaklanjuti</span>
+          </div>
+          <div class="divide-y divide-gray-100" id="list-recent-permohonan">
+            <!-- Rendered by admin.js -->
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- =========================================================================
+         TAB 2: VERIFIKASI PERMOHONAN SAMBANG (DARI WEB)
+         ========================================================================= -->
+    <div id="tab-permohonan" class="tab-content hidden space-y-4">
+      
+      <div class="bg-white rounded border border-gray-200 p-5 shadow-sm space-y-3">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-gray-200 gap-2">
+          <div>
+            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Registrasi Sambang Online</span>
+            <h3 class="text-sm sm:text-base font-bold font-display text-pa-ink">
+              Daftar Permohonan Sambang Pesantren
+            </h3>
+            <p class="text-xs text-gray-500 mt-0.5">Permohonan yang diajukan pimpinan pondok melalui formulir website resmi.</p>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="bg-pa-paper border-b border-gray-200 text-gray-700 font-bold text-[11px] uppercase tracking-wider">
+                <th class="p-3">No. Tiket</th>
+                <th class="p-3">Pondok Pesantren</th>
+                <th class="p-3">Pengasuh / Narahubung</th>
+                <th class="p-3">Kecamatan</th>
+                <th class="p-3">Rencana Tgl</th>
+                <th class="p-3">Status</th>
+                <th class="p-3 text-right">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="table-permohonan-body" class="divide-y divide-gray-100">
+              <!-- Rendered by admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- =========================================================================
+         TAB 3: DATA INDUK PESANTREN
+         ========================================================================= -->
+    <div id="tab-pesantren" class="tab-content hidden space-y-4">
+      
+      <div class="bg-white rounded border border-gray-200 p-5 shadow-sm space-y-4">
+        
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-gray-200">
+          <div>
+            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Basis Data Lapangan</span>
+            <h3 class="text-sm sm:text-base font-bold font-display text-pa-ink">
+              Data Induk Pondok Pesantren Kabupaten Demak
+            </h3>
+          </div>
+
+          <!-- Filter & Search Bar -->
+          <div class="flex flex-wrap items-center gap-2">
+            <input 
+              type="text" 
+              id="filter-search-pesantren" 
+              placeholder="Cari nama / pengasuh..." 
+              class="px-3 py-1.5 text-xs rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white w-48"
+            >
+
+            <select id="filter-kecamatan" class="px-2.5 py-1.5 text-xs rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+              <option value="all">Semua Kecamatan</option>
+              <option value="Mranggen">Mranggen</option>
+              <option value="Demak Kota">Demak Kota</option>
+              <option value="Sayung">Sayung</option>
+              <option value="Bonang">Bonang</option>
+              <option value="Guntur">Guntur</option>
+              <option value="Karangawen">Karangawen</option>
+              <option value="Dempet">Dempet</option>
+              <option value="Karangtengah">Karangtengah</option>
+              <option value="Wedung">Wedung</option>
+              <option value="Wonosalam">Wonosalam</option>
+              <option value="Karanganyar">Karanganyar</option>
+              <option value="Gajah">Gajah</option>
+              <option value="Mijen">Mijen</option>
+              <option value="Kebonagung">Kebonagung</option>
+            </select>
+
+            <select id="filter-status-sambang" class="px-2.5 py-1.5 text-xs rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+              <option value="all">Semua Status</option>
+              <option value="Tersambang">Tersambang</option>
+              <option value="Terjadwal">Terjadwal</option>
+              <option value="Tahap Asesmen">Tahap Asesmen</option>
+              <option value="Belum Tersambang">Belum Tersambang</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="bg-pa-paper border-b border-gray-200 text-gray-700 font-bold text-[11px] uppercase tracking-wider">
+                <th class="p-3">Kode / NSP</th>
+                <th class="p-3">Nama Pesantren</th>
+                <th class="p-3">Pengasuh</th>
+                <th class="p-3">Kecamatan</th>
+                <th class="p-3">Santri</th>
+                <th class="p-3">Status Sambang</th>
+                <th class="p-3">Fokus Pilar / Catatan</th>
+                <th class="p-3 text-right">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="table-pesantren-body" class="divide-y divide-gray-100">
+              <!-- Rendered by admin.js -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- =========================================================================
+         TAB 4: MONITORING SIKLUS KOMITMEN 90 HARI
+         ========================================================================= -->
+    <div id="tab-komitmen" class="tab-content hidden space-y-4">
+      
+      <div class="bg-white rounded border border-gray-200 p-5 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-gray-200 gap-2">
+          <div>
+            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Pendampingan Pasca Sambang</span>
+            <h3 class="text-sm sm:text-base font-bold font-display text-pa-ink">
+              Monitoring Siklus Rencana Aksi 90 Hari (Triwulan)
+            </h3>
+            <p class="text-xs text-gray-500 mt-0.5">Memastikan prinsip "Satu Pesantren, Satu Perubahan Nyata" berjalan sesuai tahapan bulan 1, 2, dan 3.</p>
+          </div>
+        </div>
+
+        <div class="space-y-4" id="list-komitmen-cards">
+          <!-- Rendered by admin.js -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- =========================================================================
+         TAB 5: MANAJEMEN PENGGUNA & FASILITATOR (SUPER ADMIN)
+         ========================================================================= -->
+    <div id="tab-pengguna" class="tab-content hidden space-y-4">
+      <div class="bg-white rounded border border-gray-200 p-5 shadow-sm space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-gray-200 gap-3">
+          <div>
+            <span class="text-[10px] font-bold text-pa-gold uppercase font-mono block">Hak Akses & Penugasan Lapangan</span>
+            <h3 class="text-sm sm:text-base font-bold font-display text-pa-ink">
+              Manajemen Tim Fasilitator & Administrator
+            </h3>
+            <p class="text-xs text-gray-500 mt-0.5">Pengaturan akun resmi Satgas Sambang Pesantren PC RMI NU Kabupaten Demak.</p>
+          </div>
+          <div>
+            <button id="btn-modal-tambah-user" type="button" class="btn-primary text-xs py-1.5 px-3.5 font-bold flex items-center gap-1.5 shadow-sm">
+              <span>+</span>
+              <span>Tambah Petugas Baru</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-gray-50 text-gray-700 uppercase font-mono text-[10px] border-b border-gray-200">
+              <tr>
+                <th class="p-3">ID Petugas</th>
+                <th class="p-3">Nama & Jabatan</th>
+                <th class="p-3">Username & Email</th>
+                <th class="p-3">Peran Akses</th>
+                <th class="p-3">Wilayah Tugas</th>
+                <th class="p-3">Status</th>
+              </tr>
+            </thead>
+            <tbody id="table-users-body" class="divide-y divide-gray-100 font-body">
+              <tr><td colspan="6" class="p-6 text-center text-xs text-gray-500">Memuat data pengguna...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- =========================================================================
+       MODAL: JADWALKAN / VERIFIKASI PERMOHONAN SAMBANG
+       ========================================================================= -->
+  <div id="modal-jadwal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative w-full max-w-lg bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
+      
+      <div class="bg-[#145A42] text-white p-4 flex items-center justify-between">
+        <div>
+          <span class="text-[10px] uppercase font-mono text-pa-gold block">Verifikasi Permohonan</span>
+          <h3 id="modal-jadwal-title" class="text-sm font-bold font-display text-white">Jadwalkan Kunjungan Sambang</h3>
+        </div>
+        <button id="close-modal-jadwal" type="button" class="text-emerald-200 hover:text-white text-xl">✕</button>
+      </div>
+
+      <form id="form-verifikasi-jadwal" class="p-5 space-y-3.5 text-xs">
+        <input type="hidden" id="verif-id">
+
+        <div>
+          <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Pondok Pesantren</label>
+          <input type="text" id="verif-nama-pesantren" readonly class="w-full px-3 py-2 bg-gray-100 rounded border border-gray-300 text-gray-700 font-bold">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Status Kunjungan</label>
+            <select id="verif-status" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+              <option value="Terjadwal">Terjadwal (Disetujui)</option>
+              <option value="Tersambang">Tersambang (Selesai Kunjungan)</option>
+              <option value="Menunggu Verifikasi Tim Satgas">Menunggu Verifikasi</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Tanggal Kunjungan</label>
+            <input type="date" id="verif-tanggal" required class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Fasilitator yang Ditugaskan</label>
+          <input type="text" id="verif-fasilitator" placeholder="Contoh: Ust. Nurul Huda & Ust. Farhan" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+        </div>
+
+        <div>
+          <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Catatan Koordinasi Satgas</label>
+          <textarea id="verif-catatan" rows="3" placeholder="Catatan kesiapan ndalem pengasuh atau waktu kunjungan..." class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white"></textarea>
+        </div>
+
+        <div class="pt-3 border-t border-gray-200 flex justify-end gap-2">
+          <button type="button" id="btn-batal-jadwal" class="btn-secondary py-1.5 px-4 text-xs text-gray-600">Batal</button>
+          <button type="submit" class="btn-primary py-1.5 px-4 text-xs font-bold shadow-sm">Simpan Jadwal Sambang</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL: TAMBAH PESANTREN BARU
+       ========================================================================= -->
+  <div id="modal-tambah-pesantren" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative w-full max-w-lg bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
+      
+      <div class="bg-[#145A42] text-white p-4 flex items-center justify-between">
+        <div>
+          <span class="text-[10px] uppercase font-mono text-pa-gold block">Entri Data Lapangan</span>
+          <h3 class="text-sm font-bold font-display text-white">Tambah Data Pesantren</h3>
+        </div>
+        <button id="close-modal-tambah-pesantren" type="button" class="text-emerald-200 hover:text-white text-xl">✕</button>
+      </div>
+
+      <form id="form-tambah-pesantren" class="p-5 space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Nama Pondok Pesantren <span class="text-red-500">*</span></label>
+          <input type="text" id="add-nama-pesantren" required placeholder="Contoh: PP. Al-Mubarok" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">NSP (Opsional)</label>
+            <input type="text" id="add-nsp" placeholder="51003321...." class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white font-mono">
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Kecamatan <span class="text-red-500">*</span></label>
+            <select id="add-kecamatan" required class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+              <option value="Mranggen">Mranggen</option>
+              <option value="Demak Kota">Demak Kota</option>
+              <option value="Sayung">Sayung</option>
+              <option value="Bonang">Bonang</option>
+              <option value="Guntur">Guntur</option>
+              <option value="Karangawen">Karangawen</option>
+              <option value="Dempet">Dempet</option>
+              <option value="Karangtengah">Karangtengah</option>
+              <option value="Wedung">Wedung</option>
+              <option value="Wonosalam">Wonosalam</option>
+              <option value="Karanganyar">Karanganyar</option>
+              <option value="Gajah">Gajah</option>
+              <option value="Mijen">Mijen</option>
+              <option value="Kebonagung">Kebonagung</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Nama Pengasuh / Kyai</label>
+          <input type="text" id="add-pengasuh" placeholder="Contoh: KH. Zainal Arifin" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+        </div>
+
+        <div>
+          <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Alamat Singkat</label>
+          <input type="text" id="add-alamat" placeholder="Desa / Kelurahan" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Santri Putra</label>
+            <input type="number" id="add-putra" placeholder="0" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Santri Putri</label>
+            <input type="number" id="add-putri" placeholder="0" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Status Sambang</label>
+            <select id="add-status" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+              <option value="Tersambang">Tersambang</option>
+              <option value="Terjadwal">Terjadwal</option>
+              <option value="Tahap Asesmen" selected>Tahap Asesmen</option>
+              <option value="Belum Tersambang">Belum Tersambang</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Fokus Prioritas Pilar</label>
+            <input type="text" id="add-pilar" placeholder="Contoh: Pilar 1 & 4" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-gray-200 flex justify-end gap-2">
+          <button type="button" id="btn-batal-tambah-pesantren" class="btn-secondary py-1.5 px-4 text-xs text-gray-600">Batal</button>
+          <button type="submit" class="btn-primary py-1.5 px-4 text-xs font-bold shadow-sm">Simpan Pesantren</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL: UPDATE MILESTONE KOMITMEN 90 HARI
+       ========================================================================= -->
+  <div id="modal-komitmen" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative w-full max-w-lg bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
+      
+      <div class="bg-[#145A42] text-white p-4 flex items-center justify-between">
+        <div>
+          <span class="text-[10px] uppercase font-mono text-pa-gold block">Evaluasi & Verifikasi Aksi</span>
+          <h3 id="modal-komitmen-title" class="text-sm font-bold font-display text-white">Update Catatan Verifikasi Komitmen</h3>
+        </div>
+        <button id="close-modal-komitmen" type="button" class="text-emerald-200 hover:text-white text-xl">✕</button>
+      </div>
+
+      <form id="form-update-komitmen" class="p-5 space-y-3.5 text-xs">
+        <input type="hidden" id="komitmen-id">
+
+        <div>
+          <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Pesantren & Fokus Aksi</label>
+          <input type="text" id="komitmen-pesantren" readonly class="w-full px-3 py-2 bg-gray-100 rounded border border-gray-300 text-gray-700 font-bold">
+        </div>
+
+        <div>
+          <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Status Tahapan Saat Ini</label>
+          <select id="komitmen-status-tahap" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+            <option value="Bulan 1 (Konsolidasi & Draf)">Bulan 1 (Konsolidasi & Draf)</option>
+            <option value="Bulan 2 (Sosialisasi & Uji Coba)">Bulan 2 (Sosialisasi & Uji Coba)</option>
+            <option value="Bulan 3 (Penerapan & Evaluasi)">Bulan 3 (Penerapan & Evaluasi)</option>
+            <option value="Selesai (Tuntas 90 Hari)">Selesai (Tuntas 90 Hari)</option>
+          </select>
+        </div>
+
+        <div class="p-3 bg-pa-paper rounded border border-gray-200 space-y-2">
+          <label class="block font-bold text-pa-primary uppercase tracking-wider text-[11px]">Pilih Bulan yang Diverifikasi:</label>
+          <div class="grid grid-cols-3 gap-2">
+            <label class="p-2 bg-white rounded border border-gray-300 cursor-pointer flex items-center gap-1.5">
+              <input type="radio" name="pilih_bulan" value="1" checked class="text-pa-primary">
+              <span class="font-bold">Bulan I</span>
+            </label>
+            <label class="p-2 bg-white rounded border border-gray-300 cursor-pointer flex items-center gap-1.5">
+              <input type="radio" name="pilih_bulan" value="2" class="text-pa-primary">
+              <span class="font-bold">Bulan II</span>
+            </label>
+            <label class="p-2 bg-white rounded border border-gray-300 cursor-pointer flex items-center gap-1.5">
+              <input type="radio" name="pilih_bulan" value="3" class="text-pa-primary">
+              <span class="font-bold">Bulan III</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Status Capaian Bulan Ini</label>
+            <select id="komitmen-milestone-status" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+              <option value="Tuntas">Tuntas</option>
+              <option value="Sedang Berjalan">Sedang Berjalan</option>
+              <option value="Menunggu">Menunggu</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Fasilitator Verifikator</label>
+            <input type="text" id="komitmen-verifikator" placeholder="Nama Fasilitator RMI" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Catatan Hasil Verifikasi Lapangan</label>
+          <textarea id="komitmen-catatan" rows="3" placeholder="Contoh: SK Konselor telah terbit, 4 kotak curhat telah terpasang rapi..." class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white"></textarea>
+        </div>
+
+        <div class="pt-3 border-t border-gray-200 flex justify-end gap-2">
+          <button type="button" id="btn-batal-komitmen" class="btn-secondary py-1.5 px-4 text-xs text-gray-600">Batal</button>
+          <button type="submit" class="btn-primary py-1.5 px-4 text-xs font-bold shadow-sm">Simpan Verifikasi RMI</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MODAL: TAMBAH PETUGAS / FASILITATOR BARU (SUPER ADMIN)
+       ========================================================================= -->
+  <div id="modal-tambah-user" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative w-full max-w-md bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden">
+      
+      <div class="bg-[#145A42] text-white p-4 flex items-center justify-between">
+        <div>
+          <span class="text-[10px] uppercase font-mono text-pa-gold block">Super Admin Khidmah</span>
+          <h3 class="text-sm font-bold font-display text-white">Tambah Petugas & Fasilitator Baru</h3>
+        </div>
+        <button id="close-modal-user" type="button" class="text-emerald-200 hover:text-white text-xl">✕</button>
+      </div>
+
+      <form id="form-tambah-user" class="p-5 space-y-3 text-xs">
+        <div>
+          <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Nama Lengkap & Gelar <span class="text-red-500">*</span></label>
+          <input type="text" id="user-nama" required placeholder="Contoh: Ust. H. Ahmad Shodiq, M.Pd." class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Username <span class="text-red-500">*</span></label>
+            <input type="text" id="user-username" required placeholder="shodiq" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white font-mono">
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Peran Akses <span class="text-red-500">*</span></label>
+            <select id="user-role" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+              <option value="fasilitator" selected>Fasilitator Lapangan</option>
+              <option value="viewer">Pengamat / Tamu MWC</option>
+              <option value="superadmin">Super Admin PC RMI</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Kata Sandi Awal <span class="text-red-500">*</span></label>
+            <input type="password" id="user-password" required placeholder="Min. 6 karakter" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white font-mono">
+          </div>
+          <div>
+            <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Email</label>
+            <input type="email" id="user-email" placeholder="shodiq@rminudemak.org" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Jabatan Struktural</label>
+          <input type="text" id="user-jabatan" placeholder="Contoh: Fasilitator Satgas & Konselor Santri" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+        </div>
+
+        <div>
+          <label class="block font-bold text-gray-700 uppercase tracking-wider mb-1">Wilayah Penugasan Kecamatan</label>
+          <input type="text" id="user-wilayah" placeholder="Contoh: Guntur, Karangtengah, Sayung" class="w-full px-3 py-2 rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+        </div>
+
+        <div class="pt-3 border-t border-gray-200 flex justify-end gap-2">
+          <button type="button" id="btn-batal-user" class="btn-secondary py-1.5 px-4 text-xs text-gray-600">Batal</button>
+          <button type="submit" class="btn-primary py-1.5 px-4 text-xs font-bold shadow-sm">Simpan Akun Petugas</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>
+

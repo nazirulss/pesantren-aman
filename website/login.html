@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Masuk Admin & Fasilitator — PESANTREN AMAN | RMI NU Demak</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Font Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pa-primary': '#145A42',
+            'pa-secondary': '#23966B',
+            'pa-accent': '#1C3D32',
+            'pa-paper': '#F4F0E6',
+            'pa-gold': '#C7A45B',
+            'pa-ink': '#1E2321',
+          },
+          fontFamily: {
+            display: ['Cinzel', 'serif'],
+            editorial: ['Playfair Display', 'serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-[#103E2F] text-pa-ink font-body antialiased min-h-screen flex flex-col justify-between selection:bg-pa-gold selection:text-pa-ink relative overflow-x-hidden">
+
+  <!-- Subtle Geometric Islamic Pattern Background Overlay -->
+  <div class="fixed inset-0 pointer-events-none opacity-[0.04] bg-[radial-gradient(#C7A45B_1px,transparent_1px)] [background-size:24px_24px]"></div>
+
+  <!-- TOP NAV STRIP -->
+  <div class="w-full bg-[#092B20] text-emerald-200 border-b border-emerald-900/60 text-xs py-2 px-4 sm:px-8 flex justify-between items-center z-10">
+    <div class="flex items-center gap-2 font-mono text-[11px]">
+      <span class="w-2 h-2 rounded-full bg-pa-gold animate-pulse"></span>
+      <span class="text-white font-semibold">PORTAL KHIDMAH KHUSUS PETUGAS</span>
+    </div>
+    <a href="/" class="text-emerald-300 hover:text-white transition-colors flex items-center gap-1.5 text-xs font-semibold">
+      <span>← Kembali ke Website Publik</span>
+    </a>
+  </div>
+
+  <!-- MAIN LOGIN CARD WRAPPER -->
+  <main class="flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-8 z-10">
+    <div class="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
+      
+      <!-- Card Header Banner -->
+      <div class="bg-gradient-to-b from-[#145A42] to-[#0D402F] text-white p-6 sm:p-7 text-center relative border-b-2 border-pa-gold">
+        <a href="/" class="inline-block mb-3.5 focus:outline-none">
+          <img src="/logo-utama.png" alt="Logo PESANTREN AMAN" class="h-12 sm:h-14 w-auto mx-auto drop-shadow-md">
+        </a>
+        <h1 class="text-base sm:text-lg font-bold font-display tracking-wide uppercase text-white">
+          Sistem Monitoring Sambang
+        </h1>
+        <p class="text-xs text-emerald-200 font-editorial mt-1">
+          Pengurus Cabang RMI NU Kabupaten Demak
+        </p>
+      </div>
+
+      <!-- Login Form Section -->
+      <div class="p-6 sm:p-7 space-y-4">
+
+        <!-- Error Message Alert -->
+        <div id="login-alert" class="hidden p-3 rounded-lg bg-red-50 border border-red-200 text-red-800 text-xs flex items-start gap-2">
+          <span class="text-red-600 font-bold text-sm">⚠</span>
+          <span id="login-alert-text">Kombinasi nama pengguna atau kata sandi tidak cocok.</span>
+        </div>
+
+        <form id="form-login" class="space-y-4">
+          <div>
+            <label for="username" class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
+              Nama Pengguna / Email
+            </label>
+            <div class="relative">
+              <input 
+                type="text" 
+                id="username" 
+                name="username" 
+                required 
+                autocomplete="username"
+                placeholder="Contoh: admin atau fasilitator1" 
+                class="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-300 rounded-lg text-xs font-medium text-gray-900 focus:outline-none focus:bg-white focus:border-pa-primary focus:ring-1 focus:ring-pa-primary transition-all">
+              <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400 text-xs">
+                👤
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-1">
+              <label for="password" class="block text-xs font-bold uppercase tracking-wider text-gray-700">
+                Kata Sandi
+              </label>
+              <button type="button" id="btn-toggle-pwd" class="text-[11px] text-pa-secondary hover:text-pa-primary font-semibold">
+                Tampilkan
+              </button>
+            </div>
+            <div class="relative">
+              <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                required 
+                autocomplete="current-password"
+                placeholder="Masukkan kata sandi..." 
+                class="w-full px-3.5 py-2.5 bg-gray-50 border border-gray-300 rounded-lg text-xs font-medium text-gray-900 focus:outline-none focus:bg-white focus:border-pa-primary focus:ring-1 focus:ring-pa-primary transition-all font-mono">
+              <span class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400 text-xs">
+                🔒
+              </span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between text-xs text-gray-600">
+            <label class="flex items-center gap-2 cursor-pointer select-none">
+              <input type="checkbox" id="remember-me" checked class="w-3.5 h-3.5 text-pa-primary border-gray-300 rounded focus:ring-pa-primary">
+              <span class="text-[11px]">Ingat sesi di perangkat ini</span>
+            </label>
+            <span class="text-[11px] font-mono text-gray-400">v2.0 Khidmah</span>
+          </div>
+
+          <button 
+            type="submit" 
+            id="btn-submit-login" 
+            class="w-full btn-primary py-2.5 px-4 rounded-lg font-bold text-xs tracking-wide uppercase shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+            <span id="btn-text">Masuk ke Panel Admin</span>
+            <span id="btn-spinner" class="hidden w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+          </button>
+        </form>
+
+        <!-- Quick Demo Switcher for Verification -->
+        <div class="pt-4 border-t border-gray-100">
+          <p class="text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-2 text-center">
+            Akun Petugas Terdaftar (Klik untuk Isi Cepat):
+          </p>
+          <div class="grid grid-cols-3 gap-1.5 text-center">
+            <button type="button" onclick="isiAkun('admin', 'demak2026!')" class="p-2 rounded bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition-colors text-left group">
+              <strong class="block text-[11px] text-emerald-900 group-hover:text-emerald-950 font-bold">Super Admin</strong>
+              <span class="text-[10px] text-emerald-700 block font-mono">admin</span>
+            </button>
+            <button type="button" onclick="isiAkun('fasilitator1', 'sambang2026!')" class="p-2 rounded bg-amber-50 hover:bg-amber-100 border border-amber-200 transition-colors text-left group">
+              <strong class="block text-[11px] text-amber-900 group-hover:text-amber-950 font-bold">Fasilitator</strong>
+              <span class="text-[10px] text-amber-700 block font-mono">fasilitator1</span>
+            </button>
+            <button type="button" onclick="isiAkun('mwc_mranggen', 'pantau2026!')" class="p-2 rounded bg-blue-50 hover:bg-blue-100 border border-blue-200 transition-colors text-left group">
+              <strong class="block text-[11px] text-blue-900 group-hover:text-blue-950 font-bold">MWC Pengamat</strong>
+              <span class="text-[10px] text-blue-700 block font-mono">mwc_mranggen</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Card Footer Notice -->
+      <div class="bg-gray-50 px-6 py-3.5 border-t border-gray-200 text-center text-[11px] text-gray-500">
+        <span>Butuh bantuan akses akun? Hubungi Sekretariat RMI NU Kab. Demak</span>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- BOTTOM FOOTER STRIP -->
+  <footer class="w-full bg-[#092B20] text-emerald-300 text-[11px] py-3 text-center border-t border-emerald-900/60 z-10">
+    <p>© 2026 Pengurus Cabang Rabithah Ma'ahid Islamiyah Nahdlatul Ulama Kabupaten Demak</p>
+  </footer>
+
+  <script>
+    function isiAkun(u, p) {
+      document.getElementById('username').value = u;
+      document.getElementById('password').value = p;
+      document.getElementById('login-alert').classList.add('hidden');
+    }
+
+    // Toggle Password Visibility
+    const btnToggle = document.getElementById('btn-toggle-pwd');
+    const pwdInput = document.getElementById('password');
+    btnToggle.addEventListener('click', () => {
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        btnToggle.textContent = 'Sembunyikan';
+      } else {
+        pwdInput.type = 'password';
+        btnToggle.textContent = 'Tampilkan';
+      }
+    });
+
+    // Form Submit Handler
+    const form = document.getElementById('form-login');
+    const alertBox = document.getElementById('login-alert');
+    const alertText = document.getElementById('login-alert-text');
+    const btnSubmit = document.getElementById('btn-submit-login');
+    const btnText = document.getElementById('btn-text');
+    const btnSpinner = document.getElementById('btn-spinner');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      alertBox.classList.add('hidden');
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (!username || !password) {
+        alertText.textContent = 'Harap isi nama pengguna dan kata sandi.';
+        alertBox.classList.remove('hidden');
+        return;
+      }
+
+      // UI Loading state
+      btnSubmit.disabled = true;
+      btnText.textContent = 'Memverifikasi...';
+      btnSpinner.classList.remove('hidden');
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+          // Store token in localStorage as well for optional Bearer usage
+          localStorage.setItem('pa_auth_token', result.token);
+          localStorage.setItem('pa_auth_user', JSON.stringify(result.user));
+
+          // Read redirect param from URL if exists
+          const urlParams = new URLSearchParams(window.location.search);
+          const redirectUrl = urlParams.get('redirect') || '/admin';
+
+          btnText.textContent = 'Berhasil! Mengalihkan...';
+          setTimeout(() => {
+            window.location.href = redirectUrl;
+          }, 400);
+        } else {
+          alertText.textContent = result.message || 'Nama pengguna atau kata sandi tidak valid.';
+          alertBox.classList.remove('hidden');
+          btnSubmit.disabled = false;
+          btnText.textContent = 'Masuk ke Panel Admin';
+          btnSpinner.classList.add('hidden');
+        }
+      } catch (err) {
+        alertText.textContent = 'Gagal menghubungi server. Pastikan server aktif.';
+        alertBox.classList.remove('hidden');
+        btnSubmit.disabled = false;
+        btnText.textContent = 'Masuk ke Panel Admin';
+        btnSpinner.classList.add('hidden');
+      }
+    });
+  </script>
+</body>
+</html>
+

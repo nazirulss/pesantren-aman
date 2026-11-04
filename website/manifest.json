@@ -1,0 +1,23 @@
+{
+  "name": "PESANTREN AMAN — RMI NU Demak",
+  "short_name": "PesantrenAman",
+  "description": "Gerakan Penguatan Sistem Perlindungan Santri oleh PC RMI NU Kabupaten Demak",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#145A42",
+  "theme_color": "#145A42",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/splash-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

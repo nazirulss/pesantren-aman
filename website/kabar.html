@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kabar Sambang Pesantren — Warta & Dokumentasi | RMI NU Demak</title>
+  <meta name="description" content="Kabar berita, siaran pers, dan dokumentasi foto kegiatan silaturahmi program Sambang Pesantren Aman oleh Tim Satgas PC RMI NU Kabupaten Demak.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <link rel="stylesheet" href="/brand/tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pa-primary': '#145A42',
+            'pa-primary-dark': '#0E3D2D',
+            'pa-secondary': '#23966B',
+            'pa-gold': '#C7A45B',
+            'pa-gold-dark': '#9E7D37',
+            'pa-paper': '#FAF8F5',
+            'pa-ink': '#1A2420',
+            'pa-border': '#DDE5E0',
+          },
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            editorial: ['Lora', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-pa-paper text-pa-ink font-body antialiased selection:bg-[#E8F3EE] selection:text-pa-primary">
+
+  <!-- TOPBAR RINGKAS -->
+  <div class="bg-[#0E3D2D] text-white text-[11px] border-b border-[#1C5340]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex justify-between items-center">
+      <div class="flex items-center gap-2 text-emerald-100 font-medium tracking-wide">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-pa-gold"></span>
+        <span>PC RMI NU KABUPATEN DEMAK — SATGAS PERLINDUNGAN SANTRI</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-emerald-200/90 text-[11px]">
+        <span>Hotline: <strong class="text-white font-mono">+62 812-3456-7890</strong></span>
+        <span class="text-emerald-600">|</span>
+        <span>Gedung PCNU Demak</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR LEGA -->
+  <!-- NAVBAR DENGAN DROPDOWN ELEGAN -->
+  <header class="site-header sticky top-0 z-40 bg-white shadow-sm border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-2 sm:py-2.5">
+        <a href="/" class="flex items-center">
+          <img src="/logo-utama.png" alt="Logo Resmi PESANTREN AMAN - RMI NU" class="h-11 sm:h-14 md:h-16 w-auto object-contain">
+        </a>
+
+        <!-- Desktop Navigation dengan Dropdown -->
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-6 text-[13px] font-semibold text-gray-700">
+          <a href="/" class="hover:text-pa-primary transition-colors">Beranda</a>
+
+          <!-- Dropdown 1: Tentang Gerakan -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 hover:text-pa-primary py-2 transition-colors">
+              <span>Tentang Kami</span>
+              <svg class="w-3.5 h-3.5 text-gray-400 group-hover:text-pa-primary transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block w-56 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 divide-y divide-gray-50 text-xs font-medium">
+                <a href="/tentang" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Profil Gerakan & RMI NU</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Visi, misi, dan struktur Satgas</span>
+                </a>
+                <a href="/mitra" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Mitra & Kolaborasi</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Jejaring PPA Polres, Dinsos, LPBH</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 2: Program Sambang -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 hover:text-pa-primary py-2 transition-colors">
+              <span>Program Sambang</span>
+              <svg class="w-3.5 h-3.5 text-gray-400 group-hover:text-pa-primary transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block w-60 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 divide-y divide-gray-50 text-xs font-medium">
+                <a href="/sambang" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Alur Sambang 120 Menit</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Metodologi sowan & simulasi kasus</span>
+                </a>
+                <a href="/lima-pilar" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">5 Pilar Perlindungan</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Standar instrumen pengasuhan aman</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 3: Pusat Edukasi & Media -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 hover:text-pa-primary py-2 transition-colors">
+              <span>Edukasi & Media</span>
+              <svg class="w-3.5 h-3.5 text-gray-400 group-hover:text-pa-primary transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block w-64 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 divide-y divide-gray-50 text-xs font-medium">
+                <a href="/unduhan" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Field Kit v1.0 (PDF)</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Modul, instrumen PR-01 s.d PR-06</span>
+                </a>
+                <a href="/asesmen" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Asesmen Mandiri 5 Menit</strong>
+                  <span class="text-[10px] text-amber-700 font-editorial">Cek kesiapan perlindungan santri</span>
+                </a>
+                <a href="/media" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Video & Materi Kampanye</strong>
+                  <span class="text-[10px] text-emerald-700 font-editorial">Infografis, template medsos & video</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/perkembangan" class="hover:text-pa-primary transition-colors">Perkembangan</a>
+          <a href="/kabar" class="text-pa-primary border-b-2 border-pa-primary pb-0.5 font-bold">Warta</a>
+          <a href="/kontak" class="hover:text-pa-primary transition-colors">Kontak</a>
+        </nav>
+
+        <div class="hidden lg:flex items-center">
+          <a href="/kontak" class="btn-primary text-xs py-2 px-4 shadow-sm whitespace-nowrap">
+            Ajukan Sambang
+          </a>
+        </div>
+
+        <div class="lg:hidden flex items-center">
+          <button id="mobile-menu-btn" type="button" class="p-2 rounded border border-gray-200 text-gray-700 hover:bg-gray-50 focus:outline-none" aria-label="Menu Mobile">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-3 pb-6 space-y-3">
+      <div class="space-y-1">
+        <a href="/" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Beranda</a>
+        <a href="/tentang" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Profil & Struktur RMI NU</a>
+        <a href="/mitra" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Mitra & SOP Alur Rujukan</a>
+        <a href="/sambang" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Alur Sambang 120 Menit</a>
+        <a href="/lima-pilar" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">5 Pilar Perlindungan Santri</a>
+        <a href="/unduhan" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Pusat Unduhan Field Kit</a>
+        <a href="/asesmen" class="block px-3 py-2 text-sm font-medium text-amber-800 bg-amber-50/60 rounded">Asesmen Mandiri 5 Menit</a>
+        <a href="/media" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Video & Media Kampanye</a>
+        <a href="/perkembangan" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Perkembangan Gerakan (14 Kec)</a>
+        <a href="/kabar" class="block px-3 py-2 text-sm font-bold text-pa-primary bg-emerald-50 rounded">Warta & Dokumentasi</a>
+        <a href="/kontak" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Kontak & Permohonan</a>
+      </div>
+      <div class="pt-2">
+        <a href="/kontak" class="btn-primary w-full text-center text-xs py-2.5 block">
+          Ajukan Jadwal Sambang Pesantren
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="bg-[#145A42] text-white py-8 sm:py-10 border-b-2 border-pa-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="doc-badge bg-[#0E3D2D] text-emerald-200 border-emerald-700">Warta Resmi & Dokumentasi</span>
+        <h1 class="text-2xl sm:text-3xl font-bold font-display text-white mt-1.5">
+          Kabar Gerakan Sambang Pesantren
+        </h1>
+        <p class="text-emerald-100 text-xs sm:text-sm mt-1 leading-relaxed font-editorial">
+          Liputan perkembangan program, siaran pers resmi, catatan musyawarah bersama para Pengasuh Pesantren, dan tindak lanjut perbaikan asrama di Kabupaten Demak.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN NEWS LAYOUT -->
+  <main class="py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- Primary Article Column (8 cols) -->
+      <div class="lg:col-span-8 space-y-6">
+        
+        <!-- Artikel Utama: Siaran Pers Peluncuran -->
+        <article id="berita-1" class="bg-white p-6 sm:p-7 rounded border border-pa-border space-y-3">
+          <div class="flex items-center gap-2 text-xs text-gray-500">
+            <span class="font-bold text-pa-primary font-mono text-[11px]">SIARAN PERS RESMI</span>
+            <span>•</span>
+            <span class="font-mono text-[11px]">No: 014/SP-PA/RMI-NU/DMK/XI/2026</span>
+            <span>•</span>
+            <span class="text-[11px]">Demak Kota</span>
+          </div>
+
+          <h2 class="text-lg sm:text-xl font-bold font-display text-pa-ink leading-tight">
+            RMI NU Demak Luncurkan Ekosistem "Pesantren Aman": Dampingi Pondok Pesantren Perkuat Sistem Perlindungan Santri Berbasis 5 Pilar
+          </h2>
+
+          <div class="p-2.5 bg-pa-paper rounded border border-gray-200 text-[11px] text-gray-700 italic font-editorial">
+            Diterbitkan oleh Tim Media & Informasi Pengurus Cabang Rabithah Ma'ahid Islamiyah Nahdlatul Ulama Kabupaten Demak
+          </div>
+
+          <p class="text-xs sm:text-sm text-gray-700 leading-relaxed font-editorial">
+            <strong>DEMAK</strong> — Pengurus Cabang Rabithah Ma'ahid Islamiyah Nahdlatul Ulama (PC RMI NU) Kabupaten Demak secara resmi meluncurkan Ekosistem <strong>"PESANTREN AMAN"</strong> sebagai gerakan kolaboratif pendampingan pondok pesantren dalam memperkuat sistem pengasuhan, literasi hukum, dan perlindungan santri dari tindak kekerasan serta perundungan.
+          </p>
+
+          <p class="text-xs sm:text-sm text-gray-700 leading-relaxed font-editorial">
+            Gerakan ini ditandai dengan program <em>"Sambang Pesantren Aman"</em> yang menyasar 150 pondok pesantren di 14 kecamatan wilayah Kabupaten Demak, menggandeng pemerintah daerah, Unit PPA Satreskrim Polres Demak, dan lembaga bantuan hukum.
+          </p>
+
+          <div class="quote-box my-3">
+            <p class="text-xs text-gray-800 italic font-editorial leading-relaxed">
+              "Pesantren adalah tempat yang mulia untuk menuntut ilmu dan menempa akhlak. Melalui gerakan Pesantren Aman, kita ingin memastikan marwah pesantren tetap terjaga dari fitnah zaman dengan cara membangun sistem pengasuhan yang aman, mendidik tanpa kekerasan fisik, dan menyediakan saluran curhat yang ramah santri," tegas Ketua PC RMI NU Kabupaten Demak.
+            </p>
+          </div>
+
+          <p class="text-xs sm:text-sm text-gray-700 leading-relaxed font-editorial">
+            Program Sambang Pesantren digerakkan oleh Satgas Perlindungan Santri RMI NU Demak melalui pendekatan 5 Pilar Utama: Pengasuhan Bermartabat, Kepatuhan Regulasi, Tata Kelola Lembaga, Kanal Aduan Aman, dan Evaluasi Aksi 90 Hari dengan semboyan <em>"Satu Pesantren, Satu Perubahan Nyata"</em>.
+          </p>
+        </article>
+
+        <!-- Artikel 2: Bimtek Fasilitator -->
+        <article id="berita-2" class="bg-white p-5 sm:p-6 rounded border border-pa-border space-y-2">
+          <div class="flex items-center gap-2 text-xs text-gray-500">
+            <span class="font-bold text-pa-gold-dark font-mono text-[11px]">BIMBINGAN TEKNIS</span>
+            <span>•</span>
+            <span class="text-[11px]">Gedung PCNU Demak</span>
+          </div>
+
+          <h2 class="text-base font-bold font-display text-pa-ink leading-snug">
+            64 Fasilitator Satgas Ikuti Bimbingan Teknis Metodologi Simulasi Kasus & Mediasi Damai
+          </h2>
+
+          <p class="text-xs text-gray-700 leading-relaxed font-editorial">
+            Sebanyak 64 fasilitator yang terdiri dari ustadz pembina pondok, pengurus Lajnah Bantuan Hukum (LBH) NU, serta konselor psikologi mengikuti pelatihan intensif pemanfaatan <em>Field Kit v1.0</em> Pesantren Aman. Fasilitator dibekali teknik memandu dialog reflektif bersama Masyaikh pengasuh pondok tanpa kesan menggurui, serta simulasi studi kasus bersama pengurus asrama santri.
+          </p>
+        </article>
+
+        <!-- Artikel 3: Lapangan Mranggen & Sayung -->
+        <article id="berita-3" class="bg-white p-5 sm:p-6 rounded border border-pa-border space-y-2">
+          <div class="flex items-center gap-2 text-xs text-gray-500">
+            <span class="font-bold text-pa-primary font-mono text-[11px]">KUNJUNGAN LAPANGAN</span>
+            <span>•</span>
+            <span class="text-[11px]">Zona Barat: Mranggen & Sayung</span>
+          </div>
+
+          <h2 class="text-base font-bold font-display text-pa-ink leading-snug">
+            Pesantren di Mranggen & Sayung Awali Komitmen "Satu Pesantren, Satu Perubahan"
+          </h2>
+
+          <p class="text-xs text-gray-700 leading-relaxed font-editorial">
+            Pondok pesantren di Kecamatan Mranggen dan Sayung menjadi lokasi pertama silaturahmi program Sambang Pesantren Aman. Para pengasuh sepakat menunjuk ustadz konselor kamar dan memasang kotak curhat santri tertutup sebagai wujud nyata komitmen 90 hari pertama.
+          </p>
+        </article>
+
+      </div>
+
+      <!-- Sidebar Redaksi (4 cols) -->
+      <aside class="lg:col-span-4 space-y-5">
+        
+        <div class="bg-white p-4 sm:p-5 rounded border border-pa-border space-y-2.5">
+          <h3 class="text-xs font-bold font-display text-pa-ink uppercase tracking-wider border-b border-gray-100 pb-1.5">
+            Narahubung Redaksi & Media
+          </h3>
+          <p class="text-xs text-gray-600 leading-relaxed font-editorial">
+            Bagi jurnalis atau media massa yang membutuhkan klarifikasi atau rilis resmi:
+          </p>
+          <div class="text-xs text-gray-700 space-y-1">
+            <p><strong>Biro Informasi:</strong> Tim Media Satgas RMI NU</p>
+            <p><strong>WhatsApp:</strong> +62 812-3456-7890</p>
+            <p><strong>Email:</strong> media@rminudemak.org</p>
+          </div>
+        </div>
+
+        <div class="bg-white p-4 sm:p-5 rounded border border-pa-border space-y-2.5">
+          <h3 class="text-xs font-bold font-display text-pa-ink uppercase tracking-wider border-b border-gray-100 pb-1.5">
+            Agenda Sambang Wilayah
+          </h3>
+          <ul class="text-xs text-gray-700 space-y-2">
+            <li class="pb-1.5 border-b border-gray-100">
+              <strong class="text-pa-primary block font-display">Zona Tengah:</strong>
+              Kec. Demak Kota, Wonosalam, Gajah (Minggu II).
+            </li>
+            <li class="pb-1.5 border-b border-gray-100">
+              <strong class="text-pa-primary block font-display">Zona Pesisir:</strong>
+              Kec. Bonang, Wedung, Karangtengah (Minggu III).
+            </li>
+            <li>
+              <strong class="text-pa-primary block font-display">Zona Selatan:</strong>
+              Kec. Karangawen, Guntur, Karanganyar (Minggu IV).
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-[#F9F5EC] p-4 rounded border border-[#D5C6AA] space-y-1.5">
+          <h4 class="text-xs font-bold font-display text-pa-ink uppercase tracking-wider">Field Kit v1.0</h4>
+          <p class="text-xs text-gray-600 font-editorial">
+            Unduh seluruh modul dan instrumen pemetaan untuk persiapan di pondok pesantren Anda.
+          </p>
+          <a href="/unduhan" class="btn-primary w-full text-center text-xs py-1.5 mt-1.5">
+            Buka Pusat Unduhan →
+          </a>
+        </div>
+
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <!-- INSTITUTIONAL FOOTER -->
+  <footer class="bg-[#092B20] text-emerald-100/90 text-xs border-t border-emerald-900/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="space-y-3 md:col-span-1">
+          <img src="/logo-utama.png" alt="Logo Pesantren Aman" class="h-14 w-auto brightness-110">
+          <p class="text-[11px] leading-relaxed text-emerald-200/80 font-editorial">
+            Gerakan Penguatan Sistem Perlindungan Santri di bawah naungan Pengurus Cabang Rabithah Ma’ahid Islamiyah (PC RMI) Nahdlatul Ulama Kabupaten Demak.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-white font-display font-bold uppercase text-[11px] tracking-wider text-pa-gold">Navigasi Program</h4>
+          <ul class="space-y-1.5 text-[11px]">
+            <li><a href="/sambang" class="hover:text-white transition-colors">Program Sambang 120 Menit</a></li>
+            <li><a href="/lima-pilar" class="hover:text-white transition-colors">5 Pilar Perlindungan</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Mitra & Kolaborasi Strategis</a></li>
+            <li><a href="/media" class="hover:text-white transition-colors">Video & Galeri Media</a></li>
+            <li><a href="/unduhan" class="hover:text-white transition-colors">Pusat Unduhan Field Kit (PDF)</a></li>
+            <li><a href="/perkembangan" class="hover:text-white transition-colors">Peta Sebaran 14 Kecamatan</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-white font-display font-bold uppercase text-[11px] tracking-wider text-pa-gold">Jejaring Mitra</h4>
+          <ul class="space-y-1.5 text-[11px]">
+            <li><a href="/mitra" class="hover:text-white transition-colors">Unit PPA Satreskrim Polres Demak</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Dinas Sosial P2PA Kab. Demak</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Kementerian Agama Kab. Demak</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Lembaga Penyuluhan Bantuan Hukum NU</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">14 MWC NU se-Kabupaten Demak</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-white font-display font-bold uppercase text-[11px] tracking-wider text-pa-gold">Sekretariat Satgas</h4>
+          <p class="text-[11px] text-emerald-200/80 leading-relaxed font-editorial">
+            Gedung PCNU Kabupaten Demak<br>
+            Jl. Sultan Fatah No. 83, Demak, Jawa Tengah 59511
+          </p>
+          <p class="text-[11px] font-mono text-pa-gold">
+            Hotline Satgas: +62 812-3456-7890
+          </p>
+          <div class="pt-2">
+            <a href="/admin" class="text-[10px] text-emerald-400/70 hover:text-emerald-200 underline font-mono">
+              Portal Khusus Fasilitator Satgas →
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-emerald-900/60 flex flex-col sm:flex-row justify-between items-center text-[11px] text-emerald-300/70">
+        <p>© 2026 PC RMI NU Kabupaten Demak. Khidmah Menjaga Amanah Santri.</p>
+        <p class="mt-2 sm:mt-0 font-editorial italic">"Menjaga Amanah, Melindungi Santri, Memuliakan Pesantren."</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

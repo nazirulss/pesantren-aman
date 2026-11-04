@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="100%" height="100%">
+  <defs>
+    <linearGradient id="feedBgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#145A42"/>
+      <stop offset="60%" stop-color="#0E4331"/>
+      <stop offset="100%" stop-color="#092B1F"/>
+    </linearGradient>
+    <linearGradient id="goldAccentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFBA6D"/>
+      <stop offset="100%" stop-color="#B68E42"/>
+    </linearGradient>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect width="1080" height="1350" fill="url(#feedBgGrad)"/>
+
+  <!-- SUBTLE GEOMETRIC ORNAMENT (Mihrab Curves) -->
+  <path d="M-100 200 C300 150 780 150 1180 200 L1180 -100 L-100 -100 Z" fill="#FFFFFF" fill-opacity="0.03"/>
+  <circle cx="1080" cy="800" r="450" fill="#C7A45B" fill-opacity="0.04" filter="blur(60px)"/>
+  <circle cx="0" cy="1100" r="350" fill="#23966B" fill-opacity="0.08" filter="blur(40px)"/>
+
+  <!-- TOP BAR: BADGE & LOGO -->
+  <g transform="translate(80, 80)">
+    <!-- Serial Tag / Category -->
+    <rect x="0" y="0" width="260" height="48" rx="24" fill="#C7A45B" fill-opacity="0.2" stroke="#C7A45B" stroke-width="2"/>
+    <text x="130" y="30" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" fill="#DFBA6D" text-anchor="middle" letter-spacing="1.5">
+      BELAJAR DARI KASUS
+    </text>
+
+    <!-- Slide Number Indicator -->
+    <rect x="840" y="0" width="80" height="48" rx="24" fill="#FFFFFF" fill-opacity="0.1"/>
+    <text x="880" y="30" font-family="'Inter', sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">
+      01/06
+    </text>
+  </g>
+
+  <!-- CENTER LOGO EMBLEM WATERMARK -->
+  <g transform="translate(480, 260) scale(0.6)" opacity="0.15">
+    <path d="M100 12 C145 12 186 32 188 64 C188 134 145 180 100 196 C55 180 12 134 12 64 C14 32 55 12 100 12 Z" fill="#FFFFFF"/>
+  </g>
+
+  <!-- CONTENT CONTAINER -->
+  <g transform="translate(80, 360)">
+    <!-- Subtitle / Hook -->
+    <text x="0" y="0" font-family="'Inter', sans-serif" font-size="24" font-weight="600" fill="#23966B" letter-spacing="3">
+      PILAR 1: PENGASUHAN AMAN & BERMARTABAT
+    </text>
+
+    <!-- Main Headline (Dynamic & Eye-catching) -->
+    <text x="0" y="90" font-family="'Plus Jakarta Sans', sans-serif" font-size="64" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">
+      Mendidik Disiplin
+    </text>
+    <text x="0" y="175" font-family="'Plus Jakarta Sans', sans-serif" font-size="64" font-weight="800" fill="#DFBA6D" letter-spacing="-0.5">
+      Tanpa Kekerasan Fisik
+    </text>
+
+    <!-- Lead Paragraph / Summary -->
+    <foreignObject x="0" y="240" width="920" height="260">
+      <p xmlns="http://www.w3.org/1999/xhtml" style="font-family: 'Inter', sans-serif; font-size: 28px; line-height: 1.6; color: #E8F5F0; margin: 0;">
+        Di mana batas antara <em>Ta'dib Nabawi</em> (pendidikan akhlak) dengan hukuman fisik yang berisiko pidana? Simak panduan praktis bagi pengurus dan dewan asatidz dalam menegakkan kedisiplinan santri secara terhormat.
+      </p>
+    </foreignObject>
+
+    <!-- Highlight Box -->
+    <g transform="translate(0, 520)">
+      <rect x="0" y="0" width="920" height="150" rx="16" fill="#FFFFFF" fill-opacity="0.07" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1.5"/>
+      <circle cx="50" cy="50" r="18" fill="#C7A45B"/>
+      <text x="50" y="57" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" fill="#0E4331" text-anchor="middle">!</text>
+      <text x="90" y="55" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="700" fill="#FFFFFF">
+        Fokus Pembahasan Hari Ini:
+      </text>
+      <text x="90" y="100" font-family="'Inter', sans-serif" font-size="20" font-weight="400" fill="#E8F5F0">
+        • 3 Sanksi edukatif pengganti hukuman fisik yang terbukti membekas di hati santri.
+      </text>
+    </g>
+  </g>
+
+  <!-- BOTTOM FOOTER -->
+  <g transform="translate(80, 1180)">
+    <!-- Divider -->
+    <line x1="0" y1="0" x2="920" y2="0" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="1.5"/>
+
+    <!-- Left Brand Identity -->
+    <g transform="translate(0, 30)">
+      <text x="0" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="800" fill="#FFFFFF" letter-spacing="1">
+        PESANTREN <tspan fill="#C7A45B">AMAN</tspan>
+      </text>
+      <text x="0" y="48" font-family="'Inter', sans-serif" font-size="14" font-weight="500" fill="#A3B8AD">
+        RMI NU Kab. Demak • Satgas Perlindungan Santri
+      </text>
+    </g>
+
+    <!-- Right Call to Action -->
+    <g transform="translate(740, 20)">
+      <rect x="0" y="0" width="180" height="48" rx="24" fill="#C7A45B"/>
+      <text x="90" y="30" font-family="'Inter', sans-serif" font-size="16" font-weight="700" fill="#0E4331" text-anchor="middle">
+        GESER ➔
+      </text>
+    </g>
+  </g>
+</svg>

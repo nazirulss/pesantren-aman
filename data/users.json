@@ -1,0 +1,67 @@
+[
+  {
+    "id": "USR-001",
+    "username": "admin",
+    "nama": "K.H. Nurul Huda",
+    "role": "superadmin",
+    "email": "admin@rminudemak.org",
+    "jabatan": "Sekretaris PC RMI NU Demak & Koordinator Satgas",
+    "wilayahTugas": "Semua Kecamatan (14 Kecamatan)",
+    "status": "Aktif",
+    "salt": "ae7b948003b294d554ad4e09500fe20a",
+    "hash": "7f84fa425f6b3cd056788c9a26f5f2687de23dc26bb439f5d9cd6d5ce3bf9e91b3eb13e0ea5f5f9efe5cabe9cd3186bbb999fd272a8a0c335aa5167aa14d0f61",
+    "createdAt": "2026-08-01T08:00:00.000Z"
+  },
+  {
+    "id": "USR-002",
+    "username": "fasilitator1",
+    "nama": "Ust. Muhammad Farhan, S.Pd.",
+    "role": "fasilitator",
+    "email": "farhan@rminudemak.org",
+    "jabatan": "Fasilitator Lapangan Satgas Sambang",
+    "wilayahTugas": "Mranggen, Sayung, Karangawen",
+    "status": "Aktif",
+    "salt": "ae015c5e1345601a319cfdfa45be4880",
+    "hash": "4aef97c80789058adf4a24b72853453c7fc531f9146485b387e1b39009477d189a479e95aea5835817b809147236857f27a7cc18adfd5d8de860478592653352",
+    "createdAt": "2026-08-05T09:30:00.000Z"
+  },
+  {
+    "id": "USR-003",
+    "username": "fasilitator2",
+    "nama": "Ustadzah Siti Maryam, M.Pd.",
+    "role": "fasilitator",
+    "email": "maryam@rminudemak.org",
+    "jabatan": "Fasilitator Pengasuhan Putri & Konselor",
+    "wilayahTugas": "Demak Kota, Bonang, Wedung",
+    "status": "Aktif",
+    "salt": "ae015c5e1345601a319cfdfa45be4880",
+    "hash": "4aef97c80789058adf4a24b72853453c7fc531f9146485b387e1b39009477d189a479e95aea5835817b809147236857f27a7cc18adfd5d8de860478592653352",
+    "createdAt": "2026-08-10T10:00:00.000Z"
+  },
+  {
+    "id": "USR-004",
+    "username": "mwc_mranggen",
+    "nama": "Ust. Ahmad Zaini (MWC Mranggen)",
+    "role": "viewer",
+    "email": "mwc.mranggen@rminudemak.org",
+    "jabatan": "Pengurus MWC NU Mranggen Bid. Kepesantrenan",
+    "wilayahTugas": "Mranggen",
+    "status": "Aktif",
+    "salt": "fb2e8054e19f992caf5adad7f9f0ea42",
+    "hash": "51f89d9fcc05aead489559da497e257f0ede25c14191ed8e8362e54281314e8b8b23c522d1f1a02dcba9714cbd42e44f1d1d49ae0b7e134416454868f8db3c66",
+    "createdAt": "2026-08-15T11:00:00.000Z"
+  },
+  {
+    "id": "USR-005",
+    "username": "shodiq",
+    "nama": "Ust. H. Shodiqul Wa'di, M.H.",
+    "role": "fasilitator",
+    "email": "shodiq@rminudemak.org",
+    "jabatan": "Fasilitator Satgas & Konselor Santri",
+    "wilayahTugas": "Guntur, Karangtengah",
+    "status": "Aktif",
+    "salt": "1cdb8b725b2a05ad23614f4ae2df0bd7",
+    "hash": "39231dec205e303ca13a72edb99094f2c2643bd71dda295ef916177b04ca31c1cfc29e850f0f91bf0870d1ca7fa47715fc2b5dcf2fd5239ad18db645fefe3b85",
+    "createdAt": "2026-11-03T13:31:03.618Z"
+  }
+]

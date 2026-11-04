@@ -1,0 +1,147 @@
+[
+  {
+    "id": "KM-90-001",
+    "pesantrenId": "PS-DMK-001",
+    "namaPesantren": "Pondok Pesantren Futuhiyyah",
+    "kecamatan": "Mranggen",
+    "pengasuh": "KH. Muhammad Hanif Muslih, Lc.",
+    "pic": "Ust. Ahmad Fauzan, M.H.",
+    "kontakPic": "081325112233",
+    "fokusPilihan": "B. Kanal Pengaduan Aman & Ruang Bimbingan",
+    "deskripsiAksi": "Pemasangan 6 Kotak Curhat Tertutup di asrama putra & putri serta penunjukan 2 ustadz & 2 ustadzah konselor rahasia.",
+    "periodeMulai": "2026-08-20",
+    "periodeSelesai": "2026-11-20",
+    "statusTahap": "Bulan 3 (Penerapan & Evaluasi)",
+    "milestoneBulan1": {
+      "target": "Rapat internal pengurus & penunjukan tim konselor",
+      "status": "Tuntas",
+      "verifikasiRmi": "SK Tim Konselor Santri terbit & 6 kotak curhat terpasang (Tim Fasilitator RMI)"
+    },
+    "milestoneBulan2": {
+      "target": "Pengadaan kotak curhat & sosialisasi nomor WA aduan aman",
+      "status": "Tuntas",
+      "verifikasiRmi": "Diverifikasi 2026-10-15 (6 kotak terpasang di lokasi privat)"
+    },
+    "milestoneBulan3": {
+      "target": "Rekapitulasi berkala & koordinasi rujukan bila ada insiden",
+      "status": "Sedang Berjalan",
+      "verifikasiRmi": "Jadwal evaluasi akhir 2026-11-18"
+    }
+  },
+  {
+    "id": "KM-90-002",
+    "pesantrenId": "PS-DMK-002",
+    "namaPesantren": "Pondok Pesantren Girikusumo",
+    "kecamatan": "Mranggen",
+    "pengasuh": "KH. Munif Muhammad Zuhri",
+    "pic": "Gus Muhammad Zuhri",
+    "kontakPic": "081226334455",
+    "fokusPilihan": "C. Penataan Kamar Asrama & SOP Ronda Malam",
+    "deskripsiAksi": "Penghapusan piket liar antarsantri senior-yunior dan penetapan jadwal ronda malam pembina asrama jam 23.00 - 03.30.",
+    "periodeMulai": "2026-08-25",
+    "periodeSelesai": "2026-11-25",
+    "statusTahap": "Bulan 3 (Penerapan & Evaluasi)",
+    "milestoneBulan1": {
+      "target": "Penyusunan jadwal piket resmi kamar tertulis",
+      "status": "Tuntas",
+      "verifikasiRmi": "Diverifikasi 2026-09-22 oleh K.H. Aniq Muhammad"
+    },
+    "milestoneBulan2": {
+      "target": "Sosialisasi peran santri senior sebagai mentor belajar",
+      "status": "Tuntas",
+      "verifikasiRmi": "Diverifikasi 2026-10-20 (Halaqah Ukhuwwah Santri Terlaksana)"
+    },
+    "milestoneBulan3": {
+      "target": "Pemantauan rutin dan evaluasi berkala triwulan",
+      "status": "Sedang Berjalan",
+      "verifikasiRmi": "Jadwal verifikasi akhir 2026-11-22"
+    }
+  },
+  {
+    "id": "KM-90-003",
+    "pesantrenId": "PS-DMK-003",
+    "namaPesantren": "Pondok Pesantren Al-Fattah",
+    "kecamatan": "Demak Kota",
+    "pengasuh": "KH. Abdullah Zaeni, M.S.I.",
+    "pic": "Ust. Mahfudz Syafi'i",
+    "kontakPic": "085712345678",
+    "fokusPilihan": "A. Kebijakan & Tata Tertib Sanksi Edukatif",
+    "deskripsiAksi": "Penerbitan Buku Saku Tata Tertib Pengasuhan dengan penegasan sanksi hafalan Al-Qur'an dan penghapusan sanksi tamparan fisik.",
+    "periodeMulai": "2026-09-05",
+    "periodeSelesai": "2026-12-05",
+    "statusTahap": "Bulan 2 (Sosialisasi & Uji Coba)",
+    "milestoneBulan1": {
+      "target": "Perumusan draf pasal larangan sanksi fisik bersama asatidz",
+      "status": "Tuntas",
+      "verifikasiRmi": "Diverifikasi 2026-10-02 oleh Ust. M. Syukron"
+    },
+    "milestoneBulan2": {
+      "target": "Pencetakan buku saku & sosialisasi ke seluruh santri dan wali",
+      "status": "Sedang Berjalan",
+      "verifikasiRmi": "Buku saku sedang proses distribusi per 25 Oktober 2026"
+    },
+    "milestoneBulan3": {
+      "target": "Penerapan sistem poin edukatif tanpa hukuman fisik",
+      "status": "Menunggu",
+      "verifikasiRmi": "Dijadwalkan Desember 2026"
+    }
+  },
+  {
+    "id": "KM-90-004",
+    "pesantrenId": "PS-DMK-005",
+    "namaPesantren": "Pondok Pesantren Al-Ishlah",
+    "kecamatan": "Guntur",
+    "pengasuh": "KH. Ali Makhsun",
+    "pic": "Ust. Wahyudi",
+    "kontakPic": "081390445566",
+    "fokusPilihan": "D. Edukasi Internal Asatidz & SK Satgas Pondok",
+    "deskripsiAksi": "Penerbitan SK Tim Tanggap Cepat Perlindungan Santri pondok dan pelatihan manajemen emosi bagi pembina asrama.",
+    "periodeMulai": "2026-09-20",
+    "periodeSelesai": "2026-12-20",
+    "statusTahap": "Bulan 2 (Sosialisasi & Uji Coba)",
+    "milestoneBulan1": {
+      "target": "Penerbitan SK Tim Satgas Pesantren oleh Kyai Pengasuh",
+      "status": "Tuntas",
+      "verifikasiRmi": "Diverifikasi 2026-10-18 oleh Ust. Bahruddin"
+    },
+    "milestoneBulan2": {
+      "target": "Halaqah pembekalan hukum perlindungan anak bagi ustadz",
+      "status": "Sedang Berjalan",
+      "verifikasiRmi": "Diagendakan 8 November 2026 mengundang narasumber RMI"
+    },
+    "milestoneBulan3": {
+      "target": "Simulasi penanganan kasus dan pelaporan triwulan",
+      "status": "Menunggu",
+      "verifikasiRmi": "Dijadwalkan Desember 2026"
+    }
+  },
+  {
+    "id": "KM-90-005",
+    "pesantrenId": "PS-DMK-007",
+    "namaPesantren": "Pondok Pesantren Darul Ulum",
+    "kecamatan": "Bonang",
+    "pengasuh": "KH. Asyrofi Masykur",
+    "pic": "Ust. Shofwan",
+    "kontakPic": "082133448899",
+    "fokusPilihan": "B. Kanal Pengaduan Aman & Kotak Curhat",
+    "deskripsiAksi": "Penyediaan 3 kotak curhat di asrama dan nomor pengaduan khusus yang terhubung langsung ke Dalem Pengasuh.",
+    "periodeMulai": "2026-10-06",
+    "periodeSelesai": "2027-01-06",
+    "statusTahap": "Bulan 1 (Konsolidasi & Draf)",
+    "milestoneBulan1": {
+      "target": "Musyawarah pembina kamar dan penyiapan fasilitas kotak",
+      "status": "Sedang Berjalan",
+      "verifikasiRmi": "Proses pembuatan kotak aduan kayu terkunci"
+    },
+    "milestoneBulan2": {
+      "target": "Sosialisasi jaminan kerahasiaan bagi santri yang curhat",
+      "status": "Menunggu",
+      "verifikasiRmi": "Dijadwalkan November 2026"
+    },
+    "milestoneBulan3": {
+      "target": "Evaluasi aduan perdana dan laporan berkala ke RMI",
+      "status": "Menunggu",
+      "verifikasiRmi": "Dijadwalkan Januari 2027"
+    }
+  }
+]

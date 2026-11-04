@@ -1,0 +1,34 @@
+[
+  {
+    "id": "SBG-2026-001",
+    "namaPesantren": "Pondok Pesantren Al-Hidayah",
+    "namaPengasuh": "KH. Ahmad Marzuqi",
+    "kontakWa": "081299887766",
+    "kecamatan": "Mranggen",
+    "alamat": "Jl. Raya Batursari No. 12",
+    "jumlahSantri": "300 - 600 santri",
+    "tanggalRencana": "Fleksibel / Sesuai Jadwal RMI",
+    "fokusPrioritas": "Semua 5 Pilar (Standar Lengkap)",
+    "catatanTambahan": "Mohon kunjungan dijadwalkan hari Ahad pagi.",
+    "status": "Terjadwal",
+    "waktuPengajuan": "2026-11-03T05:00:48.602Z",
+    "tanggalKunjungan": "2026-11-20",
+    "fasilitator": "Ust. Nurul Huda, M.Pd & Ust. Farhan",
+    "catatanSatgas": "Telah dikonfirmasi langsung dengan Dalem Pengasuh.",
+    "waktuPembaruan": "2026-11-03T11:59:30.249Z"
+  },
+  {
+    "id": "SBG-2026-002",
+    "namaPesantren": "PP. Al-Hidayah Demak",
+    "namaPengasuh": "KH. Nurul Huda",
+    "kontakWa": "081234567890",
+    "kecamatan": "Mranggen",
+    "alamat": "Jl. Raya Mranggen No. 12",
+    "jumlahSantri": "350",
+    "tanggalRencana": "2026-12-01",
+    "fokusPrioritas": "Pilar 1 & 4",
+    "catatanTambahan": "Hasil asesmen mandiri skor 65%.",
+    "status": "Menunggu Verifikasi Tim Satgas",
+    "waktuPengajuan": "2026-11-03T07:41:36.746Z"
+  }
+]

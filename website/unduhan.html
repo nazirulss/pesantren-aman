@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pusat Unduhan Field Kit v1.0 & Generator SOP — PESANTREN AMAN | RMI NU Demak</title>
+  <meta name="description" content="Pusat unduhan resmi Field Kit v1.0 Pesantren Aman: Modul Fasilitator PR-01, Kartu Kasus PR-04, Checklist Pemetaan 5 Pilar, Pembaca Dokumen di Web, dan Generator Piagam/SOP Instan.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="manifest" href="/manifest.json">
+  
+    <!-- CSS Fonts & Brand Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/brand/tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pa-primary': '#145A42',
+            'pa-primary-dark': '#0E3D2D',
+            'pa-secondary': '#23966B',
+            'pa-gold': '#C7A45B',
+            'pa-gold-dark': '#9E7D37',
+            'pa-paper': '#FAF8F5',
+            'pa-ink': '#1A2420',
+            'pa-border': '#DDE5E0',
+          },
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            body: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            editorial: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    @media print {
+      /* Reset halaman cetak standar A4 */
+      @page {
+        size: A4 portrait;
+        margin: 12mm 15mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      /* Sembunyikan elemen navigasi, topbar, filter, dan footer */
+      .topbar-nav,
+      .site-header,
+      section.bg-\[\#145A42\],
+      #katalog-section,
+      .border-b.border-pa-border,
+      #doc-generator-form,
+      .lg\:col-span-5,
+      #btn-cetak-generator,
+      #btn-salin-generator,
+      footer,
+      #toast-container,
+      .no-print {
+        display: none !important;
+      }
+
+      /* Layout Cetak Khusus Generator Dokumen */
+      body.printing-generator main,
+      body:not(.printing-reader) main {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+      }
+      body.printing-generator #generator-section,
+      body:not(.printing-reader) #generator-section {
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      body.printing-generator .lg\:col-span-7,
+      body:not(.printing-reader) .lg\:col-span-7 {
+        width: 100% !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      body.printing-generator #gen-preview-content,
+      body:not(.printing-reader) #gen-preview-content {
+        width: 100% !important;
+        margin: 0 auto !important;
+      }
+      body.printing-generator #gen-preview-content > div,
+      body:not(.printing-reader) #gen-preview-content > div {
+        border: 4px solid #8C6D1F !important;
+        background: #ffffff !important;
+        padding: 20mm 15mm !important;
+        page-break-inside: avoid !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      /* Layout Cetak Khusus Modal Document Reader */
+      body.printing-reader main,
+      body.printing-reader #generator-section {
+        display: none !important;
+      }
+      body.printing-reader #doc-reader-modal {
+        display: block !important;
+        position: static !important;
+        width: 100% !important;
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+      body.printing-reader .reader-overlay,
+      body.printing-reader #close-doc-reader,
+      body.printing-reader .p-3\.5.bg-white.border-t,
+      body.printing-reader .border-t {
+        display: none !important;
+      }
+      body.printing-reader #reader-doc-body {
+        padding: 0 !important;
+        background: #ffffff !important;
+        font-size: 11pt !important;
+      }
+      body.printing-reader #reader-doc-body > div {
+        border: 1px solid #cccccc !important;
+        page-break-inside: avoid !important;
+        margin-bottom: 5mm !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-pa-paper text-pa-ink font-body antialiased selection:bg-[#E8F3EE] selection:text-pa-primary">
+
+  <!-- TOPBAR RINGKAS -->
+  <div class="topbar-nav bg-[#0E3D2D] text-white text-xs border-b border-[#1C5340]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex justify-between items-center">
+      <div class="flex items-center gap-2 text-emerald-100 font-medium tracking-wide">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-pa-gold"></span>
+        <span>PC RMI NU KABUPATEN DEMAK — SATGAS PERLINDUNGAN SANTRI</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-emerald-200/90 text-xs">
+        <span>Hotline: <strong class="text-white font-mono">+62 812-3456-7890</strong></span>
+        <span class="text-emerald-600">|</span>
+        <span>Gedung PCNU Demak</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR LEGA -->
+  <!-- NAVBAR DENGAN DROPDOWN ELEGAN -->
+  <header class="site-header sticky top-0 z-40 bg-white shadow-sm border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-2 sm:py-2.5">
+        <a href="/" class="flex items-center">
+          <img src="/logo-utama.png" alt="Logo Resmi PESANTREN AMAN - RMI NU" class="h-11 sm:h-14 md:h-16 w-auto object-contain">
+        </a>
+
+        <!-- Desktop Navigation dengan Dropdown -->
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-6 text-[13px] font-semibold text-gray-700">
+          <a href="/" class="hover:text-pa-primary transition-colors">Beranda</a>
+
+          <!-- Dropdown 1: Tentang Gerakan -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 hover:text-pa-primary py-2 transition-colors">
+              <span>Tentang Kami</span>
+              <svg class="w-3.5 h-3.5 text-gray-400 group-hover:text-pa-primary transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block w-56 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 divide-y divide-gray-50 text-xs font-medium">
+                <a href="/tentang" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Profil Gerakan & RMI NU</strong>
+                  <span class="text-xs text-gray-500 font-sans">Visi, misi, dan struktur Satgas</span>
+                </a>
+                <a href="/mitra" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Mitra & Kolaborasi</strong>
+                  <span class="text-xs text-gray-500 font-sans">Jejaring PPA Polres, Dinsos, LPBH</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 2: Program Sambang -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 hover:text-pa-primary py-2 transition-colors">
+              <span>Program Sambang</span>
+              <svg class="w-3.5 h-3.5 text-gray-400 group-hover:text-pa-primary transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block w-60 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 divide-y divide-gray-50 text-xs font-medium">
+                <a href="/sambang" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Alur Sambang 120 Menit</strong>
+                  <span class="text-xs text-gray-500 font-sans">Metodologi sowan & simulasi kasus</span>
+                </a>
+                <a href="/lima-pilar" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">5 Pilar Perlindungan</strong>
+                  <span class="text-xs text-gray-500 font-sans">Standar instrumen pengasuhan aman</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 3: Pusat Edukasi & Media (Active) -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 text-pa-primary border-b-2 border-pa-primary pb-0.5 py-2 font-bold">
+              <span>Edukasi & Media</span>
+              <svg class="w-3.5 h-3.5 text-pa-primary transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block w-64 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 divide-y divide-gray-50 text-xs font-medium">
+                <a href="/unduhan" class="block px-4 py-2 bg-emerald-50 text-pa-primary transition-colors">
+                  <strong class="block font-bold">Field Kit v1.0 (PDF)</strong>
+                  <span class="text-xs text-emerald-700 font-sans">Modul, instrumen PR-01 s.d PR-06</span>
+                </a>
+                <a href="/asesmen" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Asesmen Mandiri 5 Menit</strong>
+                  <span class="text-xs text-amber-700 font-sans">Cek kesiapan perlindungan santri</span>
+                </a>
+                <a href="/media" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Video & Materi Kampanye</strong>
+                  <span class="text-xs text-emerald-700 font-sans">Infografis, template medsos & video</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/perkembangan" class="hover:text-pa-primary transition-colors">Perkembangan</a>
+          <a href="/kabar" class="hover:text-pa-primary transition-colors">Warta</a>
+          <a href="/kontak" class="hover:text-pa-primary transition-colors">Kontak</a>
+        </nav>
+
+        <div class="hidden lg:flex items-center">
+          <a href="/kontak" class="btn-primary text-xs py-2 px-4 shadow-sm whitespace-nowrap">
+            Ajukan Sambang
+          </a>
+        </div>
+
+        <div class="lg:hidden flex items-center">
+          <button id="mobile-menu-btn" type="button" class="p-2 rounded border border-gray-200 text-gray-700 hover:bg-gray-50 focus:outline-none" aria-label="Menu Mobile">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-3 pb-6 space-y-3">
+      <div class="space-y-1">
+        <a href="/" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Beranda</a>
+        <a href="/tentang" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Profil & Struktur RMI NU</a>
+        <a href="/mitra" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Mitra & SOP Alur Rujukan</a>
+        <a href="/sambang" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Alur Sambang 120 Menit</a>
+        <a href="/lima-pilar" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">5 Pilar Perlindungan Santri</a>
+        <a href="/unduhan" class="block px-3 py-2 text-sm font-bold text-pa-primary bg-emerald-50 rounded">Pusat Unduhan Field Kit</a>
+        <a href="/asesmen" class="block px-3 py-2 text-sm font-medium text-amber-800 bg-amber-50/60 rounded">Asesmen Mandiri 5 Menit</a>
+        <a href="/media" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Video & Media Kampanye</a>
+        <a href="/perkembangan" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Perkembangan Gerakan (14 Kec)</a>
+        <a href="/kabar" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Warta & Dokumentasi</a>
+        <a href="/kontak" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Kontak & Permohonan</a>
+      </div>
+      <div class="pt-2">
+        <a href="/kontak" class="btn-primary w-full text-center text-xs py-2.5 block">
+          Ajukan Jadwal Sambang Pesantren
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="bg-[#145A42] text-white py-8 sm:py-10 border-b-2 border-pa-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="doc-badge bg-[#0E3D2D] text-emerald-200 border-emerald-700">Katalog Terbuka & Generator v1.0</span>
+        <h1 class="text-2xl sm:text-3xl font-bold font-display text-white mt-1.5">
+          Pusat Unduhan Field Kit & Generator SOP
+        </h1>
+        <p class="text-emerald-100 text-xs sm:text-sm mt-1 leading-relaxed font-sans">
+          Seluruh modul panduan fasilitator, kartu simulasi kasus, instrumen asesmen, serta generator piagam komitmen & draf SOP pengasuhan disediakan gratis untuk kemaslahatan pondok pesantren.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CATALOG & GENERATOR SECTION -->
+  <main class="py-8 sm:py-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    
+    <!-- SUBNAV TABS ANTARA KATALOG & GENERATOR -->
+    <div class="flex items-center gap-2 border-b border-pa-border pb-3">
+      <a href="#katalog-section" class="px-3.5 py-1.5 rounded text-xs font-bold bg-pa-primary text-white shadow-sm">
+        Katalog Dokumen Field Kit
+      </a>
+      <a href="#generator-section" class="px-3.5 py-1.5 rounded text-xs font-semibold bg-white text-gray-700 border border-gray-300 hover:border-pa-primary hover:text-pa-primary transition-colors flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-pa-gold inline-block"></span>
+        <span>Generator Piagam & SOP Instan</span>
+      </a>
+    </div>
+
+    <!-- BAGIAN 1: KATALOG DOKUMEN -->
+    <section id="katalog-section" class="space-y-6">
+      
+      <!-- Filter Bar & Search -->
+      <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 pb-3 border-b border-gray-200">
+        
+        <!-- Category Tabs -->
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+          <button class="filter-btn px-3 py-1 rounded text-xs font-bold bg-pa-primary text-white" data-filter="all">
+            Semua Dokumen
+          </button>
+          <button class="filter-btn px-3 py-1 rounded text-xs font-semibold bg-white text-gray-700 border border-gray-300 hover:bg-gray-50" data-filter="modul">
+            Modul Fasilitator
+          </button>
+          <button class="filter-btn px-3 py-1 rounded text-xs font-semibold bg-white text-gray-700 border border-gray-300 hover:bg-gray-50" data-filter="kartu">
+            Kartu Kasus
+          </button>
+          <button class="filter-btn px-3 py-1 rounded text-xs font-semibold bg-white text-gray-700 border border-gray-300 hover:bg-gray-50" data-filter="instrumen">
+            Instrumen & Checklist
+          </button>
+          <button class="filter-btn px-3 py-1 rounded text-xs font-semibold bg-white text-gray-700 border border-gray-300 hover:bg-gray-50" data-filter="poster">
+            Poster & Media
+          </button>
+        </div>
+
+        <!-- Keyword Search -->
+        <div class="relative w-full md:w-60">
+          <input 
+            type="text" 
+            id="search-unduhan" 
+            placeholder="Cari perangkat..." 
+            class="w-full pl-8 pr-3 py-1 text-xs rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white"
+          >
+          <svg class="w-3.5 h-3.5 text-gray-400 absolute left-2.5 top-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+
+      </div>
+
+      <!-- Grid Dokumen -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="download-grid">
+
+        <!-- PR-01 -->
+        <div class="download-item bg-white p-4 sm:p-5 rounded-2xl border border-pa-border flex flex-col justify-between shadow-xs hover:border-emerald-400 hover:shadow-md transition-all" data-category="modul">
+          <div>
+            <div class="flex items-center justify-between pb-1.5 border-b border-gray-100 mb-2.5">
+              <span class="font-mono font-bold text-xs text-pa-primary">PR-01</span>
+              <span class="text-xs text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-mono font-bold">PDF Resmi</span>
+            </div>
+            <h3 class="download-title text-sm sm:text-base font-bold font-sans text-gray-900 leading-snug mb-1.5">
+              Modul Fasilitator Sambang Pesantren
+            </h3>
+            <p class="download-desc text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+              Panduan operasional alur fasilitasi 120 menit: etika sowan pengasuh, dialog 5 pertanyaan kunci, simulasi kartu kasus, dan penyerahan piagam komitmen.
+            </p>
+          </div>
+          <div class="pt-2.5 mt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+            <button type="button" data-read-doc="PR-01" class="btn-primary text-xs py-1.5 px-3 flex items-center gap-1.5 font-semibold shadow-xs cursor-pointer">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+              <span>Baca di Web</span>
+            </button>
+            <a href="/perangkat-lapangan/01-modul-fasilitator/PR-01_MODUL_FASILITATOR_SAMBANG_PESANTREN.pdf" download="Modul_Fasilitator_Sambang_Pesantren_PESANTREN_AMAN.pdf" class="btn-secondary text-xs py-1.5 px-2.5 text-gray-700 hover:text-pa-primary flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+              <span>Unduh PDF</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- PR-02 -->
+        <div class="download-item bg-white p-4 sm:p-5 rounded-2xl border border-pa-border flex flex-col justify-between shadow-xs hover:border-emerald-400 hover:shadow-md transition-all" data-category="kartu">
+          <div>
+            <div class="flex items-center justify-between pb-1.5 border-b border-gray-100 mb-2.5">
+              <span class="font-mono font-bold text-xs text-pa-primary">PR-02</span>
+              <span class="text-xs text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-mono font-bold">PDF Resmi</span>
+            </div>
+            <h3 class="download-title text-sm sm:text-base font-bold font-sans text-gray-900 leading-snug mb-1.5">
+              Kartu Percakapan 5 Pertanyaan Kunci
+            </h3>
+            <p class="download-desc text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+              Pemantik dialog reflektif serambi ndalem: siapa santri rentan yang dilindungi, pola asuh tanpa kekerasan, tanggung jawab kamar, dan kanal aduan aman.
+            </p>
+          </div>
+          <div class="pt-2.5 mt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+            <button type="button" data-read-doc="PR-02" class="btn-primary text-xs py-1 px-3 flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+              Baca di Web
+            </button>
+            <a href="/perangkat-lapangan/02-kartu-kasus-dan-percakapan/PR-02_KARTU_PERCAKAPAN_5_PERTANYAAN.pdf" download class="btn-secondary text-xs py-1 px-2.5 text-gray-700 hover:text-pa-primary flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+              Unduh PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- PR-03 -->
+        <div class="download-item bg-white p-4 sm:p-5 rounded-2xl border border-pa-border flex flex-col justify-between shadow-xs hover:border-emerald-400 hover:shadow-md transition-all" data-category="kartu">
+          <div>
+            <div class="flex items-center justify-between pb-1.5 border-b border-gray-100 mb-2.5">
+              <span class="font-mono font-bold text-xs text-pa-primary">PR-03</span>
+              <span class="text-xs text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-mono font-bold">PDF Resmi</span>
+            </div>
+            <h3 class="download-title text-sm sm:text-base font-bold font-sans text-gray-900 leading-snug mb-1.5">
+              Kumpulan Kartu Simulasi Kasus Nyata
+            </h3>
+            <p class="download-desc text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+              5 skenario nyata: senioritas kamar, hukuman fisik santri kabur, pengucilan asrama putri, pengaduan pelecehan seksual, dan komplain wali santri.
+            </p>
+          </div>
+          <div class="pt-2.5 mt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+            <button type="button" data-read-doc="PR-03" class="btn-primary text-xs py-1 px-3 flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+              Baca di Web
+            </button>
+            <a href="/perangkat-lapangan/02-kartu-kasus-dan-percakapan/PR-03_KARTU_SIMULASI_KASUS.pdf" download class="btn-secondary text-xs py-1 px-2.5 text-gray-700 hover:text-pa-primary flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+              Unduh PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- PR-04 -->
+        <div class="download-item bg-white p-4 sm:p-5 rounded-2xl border border-pa-border flex flex-col justify-between shadow-xs hover:border-emerald-400 hover:shadow-md transition-all" data-category="instrumen">
+          <div>
+            <div class="flex items-center justify-between pb-1.5 border-b border-gray-100 mb-2.5">
+              <span class="font-mono font-bold text-xs text-pa-primary">PR-04</span>
+              <span class="text-xs text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-mono font-bold">PDF Resmi</span>
+            </div>
+            <h3 class="download-title text-sm sm:text-base font-bold font-sans text-gray-900 leading-snug mb-1.5">
+              Checklist Pemetaan Mandiri 5 Pilar
+            </h3>
+            <p class="download-desc text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+              15 indikator terukur untuk memetakan kepatuhan regulasi, tata tertib pengasuhan, kotak curhat santri, dan pembagian tanggung jawab ustadz pembina.
+            </p>
+          </div>
+          <div class="pt-2.5 mt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+            <button type="button" data-read-doc="PR-04" class="btn-primary text-xs py-1 px-3 flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+              Baca di Web
+            </button>
+            <a href="/perangkat-lapangan/03-instrumen-pemetaan-dan-rencana-aksi/PR-04_CHECKLIST_PEMETAAN_5_PILAR.pdf" download class="btn-secondary text-xs py-1 px-2.5 text-gray-700 hover:text-pa-primary flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+              Unduh PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- PR-05 -->
+        <div class="download-item bg-white p-4 sm:p-5 rounded-2xl border border-pa-border flex flex-col justify-between shadow-xs hover:border-emerald-400 hover:shadow-md transition-all" data-category="instrumen">
+          <div>
+            <div class="flex items-center justify-between pb-1.5 border-b border-gray-100 mb-2.5">
+              <span class="font-mono font-bold text-xs text-pa-primary">PR-05</span>
+              <span class="text-xs text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-mono font-bold">PDF Resmi</span>
+            </div>
+            <h3 class="download-title text-sm sm:text-base font-bold font-sans text-gray-900 leading-snug mb-1.5">
+              Formulir Rencana Aksi 90 Hari
+            </h3>
+            <p class="download-desc text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+              Format penetapan target komitmen "Satu Pesantren, Satu Perubahan Nyata". Menentukan ustadz penanggung jawab, jadwal target, dan evaluasi hasil triwulan.
+            </p>
+          </div>
+          <div class="pt-2.5 mt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+            <button type="button" data-read-doc="PR-05" class="btn-primary text-xs py-1 px-3 flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+              Baca di Web
+            </button>
+            <a href="/perangkat-lapangan/03-instrumen-pemetaan-dan-rencana-aksi/PR-05_FORM_RENCANA_AKSI_90_HARI.pdf" download class="btn-secondary text-xs py-1 px-2.5 text-gray-700 hover:text-pa-primary flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+              Unduh PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- PR-06 -->
+        <div class="download-item bg-white p-4 sm:p-5 rounded-2xl border border-pa-border flex flex-col justify-between shadow-xs hover:border-emerald-400 hover:shadow-md transition-all" data-category="instrumen">
+          <div>
+            <div class="flex items-center justify-between pb-1.5 border-b border-gray-100 mb-2.5">
+              <span class="font-mono font-bold text-xs text-pa-primary">PR-06</span>
+              <span class="text-xs text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-mono font-bold">PDF Resmi</span>
+            </div>
+            <h3 class="download-title text-sm sm:text-base font-bold font-sans text-gray-900 leading-snug mb-1.5">
+              Piagam Komitmen Pesantren Mitra
+            </h3>
+            <p class="download-desc text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+              Naskah piagam deklarasi kesediaan pimpinan pesantren bersama PC RMI NU Demak untuk mewujudkan lingkungan pendidikan aman dan bermartabat.
+            </p>
+          </div>
+          <div class="pt-2.5 mt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+            <button type="button" data-read-doc="PR-06" class="btn-primary text-xs py-1 px-3 flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+              Baca di Web
+            </button>
+            <a href="/perangkat-lapangan/04-piagam-dan-administrasi/PR-06_PIAGAM_KOMITMEN.pdf" download class="btn-secondary text-xs py-1 px-2.5 text-gray-700 hover:text-pa-primary flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5 text-red-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/></svg>
+              Unduh PDF
+            </a>
+          </div>
+        </div>
+
+      
+        <!-- POSTER-01 -->
+        <div class="download-item bg-white p-4 sm:p-5 rounded-2xl border border-pa-border flex flex-col justify-between shadow-xs hover:border-emerald-400 hover:shadow-md transition-all" data-category="poster">
+          <div>
+            <div class="flex items-center justify-between pb-1.5 border-b border-gray-100 mb-2.5">
+              <span class="font-sans font-bold text-xs text-pa-primary bg-emerald-50 px-2 py-0.5 rounded">POSTER-01</span>
+              <span class="text-xs text-amber-800 bg-amber-50 px-2 py-0.5 rounded font-sans font-bold">Siap Cetak A3/A4</span>
+            </div>
+            <h3 class="download-title text-sm sm:text-base font-bold font-sans text-gray-900 leading-snug mb-1.5">
+              Poster Aturan Kamar Bebas Bullying &amp; Adab Santri
+            </h3>
+            <p class="download-desc text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+              Poster infografis dinding resolusi tinggi (300 DPI) untuk asrama santri: tata tertib kamar anti-perundungan, adab persaudaraan santri, dan sanksi edukatif terukur.
+            </p>
+          </div>
+          <div class="pt-2.5 mt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+            <a href="/media#poster-kamar" class="btn-primary text-xs py-1.5 px-3 flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              <span>Lihat di Media</span>
+            </a>
+            <a href="/media-dan-kampanye/01-template-media-sosial/template-feed-carousel-slide1.svg" download="Poster-Aturan-Kamar-Pesantren-Aman.svg" class="btn-secondary text-xs py-1.5 px-2.5 text-gray-700 hover:text-pa-primary flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Unduh Vektor</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- POSTER-02 -->
+        <div class="download-item bg-white p-4 sm:p-5 rounded-2xl border border-pa-border flex flex-col justify-between shadow-xs hover:border-emerald-400 hover:shadow-md transition-all" data-category="poster">
+          <div>
+            <div class="flex items-center justify-between pb-1.5 border-b border-gray-100 mb-2.5">
+              <span class="font-sans font-bold text-xs text-pa-primary bg-emerald-50 px-2 py-0.5 rounded">POSTER-02</span>
+              <span class="text-xs text-amber-800 bg-amber-50 px-2 py-0.5 rounded font-sans font-bold">Siap Cetak A3/A4</span>
+            </div>
+            <h3 class="download-title text-sm sm:text-base font-bold font-sans text-gray-900 leading-snug mb-1.5">
+              Poster Penanda Kotak Curhat &amp; Kanal Konseling Rahasia
+            </h3>
+            <p class="download-desc text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+              Panduan visual penempelan di dekat kotak aduan asrama putri &amp; putra. Memuat alur kerahasiaan pelaporan, pendampingan konseling ustadzah, dan hotline Satgas.
+            </p>
+          </div>
+          <div class="pt-2.5 mt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+            <a href="/media#poster-curhat" class="btn-primary text-xs py-1.5 px-3 flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              <span>Lihat di Media</span>
+            </a>
+            <a href="/media-dan-kampanye/01-template-media-sosial/template-story-whatsapp-instagram.svg" download="Poster-Kotak-Curhat-Pesantren-Aman.svg" class="btn-secondary text-xs py-1.5 px-2.5 text-gray-700 hover:text-pa-primary flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Unduh Vektor</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- POSTER-03 -->
+        <div class="download-item bg-white p-4 sm:p-5 rounded-2xl border border-pa-border flex flex-col justify-between shadow-xs hover:border-emerald-400 hover:shadow-md transition-all" data-category="poster">
+          <div>
+            <div class="flex items-center justify-between pb-1.5 border-b border-gray-100 mb-2.5">
+              <span class="font-sans font-bold text-xs text-pa-primary bg-emerald-50 px-2 py-0.5 rounded">POSTER-03</span>
+              <span class="text-xs text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded font-sans font-bold">Infografis Resmi</span>
+            </div>
+            <h3 class="download-title text-sm sm:text-base font-bold font-sans text-gray-900 leading-snug mb-1.5">
+              Infografis Bagan 5 Pilar Ekosistem Pesantren Aman
+            </h3>
+            <p class="download-desc text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+              Diagram alur komprehensif 5 pilar perlindungan santri (Ta'dib Nabawi, Harmonisasi Fiqih, SOP Asrama, Kanal Rahasia, dan Rujukan Eksternal) siap tempel di kantor pengurus.
+            </p>
+          </div>
+          <div class="pt-2.5 mt-3 border-t border-gray-100 flex items-center justify-between gap-2">
+            <a href="/lima-pilar" class="btn-primary text-xs py-1.5 px-3 flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+              <span>Pelajari 5 Pilar</span>
+            </a>
+            <a href="/media#poster-infografis" class="btn-secondary text-xs py-1.5 px-2.5 text-gray-700 hover:text-pa-primary flex items-center gap-1 font-semibold">
+              <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Buka Galeri Media</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- BAGIAN 2: GENERATOR DRAF PIAGAM & SOP PENGASUHAN INSTAN -->
+    <section id="generator-section" class="bg-white rounded border border-pa-border p-6 sm:p-8 shadow-sm space-y-6">
+      
+      <div class="border-b border-gray-200 pb-3">
+        <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-300 text-xs text-pa-primary font-mono uppercase tracking-wider mb-1">
+          <span>✦ Generator Dokumen Resmi Instan</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl font-bold font-display text-pa-ink">
+          Generator Draf Piagam Komitmen & SOP Pengasuhan
+        </h2>
+        <p class="text-xs text-gray-600 font-sans mt-0.5 leading-relaxed">
+          Ketik identitas pondok pesantren Anda di bawah ini untuk menghasilkan draf siap cetak Piagam Komitmen Pesantren Mitra atau Standar Operasional Prosedur (SOP) Ta’dib Nabawi.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <!-- Kolom Form Input (5 Kolom) -->
+        <div class="lg:col-span-5 space-y-3.5 bg-pa-paper p-5 rounded border border-gray-200 text-xs">
+          <form id="doc-generator-form" class="space-y-3">
+            
+            <div>
+              <label for="gen-doc-type" class="block font-bold text-gray-700 uppercase tracking-wider mb-1">
+                Pilih Jenis Dokumen:
+              </label>
+              <select id="gen-doc-type" class="w-full px-3 py-2 text-xs rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+                <option value="piagam" selected>Piagam Komitmen Pesantren Mitra (PR-06)</option>
+                <option value="sop">SOP Penegakan Disiplin Tanpa Kekerasan (SOP-01)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="gen-nama-pesantren" class="block font-bold text-gray-700 uppercase tracking-wider mb-1">
+                Nama Pondok Pesantren:
+              </label>
+              <input 
+                type="text" 
+                id="gen-nama-pesantren" 
+                value="Pondok Pesantren Al-Fattahiyyah"
+                class="w-full px-3 py-2 text-xs rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white"
+              >
+            </div>
+
+            <div>
+              <label for="gen-nama-pengasuh" class="block font-bold text-gray-700 uppercase tracking-wider mb-1">
+                Nama Pengasuh / Pimpinan:
+              </label>
+              <input 
+                type="text" 
+                id="gen-nama-pengasuh" 
+                value="KH. Ahmad Fauzi"
+                class="w-full px-3 py-2 text-xs rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white"
+              >
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label for="gen-kecamatan" class="block font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  Kecamatan:
+                </label>
+                <select id="gen-kecamatan" class="w-full px-3 py-2 text-xs rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white">
+                  <option value="Mranggen" selected>Mranggen</option>
+                  <option value="Demak Kota">Demak Kota</option>
+                  <option value="Bonang">Bonang</option>
+                  <option value="Dempet">Dempet</option>
+                  <option value="Gajah">Gajah</option>
+                  <option value="Guntur">Guntur</option>
+                  <option value="Karanganyar">Karanganyar</option>
+                  <option value="Karangawen">Karangawen</option>
+                  <option value="Karangtengah">Karangtengah</option>
+                  <option value="Kebonagung">Kebonagung</option>
+                  <option value="Mijen">Mijen</option>
+                  <option value="Sayung">Sayung</option>
+                  <option value="Wedung">Wedung</option>
+                  <option value="Wonosalam">Wonosalam</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="gen-nsp" class="block font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  NSP (Opsional):
+                </label>
+                <input 
+                  type="text" 
+                  id="gen-nsp" 
+                  value="510033210000"
+                  class="w-full px-3 py-2 text-xs rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white font-mono"
+                >
+              </div>
+            </div>
+
+          </form>
+
+          <div class="pt-3 border-t border-gray-200 flex flex-wrap gap-2">
+            <button type="button" id="btn-cetak-generator" class="btn-primary flex-1 text-xs py-2 px-3 flex items-center justify-center gap-1.5 font-bold">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+              </svg>
+              Cetak / Simpan PDF
+            </button>
+            <button type="button" id="btn-salin-generator" class="btn-secondary text-xs py-2 px-3 text-gray-700 hover:text-pa-primary">
+              Salin Naskah
+            </button>
+          </div>
+        </div>
+
+        <!-- Kolom Live Preview (7 Kolom) -->
+        <div class="lg:col-span-7 bg-white rounded border border-gray-300 shadow-sm p-4 sm:p-6 overflow-hidden">
+          <div class="flex items-center justify-between pb-2 mb-3 border-b border-gray-100 text-xs text-gray-500 font-mono">
+            <span>TAMPILAN PRATINJAU LANGSUNG (LIVE PREVIEW)</span>
+            <span class="text-pa-primary font-bold">Resmi PC RMI NU</span>
+          </div>
+          <div id="gen-preview-content">
+            <!-- Rendered by main.js -->
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= IN-BROWSER DOCUMENT READER MODAL ================= -->
+  <div id="doc-reader-modal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
+    <div class="reader-overlay absolute inset-0"></div>
+    <div class="relative w-full max-w-6xl h-[95vh] sm:h-[96vh] bg-white rounded-2xl shadow-2xl border border-emerald-900/40 overflow-hidden flex flex-col z-10">
+      
+      <!-- Compact Header Modal (1 Baris Ramping, Maksimalkan Area PDF) -->
+      <div class="bg-[#145A42] text-white px-4 py-2.5 flex items-center justify-between border-b-2 border-pa-gold shrink-0">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <span id="reader-doc-code" class="px-2 py-0.5 rounded bg-[#0E3D2D] border border-emerald-600 text-xs font-mono font-bold text-pa-gold shrink-0">
+            PR-01
+          </span>
+          <h3 id="reader-doc-title" class="text-xs sm:text-sm font-bold font-sans text-white truncate">
+            Judul Dokumen
+          </h3>
+          <span id="reader-doc-category" class="hidden md:inline-block text-[11px] text-emerald-200/90 font-sans border-l border-emerald-700/80 pl-2.5 shrink-0">
+            Modul Lapangan
+          </span>
+          <span id="reader-doc-duration" class="hidden lg:inline-block text-[11px] text-emerald-300/80 font-sans">
+            120 Menit Alur Fasilitasi
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <a id="reader-doc-download-btn" href="#" download class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded bg-emerald-800/80 hover:bg-emerald-700 text-[11px] text-emerald-100 font-sans font-semibold transition-colors">
+            <svg class="w-3.5 h-3.5 text-pa-gold" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+            <span>Unduh PDF</span>
+          </a>
+          <button id="close-doc-reader" type="button" class="text-emerald-200 hover:text-white p-1 rounded-lg hover:bg-emerald-800/80 transition-colors focus:outline-none" aria-label="Tutup modal">
+            <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Isi Dokumen (Full Height & Full Width, 1 Halaman Utuh Tanpa Terpotong) -->
+      <div id="reader-doc-body" class="p-0 flex-1 w-full h-full overflow-hidden bg-gray-100 flex flex-col">
+        <!-- Injected via JavaScript (iframe full height) -->
+      </div>
+
+      <!-- Footer Minimalis (Tombol cetak & salin dihapus karena sudah ada di viewer PDF) -->
+      <div class="px-4 py-2 bg-white border-t border-gray-200 flex items-center justify-between gap-3 text-xs shrink-0">
+        <span class="text-[11px] text-gray-500 font-sans hidden sm:inline">
+          💡 Gunakan toolbar kontrol di dalam PDF untuk mencetak, memperbesar, atau menyimpan halaman dokumen.
+        </span>
+        <div class="flex items-center gap-2 ml-auto">
+          <button type="button" id="btn-close-reader-bottom" class="px-3 py-1 rounded border border-gray-300 text-gray-700 hover:bg-gray-50 font-sans text-xs">
+            Tutup
+          </button>
+          <a href="/kontak" class="btn-primary py-1 px-3.5 text-xs font-bold whitespace-nowrap">
+            Konsultasikan Sambang →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <!-- INSTITUTIONAL FOOTER -->
+  <footer class="bg-[#092B20] text-emerald-100/90 text-xs border-t border-emerald-900/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="space-y-3 md:col-span-1">
+          <img src="/logo-utama.png" alt="Logo Pesantren Aman" class="h-14 w-auto brightness-110">
+          <p class="text-xs leading-relaxed text-emerald-200/80 font-sans">
+            Gerakan Penguatan Sistem Perlindungan Santri di bawah naungan Pengurus Cabang Rabithah Ma’ahid Islamiyah (PC RMI) Nahdlatul Ulama Kabupaten Demak.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-white font-display font-bold uppercase text-xs tracking-wider text-pa-gold">Navigasi Program</h4>
+          <ul class="space-y-1.5 text-xs">
+            <li><a href="/sambang" class="hover:text-white transition-colors">Program Sambang 120 Menit</a></li>
+            <li><a href="/lima-pilar" class="hover:text-white transition-colors">5 Pilar Perlindungan</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Mitra & Kolaborasi Strategis</a></li>
+            <li><a href="/media" class="hover:text-white transition-colors">Video & Galeri Media</a></li>
+            <li><a href="/unduhan" class="hover:text-white transition-colors">Pusat Unduhan Field Kit (PDF)</a></li>
+            <li><a href="/perkembangan" class="hover:text-white transition-colors">Peta Sebaran 14 Kecamatan</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-white font-display font-bold uppercase text-xs tracking-wider text-pa-gold">Jejaring Mitra</h4>
+          <ul class="space-y-1.5 text-xs">
+            <li><a href="/mitra" class="hover:text-white transition-colors">Unit PPA Satreskrim Polres Demak</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Dinas Sosial P2PA Kab. Demak</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Kementerian Agama Kab. Demak</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Lembaga Penyuluhan Bantuan Hukum NU</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">14 MWC NU se-Kabupaten Demak</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-white font-display font-bold uppercase text-xs tracking-wider text-pa-gold">Sekretariat Satgas</h4>
+          <p class="text-xs text-emerald-200/80 leading-relaxed font-sans">
+            Gedung PCNU Kabupaten Demak<br>
+            Jl. Sultan Fatah No. 83, Demak, Jawa Tengah 59511
+          </p>
+          <p class="text-xs font-mono text-pa-gold">
+            Hotline Satgas: +62 812-3456-7890
+          </p>
+          <div class="pt-2">
+            <a href="/admin" class="text-xs text-emerald-400/70 hover:text-emerald-200 underline font-mono">
+              Portal Khusus Fasilitator Satgas →
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-emerald-900/60 flex flex-col sm:flex-row justify-between items-center text-xs text-emerald-300/70">
+        <p>© 2026 PC RMI NU Kabupaten Demak. Khidmah Menjaga Amanah Santri.</p>
+        <p class="mt-2 sm:mt-0 font-sans italic">"Menjaga Amanah, Melindungi Santri, Memuliakan Pesantren."</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

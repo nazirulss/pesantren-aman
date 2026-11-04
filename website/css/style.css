@@ -1,0 +1,212 @@
+/**
+ * PESANTREN AMAN — Stylesheet Utama
+ * Karakter: Berwibawa, Khas Pesantren, Bersih, Editorial & Institusional
+ * Menghindari ornamen sintetis / gradien mencolok (anti-AI slop)
+ */
+
+@import url('/brand/tokens.css');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;1,400;1,500&display=swap');
+
+:root {
+  --color-green-primary: #145A42;
+  --color-green-dark: #0E3D2D;
+  --color-green-deep: #092B20;
+  --color-green-subtle: #F0F6F3;
+  --color-gold-accent: #C7A45B;
+  --color-gold-dark: #9E7D37;
+  --color-gold-soft: #F9F5EC;
+  --color-paper: #FAF8F5;
+  --color-paper-card: #FFFFFF;
+  --color-ink-primary: #1A2420;
+  --color-ink-muted: #4A5B53;
+  --color-border-subtle: #DDE5E0;
+  --color-border-strong: #BDCDC4;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--color-ink-primary);
+  background-color: var(--color-paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6, .font-display {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-editorial {
+  font-family: 'Lora', Georgia, serif;
+}
+
+/* Institutional Header & Rule */
+.rule-gold {
+  height: 2px;
+  background: linear-gradient(90deg, #C7A45B 0%, rgba(199, 164, 91, 0.2) 100%);
+}
+
+.rule-double {
+  border-top: 3px double var(--color-border-strong);
+}
+
+/* Authentic Buttons: Solid, Resolute, Craft-focused */
+.btn-primary {
+  background-color: var(--color-green-primary);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-green-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.15s ease-in-out;
+}
+.btn-primary:hover {
+  background-color: var(--color-green-dark);
+  box-shadow: 0 2px 6px rgba(14, 61, 45, 0.18);
+}
+
+.btn-secondary {
+  background-color: #FFFFFF;
+  color: var(--color-green-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-border-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.15s ease-in-out;
+}
+.btn-secondary:hover {
+  background-color: var(--color-green-subtle);
+  border-color: var(--color-green-primary);
+}
+
+.btn-gold {
+  background-color: var(--color-gold-accent);
+  color: #12211A;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-gold-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.15s ease-in-out;
+}
+.btn-gold:hover {
+  background-color: #B59247;
+  color: #FFFFFF;
+}
+
+/* Institutional Frame Cards */
+.card-frame {
+  background-color: #FFFFFF;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(18, 38, 29, 0.04);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.card-frame:hover {
+  border-color: var(--color-green-primary);
+  box-shadow: 0 4px 12px rgba(18, 38, 29, 0.07);
+}
+
+/* Document Badge */
+.doc-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  background-color: var(--color-green-subtle);
+  color: var(--color-green-primary);
+  border: 1px solid rgba(20, 90, 66, 0.2);
+}
+
+/* Pillar Index Pill */
+.pillar-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.05em;
+}
+
+/* Quote Callout */
+.quote-box {
+  background-color: var(--color-gold-soft);
+  border-left: 3px solid var(--color-gold-accent);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 6px 6px 0;
+}
+
+/* Nav Clean */
+.site-header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* Table styling for clean institutional view */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+.data-table th {
+  background-color: var(--color-green-subtle);
+  color: var(--color-green-primary);
+  font-weight: 700;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--color-border-strong);
+}
+.data-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.data-table tr:hover td {
+  background-color: #FCFBF8;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  background-color: rgba(9, 43, 32, 0.65);
+}
+
+/* Toast */
+#toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.toast {
+  min-width: 280px;
+  max-width: 380px;
+  background: #FFFFFF;
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border-left: 4px solid var(--color-green-primary);
+  border-top: 1px solid var(--color-border-subtle);
+  border-right: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  animation: slideIn 0.2s ease-out forwards;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

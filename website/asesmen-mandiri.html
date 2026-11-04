@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asesmen Mandiri 5 Pilar — Ukur Kesiapan Pesantren | RMI NU Demak</title>
+  <meta name="description" content="Instrumen asesmen mandiri kesiapan sistem perlindungan santri berbasis 5 Pilar Pesantren Aman. Refleksi internal 5 menit untuk pengurus pondok pesantren se-Kabupaten Demak.">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <link rel="stylesheet" href="/brand/tokens.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'pa-primary': '#145A42',
+            'pa-primary-dark': '#0E3D2D',
+            'pa-secondary': '#23966B',
+            'pa-gold': '#C7A45B',
+            'pa-gold-dark': '#9E7D37',
+            'pa-paper': '#FAF8F5',
+            'pa-ink': '#1A2420',
+            'pa-border': '#DDE5E0',
+          },
+          fontFamily: {
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            editorial: ['Lora', 'Georgia', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    @media print {
+      body { background-color: #ffffff !important; font-size: 11pt; }
+      .no-print, header, footer, .topbar-nav, #btn-mulai-ulang { display: none !important; }
+      #hasil-asesmen-container { display: block !important; margin: 0; padding: 0; border: none !important; box-shadow: none !important; }
+      .print-kop { display: block !important; }
+    }
+    .print-kop { display: none; }
+  </style>
+</head>
+<body class="bg-pa-paper text-pa-ink font-body antialiased selection:bg-[#E8F3EE] selection:text-pa-primary">
+
+  <!-- TOPBAR RINGKAS -->
+  <div class="topbar-nav bg-[#0E3D2D] text-white text-[11px] border-b border-[#1C5340]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex justify-between items-center">
+      <div class="flex items-center gap-2 text-emerald-100 font-medium tracking-wide">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-pa-gold"></span>
+        <span>PC RMI NU KABUPATEN DEMAK — SATGAS PERLINDUNGAN SANTRI</span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-emerald-200/90 text-[11px]">
+        <span>Hotline: <strong class="text-white font-mono">+62 812-3456-7890</strong></span>
+        <span class="text-emerald-600">|</span>
+        <span>Gedung PCNU Demak</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR LEGA -->
+  <!-- NAVBAR DENGAN DROPDOWN ELEGAN -->
+  <header class="site-header sticky top-0 z-40 bg-white shadow-sm border-b border-gray-100 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-2 sm:py-2.5">
+        <a href="/" class="flex items-center">
+          <img src="/logo-utama.png" alt="Logo Resmi PESANTREN AMAN - RMI NU" class="h-11 sm:h-14 md:h-16 w-auto object-contain">
+        </a>
+
+        <!-- Desktop Navigation dengan Dropdown -->
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-6 text-[13px] font-semibold text-gray-700">
+          <a href="/" class="hover:text-pa-primary transition-colors">Beranda</a>
+
+          <!-- Dropdown 1: Tentang Gerakan -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 hover:text-pa-primary py-2 transition-colors">
+              <span>Tentang Kami</span>
+              <svg class="w-3.5 h-3.5 text-gray-400 group-hover:text-pa-primary transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block w-56 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 divide-y divide-gray-50 text-xs font-medium">
+                <a href="/tentang" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Profil Gerakan & RMI NU</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Visi, misi, dan struktur Satgas</span>
+                </a>
+                <a href="/mitra" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Mitra & Kolaborasi</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Jejaring PPA Polres, Dinsos, LPBH</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 2: Program Sambang -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 hover:text-pa-primary py-2 transition-colors">
+              <span>Program Sambang</span>
+              <svg class="w-3.5 h-3.5 text-gray-400 group-hover:text-pa-primary transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block w-60 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 divide-y divide-gray-50 text-xs font-medium">
+                <a href="/sambang" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Alur Sambang 120 Menit</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Metodologi sowan & simulasi kasus</span>
+                </a>
+                <a href="/lima-pilar" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">5 Pilar Perlindungan</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Standar instrumen pengasuhan aman</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dropdown 3: Pusat Edukasi & Media (Active) -->
+          <div class="relative group">
+            <button type="button" class="flex items-center gap-1 text-pa-primary border-b-2 border-pa-primary pb-0.5 py-2 font-bold">
+              <span>Edukasi & Media</span>
+              <svg class="w-3.5 h-3.5 text-pa-primary transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="absolute left-0 top-full pt-1 hidden group-hover:block w-64 z-50">
+              <div class="bg-white rounded-lg shadow-xl border border-gray-100 py-2 divide-y divide-gray-50 text-xs font-medium">
+                <a href="/unduhan" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Field Kit v1.0 (PDF)</strong>
+                  <span class="text-[10px] text-gray-500 font-editorial">Modul, instrumen PR-01 s.d PR-06</span>
+                </a>
+                <a href="/asesmen" class="block px-4 py-2 bg-emerald-50 text-pa-primary transition-colors">
+                  <strong class="block font-bold">Asesmen Mandiri 5 Menit</strong>
+                  <span class="text-[10px] text-amber-700 font-editorial">Cek kesiapan perlindungan santri</span>
+                </a>
+                <a href="/media" class="block px-4 py-2 hover:bg-emerald-50 hover:text-pa-primary text-gray-700 transition-colors">
+                  <strong class="block font-bold">Video & Materi Kampanye</strong>
+                  <span class="text-[10px] text-emerald-700 font-editorial">Infografis, template medsos & video</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/perkembangan" class="hover:text-pa-primary transition-colors">Perkembangan</a>
+          <a href="/kabar" class="hover:text-pa-primary transition-colors">Warta</a>
+          <a href="/kontak" class="hover:text-pa-primary transition-colors">Kontak</a>
+        </nav>
+
+        <div class="hidden lg:flex items-center">
+          <a href="/kontak" class="btn-primary text-xs py-2 px-4 shadow-sm whitespace-nowrap">
+            Ajukan Sambang
+          </a>
+        </div>
+
+        <div class="lg:hidden flex items-center">
+          <button id="mobile-menu-btn" type="button" class="p-2 rounded border border-gray-200 text-gray-700 hover:bg-gray-50 focus:outline-none" aria-label="Menu Mobile">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 px-4 pt-3 pb-6 space-y-3">
+      <div class="space-y-1">
+        <a href="/" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Beranda</a>
+        <a href="/tentang" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Profil & Struktur RMI NU</a>
+        <a href="/mitra" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Mitra & SOP Alur Rujukan</a>
+        <a href="/sambang" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Alur Sambang 120 Menit</a>
+        <a href="/lima-pilar" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">5 Pilar Perlindungan Santri</a>
+        <a href="/unduhan" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Pusat Unduhan Field Kit</a>
+        <a href="/asesmen" class="block px-3 py-2 text-sm font-bold text-amber-800 bg-amber-50 rounded">Asesmen Mandiri 5 Menit</a>
+        <a href="/media" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Video & Media Kampanye</a>
+        <a href="/perkembangan" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Perkembangan Gerakan (14 Kec)</a>
+        <a href="/kabar" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Warta & Dokumentasi</a>
+        <a href="/kontak" class="block px-3 py-2 text-sm font-medium text-gray-700 hover:bg-emerald-50 rounded">Kontak & Permohonan</a>
+      </div>
+      <div class="pt-2">
+        <a href="/kontak" class="btn-primary w-full text-center text-xs py-2.5 block">
+          Ajukan Jadwal Sambang Pesantren
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <section class="no-print bg-[#145A42] text-white py-8 sm:py-10 border-b-2 border-pa-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="doc-badge bg-[#0E3D2D] text-emerald-200 border-emerald-700">Simulasi Reflektif Mandiri (PR-07A)</span>
+        <h1 class="text-2xl sm:text-3xl font-bold font-display text-white mt-1.5">
+          Asesmen Mandiri Kesiapan Sistem Perlindungan Santri
+        </h1>
+        <p class="text-emerald-100 text-xs sm:text-sm mt-1 leading-relaxed font-editorial">
+          Ukur tingkat kematangan tata kelola dan kesiapan pencegahan kekerasan di pondok pesantren Anda dalam 5 menit. Menghasilkan skor indeks, analisis celah kerentanan, serta rekomendasi rencana aksi 90 hari.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KOP SURAT KHUSUS CETAK -->
+  <div class="print-kop p-6 border-b-2 border-pa-gold mb-6">
+    <div class="flex items-center gap-4">
+      <img src="/logo-utama.png" alt="Kop Surat" class="h-16 w-auto">
+      <div>
+        <h2 class="text-base font-bold font-display text-[#145A42] uppercase">Pengurus Cabang Nahdlatul Ulama Kabupaten Demak</h2>
+        <h3 class="text-sm font-semibold text-gray-800 uppercase">Rabithah Ma'ahid Islamiyah — Satgas Perlindungan Santri</h3>
+        <p class="text-[10px] text-gray-600">Gedung PCNU Demak, Jl. Sultan Fatah No. 10 | Email: satgas@rminudemak.org | Telp: +62 812-3456-7890</p>
+      </div>
+    </div>
+    <div class="mt-4 pt-2 border-t border-gray-300 flex justify-between text-xs text-gray-700 font-mono">
+      <span>LEMBAR LAPORAN HASIL ASESMEN MANDIRI 5 PILAR</span>
+      <span id="print-tanggal-waktu"></span>
+    </div>
+  </div>
+
+  <!-- CONTAINER UTAMA -->
+  <main class="py-8 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+
+    <!-- FORM IDENTITAS SINGKAT PESANTREN (NO-PRINT) -->
+    <div class="no-print bg-white p-5 sm:p-6 rounded border border-pa-border shadow-sm">
+      <div class="border-b border-gray-100 pb-2.5 mb-4">
+        <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Langkah 1 dari 2</span>
+        <h3 class="text-sm sm:text-base font-bold font-display text-pa-ink">Identitas Pondok Pesantren</h3>
+        <p class="text-xs text-gray-500 mt-0.5">Data ini digunakan untuk personalisasi lembar cetak hasil analisis dan rekomendasi pendampingan.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+        <div>
+          <label for="namaPesantrenAsesmen" class="block font-bold text-gray-700 uppercase tracking-wider mb-1">
+            Nama Pondok Pesantren <span class="text-red-500">*</span>
+          </label>
+          <input 
+            type="text" 
+            id="namaPesantrenAsesmen" 
+            placeholder="Contoh: PP. Al-Fattahiyyah" 
+            class="w-full px-3 py-2 text-xs rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white"
+          >
+        </div>
+
+        <div>
+          <label for="pengasuhAsesmen" class="block font-bold text-gray-700 uppercase tracking-wider mb-1">
+            Pengasuh / Pimpinan
+          </label>
+          <input 
+            type="text" 
+            id="pengasuhAsesmen" 
+            placeholder="Contoh: KH. Fauzi Ahmad" 
+            class="w-full px-3 py-2 text-xs rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white"
+          >
+        </div>
+
+        <div>
+          <label for="kecamatanAsesmen" class="block font-bold text-gray-700 uppercase tracking-wider mb-1">
+            Kecamatan (Kab. Demak) <span class="text-red-500">*</span>
+          </label>
+          <select 
+            id="kecamatanAsesmen" 
+            class="w-full px-3 py-2 text-xs rounded border border-gray-300 focus:outline-none focus:border-pa-primary bg-white"
+          >
+            <option value="Demak Kota">Demak Kota</option>
+            <option value="Bonang">Bonang</option>
+            <option value="Dempet">Dempet</option>
+            <option value="Gajah">Gajah</option>
+            <option value="Guntur">Guntur</option>
+            <option value="Karanganyar">Karanganyar</option>
+            <option value="Karangawen">Karangawen</option>
+            <option value="Karangtengah">Karangtengah</option>
+            <option value="Kebonagung">Kebonagung</option>
+            <option value="Mijen">Mijen</option>
+            <option value="Mranggen" selected>Mranggen</option>
+            <option value="Sayung">Sayung</option>
+            <option value="Wedung">Wedung</option>
+            <option value="Wonosalam">Wonosalam</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- PETUNJUK & PROGRESS INDIKATOR (NO-PRINT) -->
+    <div class="no-print bg-[#F9F5EC] p-4 rounded border border-[#D5C6AA] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+      <div>
+        <span class="font-bold text-pa-gold-dark uppercase tracking-wider block">Panduan Pengisian:</span>
+        <span class="text-gray-700 font-editorial">Pilihlah salah satu dari 3 kondisi yang paling mencerminkan keadaan asrama pesantren Anda saat ini.</span>
+      </div>
+      <div class="flex items-center gap-3 w-full sm:w-auto">
+        <div class="text-right">
+          <span class="text-[11px] text-gray-500 font-mono">Progres:</span>
+          <span id="text-progres" class="font-bold text-pa-primary font-mono ml-1">0/15 Terjawab</span>
+        </div>
+        <div class="w-32 bg-gray-200 h-2.5 rounded-full overflow-hidden">
+          <div id="bar-progres" class="bg-pa-primary h-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KUESIONER 15 INDIKATOR 5 PILAR (NO-PRINT) -->
+    <div id="kuesioner-container" class="no-print space-y-6">
+
+      <!-- PILAR 1 -->
+      <div class="bg-white rounded border border-pa-border p-5 shadow-sm space-y-4">
+        <div class="flex items-center justify-between pb-2 border-b border-gray-100">
+          <div class="flex items-center gap-2">
+            <span class="pillar-number">PILAR 01</span>
+            <span class="text-gray-300">|</span>
+            <h3 class="text-xs sm:text-sm font-bold font-display text-pa-ink">Pengasuhan yang Aman dan Bermartabat</h3>
+          </div>
+          <span class="text-[10px] text-gray-500">3 Indikator</span>
+        </div>
+
+        <!-- 1.1 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            1.1. Apakah pesantren memiliki aturan sanksi edukatif tertulis (bebas dari sanksi tamparan, pukulan fisik, dan hukuman mencederai)?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p1_1" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Ada:</strong> Sanksi masih spontan atau kadang terjadi hukuman fisik.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p1_1" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Berjalan Lisan:</strong> Ada larangan memukul, namun belum ada aturan tertulis resmi.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p1_1" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Tertulis & Diterapkan:</strong> Buku tata tertib mencantumkan sanksi edukatif (hafalan/khidmah).</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 1.2 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            1.2. Apakah pengurus kamar/asrama melarang tindakan perpeloncoan, piket sewenang-wenang, dan senioritas berlebihan antarsantri?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p1_2" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Ada:</strong> Santri senior kerap mendominasi santri yunior di kamar.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p1_2" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Berjalan Lisan:</strong> Pengurus menegur jika berlebihan, tapi belum ada batas tertulis.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p1_2" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Tertulis & Diterapkan:</strong> Ada aturan jelas larangan perpeloncoan dan sanksi tegas bagi pelanggar.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 1.3 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            1.3. Apakah terdapat jadwal pengawasan dan ronda malam berkala oleh ustadz/pembina di asrama santri?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p1_3" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Ada:</strong> Kamar santri hanya diawasi oleh santri senior sebaya.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p1_3" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Berjalan Lisan:</strong> Ustadz sesekali keliling namun tanpa jadwal piket tetap.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p1_3" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Tertulis & Diterapkan:</strong> Ada jadwal piket ronda malam resmi ustadz pembina asrama.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- PILAR 2 -->
+      <div class="bg-white rounded border border-pa-border p-5 shadow-sm space-y-4">
+        <div class="flex items-center justify-between pb-2 border-b border-gray-100">
+          <div class="flex items-center gap-2">
+            <span class="pillar-number">PILAR 02</span>
+            <span class="text-gray-300">|</span>
+            <h3 class="text-xs sm:text-sm font-bold font-display text-pa-ink">Kepatuhan Hukum & Literasi Perlindungan</h3>
+          </div>
+          <span class="text-[10px] text-gray-500">3 Indikator</span>
+        </div>
+
+        <!-- 2.1 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            2.1. Apakah pengasuh dan dewan asatidz pernah mendapatkan pengenalan dasar UU Perlindungan Anak & regulasi pesantren?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p2_1" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Pernah:</strong> Belum ada sosialisasi hukum atau ketentuan perundangan.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p2_1" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Sebagian Memahami:</strong> Mengetahui secara umum melalui berita/kajian singkat.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p2_1" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Pernah Mengikuti:</strong> Ustadz/pengurus pernah mengikuti sosialisasi resmi RMI NU / Kemenag / Polres.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 2.2 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            2.2. Apakah ustadz memahami batasan hukum agar terlindung dari risiko tuduhan pidana saat mendidik santri?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p2_2" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Paham:</strong> Menganggap pendisiplinan fisik sepenuhnya kebal hukum.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p2_2" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Cukup Paham:</strong> Menghindari kekerasan karena khawatir viral / diperkarakan.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p2_2" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Sangat Paham:</strong> Mengetahui batas yuridis perlindungan anak dan membentengi diri dengan metode edukatif.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 2.3 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            2.3. Apakah pesantren menyimpan nomor kontak darurat Unit PPA Polres Demak / Satgas RMI NU / Layanan Sosial?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p2_3" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Ada:</strong> Belum memiliki jejaring rujukan hukum atau aparat bila terjadi musibah.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p2_3" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Ada Pribadi:</strong> Hanya tersimpan di kontak pribadi salah satu pengasuh.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p2_3" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Tersedia di Kantor:</strong> Terpampang di papan kantor pengurus pondok untuk kesiapsiagaan cepat.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- PILAR 3 -->
+      <div class="bg-white rounded border border-pa-border p-5 shadow-sm space-y-4">
+        <div class="flex items-center justify-between pb-2 border-b border-gray-100">
+          <div class="flex items-center gap-2">
+            <span class="pillar-number">PILAR 03</span>
+            <span class="text-gray-300">|</span>
+            <h3 class="text-xs sm:text-sm font-bold font-display text-pa-ink">Tata Kelola & Tanggung Jawab Kelembagaan</h3>
+          </div>
+          <span class="text-[10px] text-gray-500">3 Indikator</span>
+        </div>
+
+        <!-- 3.1 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            3.1. Apakah buku tata tertib pengasuhan santri tertulis rapi dan dibagikan kepada wali santri saat pendaftaran?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p3_1" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Ada:</strong> Aturan hanya disampaikan secara lisan saat sowan awal.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p3_1" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Ada Sebagian:</strong> Ada selebaran tata tertib ringkas, namun belum memuat hak perlindungan santri.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p3_1" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Tertulis & Lengkap:</strong> Buku panduan tertulis resmi dibagikan dan ditandatangani wali santri.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 3.2 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            3.2. Apakah pesantren telah menunjuk ustadz/ustadzah penanggung jawab perlindungan / konseling santri secara resmi?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p3_2" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Ditunjuk:</strong> Segala urusan hanya ditangani bagian keamanan umum asrama.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p3_2" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Penunjukan Lisan:</strong> Ada ustadz yang dituakan untuk menangani santri bermasalah.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p3_2" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>SK / Mandat Resmi:</strong> Terdapat SK Satgas/Tim Konselor internal pesantren yang disahkan Pengasuh.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 3.3 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            3.3. Apakah terdapat buku catatan/mutasi kejadian pelanggaran dan mediasi santri yang tersimpan rapi dan rahasia?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p3_3" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Dicatat:</strong> Kasus diselesaikan di tempat tanpa dokumentasi tertulis.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p3_3" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Sebagian Dicatat:</strong> Hanya pelanggaran sangat berat yang dituliskan di buku laporan.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p3_3" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Terdokumentasi Rapi:</strong> Ada arsip mutasi rahasia untuk memantau rekam jejak pembinaan santri.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- PILAR 4 -->
+      <div class="bg-white rounded border border-pa-border p-5 shadow-sm space-y-4">
+        <div class="flex items-center justify-between pb-2 border-b border-gray-100">
+          <div class="flex items-center gap-2">
+            <span class="pillar-number">PILAR 04</span>
+            <span class="text-gray-300">|</span>
+            <h3 class="text-xs sm:text-sm font-bold font-display text-pa-ink">Sistem Perlindungan & Kanal Pengaduan Aman</h3>
+          </div>
+          <span class="text-[10px] text-gray-500">3 Indikator</span>
+        </div>
+
+        <!-- 4.1 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            4.1. Apakah tersedia saluran curhat / kotak aduan tertutup yang aman dari rasa takut bagi santri?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p4_1" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Ada:</strong> Santri tidak tahu harus mengadu ke mana selain memendam rasa takut.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p4_1" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Melalui Ustadz:</strong> Santri bisa curhat langsung namun kadang cemas diketahui teman sekamar.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p4_1" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Tersedia Khusus:</strong> Ada kotak curhat fisik tertutup / nomor konselor yang dijamin rahasia.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 4.2 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            4.2. Apakah terdapat jaminan perlindungan pelapor agar santri tidak dicap "cepu" atau dibalas oleh santri senior?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p4_2" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Terlindungi:</strong> Santri yang melapor sering dikucilkan atau diintimidasi kawan.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p4_2" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Perlindungan Parsial:</strong> Pengurus merahasiakan nama pelapor sebisanya.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p4_2" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Kerahasiaan Ketat:</strong> Ada maklumat tegas perlindungan pelapor dan sanksi berat bagi yang membalas dendam.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 4.3 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            4.3. Apakah ada SOP penanganan awal insiden kekerasan: mengamankan santri korban, pertolongan medis (Poskestren), dan melapor ke Pengasuh?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p4_3" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Ada SOP:</strong> Penanganan bergantung reaksi spontan pengurus yang berjaga saat itu.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p4_3" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Tradisi Lisan:</strong> Korban langsung dibawa ke ruang pengurus dan diobati obat luar.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p4_3" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>SOP Tertulis:</strong> Ada urutan protokol: pertolongan medis pertama, isolasi pelaku, dan laporan ke Pengasuh.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- PILAR 5 -->
+      <div class="bg-white rounded border border-pa-border p-5 shadow-sm space-y-4">
+        <div class="flex items-center justify-between pb-2 border-b border-gray-100">
+          <div class="flex items-center gap-2">
+            <span class="pillar-number">PILAR 05</span>
+            <span class="text-gray-300">|</span>
+            <h3 class="text-xs sm:text-sm font-bold font-display text-pa-ink">Evaluasi & Perbaikan Berkelanjutan</h3>
+          </div>
+          <span class="text-[10px] text-gray-500">3 Indikator</span>
+        </div>
+
+        <!-- 5.1 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            5.1. Apakah pengasuh dan jajaran asatidz mengadakan musyawarah evaluasi pola pengasuhan santri secara berkala?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p5_1" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Jarang Sekali:</strong> Rapat hanya diadakan bila terjadi peristiwa luar biasa / darurat.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p5_1" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Kala Tertentu:</strong> Musyawarah dilakukan tiap awal semester atau menjelang liburan.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p5_1" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Rutin Berkala:</strong> Ada musyawarah bulanan evaluasi ketertiban dan kenyamanan santri.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 5.2 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            5.2. Apakah pesantren bersedia menetapkan komitmen "Satu Pesantren, Satu Perubahan Nyata" dalam 90 hari?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p5_2" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Ragu-ragu:</strong> Merasa sistem lama sudah cukup dan tidak perlu perubahan.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p5_2" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Bersedia Lisan:</strong> Ingin memperbaiki asrama secara bertahap tanpa target tertulis.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p5_2" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Sangat Bersedia:</strong> Siap menyepakati Rencana Aksi 90 Hari bersama pendampingan RMI NU Demak.</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 5.3 -->
+        <div class="p-3.5 bg-pa-paper rounded border border-gray-200 space-y-2 text-xs">
+          <p class="font-bold text-gray-900 leading-snug">
+            5.3. Apakah pesantren terbuka menerima kunjungan silaturahmi program Sambang Pesantren oleh RMI NU Demak?
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p5_3" value="0" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Belum Siap:</strong> Masih menimbang atau khawatir dianggap inspeksi audit.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p5_3" value="50" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Menunggu Arahan:</strong> Siap jika diimbau oleh MWC NU atau PC RMI setempat.</span>
+            </label>
+            <label class="p-2.5 bg-white rounded border border-gray-300 hover:border-pa-primary cursor-pointer flex items-start gap-2">
+              <input type="radio" name="p5_3" value="100" class="mt-0.5 text-pa-primary focus:ring-0">
+              <span><strong>Sangat Menyambut:</strong> Menyambut baik dialog kekeluargaan dan siap menjadwalkan kunjungan.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOMBOL ANALISIS -->
+      <div class="p-4 bg-white rounded border border-pa-border flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p class="text-xs text-gray-600 font-editorial">
+          Pastikan seluruh 15 butir terisi untuk menghasilkan analisis kesiapan yang akurat dan obyektif.
+        </p>
+        <button id="btn-hitung-asesmen" type="button" class="btn-primary w-full sm:w-auto text-xs py-2.5 px-6 font-bold shadow-md">
+          Hitung Indeks Kesiapan & Rekomendasi
+        </button>
+      </div>
+
+    </div>
+
+    <!-- HASIL ANALISIS INDEKS KESIAPAN (MUNCUL SETELAH DIHITUNG) -->
+    <div id="hasil-asesmen-container" class="hidden bg-white rounded border-2 border-pa-primary p-6 sm:p-8 shadow-lg space-y-6">
+      
+      <!-- Ringkasan Nilai & Kategori -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-gray-200">
+        <div>
+          <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider block">Hasil Indeks Mandiri Pesantren Aman</span>
+          <h2 id="res-nama-pesantren" class="text-xl font-bold font-display text-pa-ink mt-0.5">Pondok Pesantren</h2>
+          <p id="res-detail-lokasi" class="text-xs text-gray-600 font-editorial">Kabupaten Demak, Jawa Tengah</p>
+        </div>
+
+        <div class="text-right flex items-center gap-3">
+          <div class="text-center p-3 rounded bg-pa-paper border border-pa-border min-w-[110px]">
+            <span class="text-[10px] font-bold text-gray-500 block uppercase">Skor Indeks</span>
+            <span id="res-skor-total" class="text-3xl font-extrabold font-display text-pa-primary">0%</span>
+          </div>
+          <div>
+            <span class="text-[10px] font-bold text-gray-500 block uppercase">Tingkat Kesiapan</span>
+            <span id="res-badge-kategori" class="inline-block px-3 py-1 rounded text-xs font-bold font-display mt-0.5">
+              -
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visualisasi Bar 5 Pilar -->
+      <div class="space-y-3">
+        <h4 class="text-xs font-bold text-gray-800 uppercase tracking-wider">Capaian Indeks Per Pilar:</h4>
+
+        <div class="space-y-2 text-xs">
+          <!-- P1 -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="font-medium text-gray-700">Pilar 1: Pengasuhan yang Aman & Bermartabat</span>
+              <span id="score-p1" class="font-bold text-pa-primary font-mono">0%</span>
+            </div>
+            <div class="w-full bg-gray-100 h-2.5 rounded-full overflow-hidden">
+              <div id="bar-p1" class="bg-pa-primary h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- P2 -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="font-medium text-gray-700">Pilar 2: Kepatuhan Hukum & Literasi Perlindungan</span>
+              <span id="score-p2" class="font-bold text-pa-primary font-mono">0%</span>
+            </div>
+            <div class="w-full bg-gray-100 h-2.5 rounded-full overflow-hidden">
+              <div id="bar-p2" class="bg-pa-primary h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- P3 -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="font-medium text-gray-700">Pilar 3: Tata Kelola & Tanggung Jawab Kelembagaan</span>
+              <span id="score-p3" class="font-bold text-pa-primary font-mono">0%</span>
+            </div>
+            <div class="w-full bg-gray-100 h-2.5 rounded-full overflow-hidden">
+              <div id="bar-p3" class="bg-pa-primary h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- P4 -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="font-medium text-gray-700">Pilar 4: Sistem Perlindungan & Pengaduan Aman</span>
+              <span id="score-p4" class="font-bold text-pa-primary font-mono">0%</span>
+            </div>
+            <div class="w-full bg-gray-100 h-2.5 rounded-full overflow-hidden">
+              <div id="bar-p4" class="bg-pa-primary h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <!-- P5 -->
+          <div>
+            <div class="flex justify-between text-xs mb-1">
+              <span class="font-medium text-gray-700">Pilar 5: Evaluasi & Perbaikan Berkelanjutan</span>
+              <span id="score-p5" class="font-bold text-pa-primary font-mono">0%</span>
+            </div>
+            <div class="w-full bg-gray-100 h-2.5 rounded-full overflow-hidden">
+              <div id="bar-p5" class="bg-pa-primary h-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analisis & Rekomendasi 90 Hari -->
+      <div class="p-4 bg-[#F9F5EC] rounded border border-[#D5C6AA] space-y-3">
+        <h4 class="text-xs font-bold font-display text-pa-ink uppercase tracking-wider">
+          Rekomendasi Rencana Aksi 90 Hari (*Satu Pesantren, Satu Perubahan*):
+        </h4>
+        <ul id="list-rekomendasi" class="space-y-1.5 text-xs text-gray-700"></ul>
+      </div>
+
+      <!-- Catatan Kelembagaan -->
+      <p class="text-[11px] text-gray-500 font-editorial italic">
+        Catatan: Hasil simulasi ini adalah cermin awal untuk keperluan refleksi internal pondok dan bukan merupakan vonis hukum. Tim Satgas RMI NU Demak siap mendampingi langkah penguatan sistem secara kekeluargaan.
+      </p>
+
+      <!-- Tombol Aksi Cetak & Sambang (NO-PRINT) -->
+      <div class="no-print pt-3 border-t border-gray-200 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex gap-2">
+          <button type="button" id="btn-cetak-hasil" class="btn-secondary text-xs py-2 px-3.5">
+            <svg class="w-4 h-4 text-pa-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+            </svg>
+            Cetak / Simpan Hasil (PDF)
+          </button>
+          <button type="button" id="btn-mulai-ulang" class="text-xs text-gray-500 hover:text-gray-800 px-3 py-2">
+            Mulai Ulang Asesmen
+          </button>
+        </div>
+
+        <a id="link-lanjut-sambang" href="/kontak" class="btn-gold text-xs py-2 px-4 font-bold shadow-sm">
+          Lanjutkan: Jadwalkan Sambang Pesantren →
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER (NO-PRINT) -->
+  <!-- INSTITUTIONAL FOOTER -->
+  <footer class="no-print bg-[#092B20] text-emerald-100/90 text-xs border-t border-emerald-900/80 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
+        <div class="space-y-3 md:col-span-1">
+          <img src="/logo-utama.png" alt="Logo Pesantren Aman" class="h-14 w-auto brightness-110">
+          <p class="text-[11px] leading-relaxed text-emerald-200/80 font-editorial">
+            Gerakan Penguatan Sistem Perlindungan Santri di bawah naungan Pengurus Cabang Rabithah Ma’ahid Islamiyah (PC RMI) Nahdlatul Ulama Kabupaten Demak.
+          </p>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-white font-display font-bold uppercase text-[11px] tracking-wider text-pa-gold">Navigasi Program</h4>
+          <ul class="space-y-1.5 text-[11px]">
+            <li><a href="/sambang" class="hover:text-white transition-colors">Program Sambang 120 Menit</a></li>
+            <li><a href="/lima-pilar" class="hover:text-white transition-colors">5 Pilar Perlindungan</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Mitra & Kolaborasi Strategis</a></li>
+            <li><a href="/media" class="hover:text-white transition-colors">Video & Galeri Media</a></li>
+            <li><a href="/unduhan" class="hover:text-white transition-colors">Pusat Unduhan Field Kit (PDF)</a></li>
+            <li><a href="/perkembangan" class="hover:text-white transition-colors">Peta Sebaran 14 Kecamatan</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-white font-display font-bold uppercase text-[11px] tracking-wider text-pa-gold">Jejaring Mitra</h4>
+          <ul class="space-y-1.5 text-[11px]">
+            <li><a href="/mitra" class="hover:text-white transition-colors">Unit PPA Satreskrim Polres Demak</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Dinas Sosial P2PA Kab. Demak</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Kementerian Agama Kab. Demak</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">Lembaga Penyuluhan Bantuan Hukum NU</a></li>
+            <li><a href="/mitra" class="hover:text-white transition-colors">14 MWC NU se-Kabupaten Demak</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <h4 class="text-white font-display font-bold uppercase text-[11px] tracking-wider text-pa-gold">Sekretariat Satgas</h4>
+          <p class="text-[11px] text-emerald-200/80 leading-relaxed font-editorial">
+            Gedung PCNU Kabupaten Demak<br>
+            Jl. Sultan Fatah No. 83, Demak, Jawa Tengah 59511
+          </p>
+          <p class="text-[11px] font-mono text-pa-gold">
+            Hotline Satgas: +62 812-3456-7890
+          </p>
+          <div class="pt-2">
+            <a href="/admin" class="text-[10px] text-emerald-400/70 hover:text-emerald-200 underline font-mono">
+              Portal Khusus Fasilitator Satgas →
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mt-8 pt-6 border-t border-emerald-900/60 flex flex-col sm:flex-row justify-between items-center text-[11px] text-emerald-300/70">
+        <p>© 2026 PC RMI NU Kabupaten Demak. Khidmah Menjaga Amanah Santri.</p>
+        <p class="mt-2 sm:mt-0 font-editorial italic">"Menjaga Amanah, Melindungi Santri, Memuliakan Pesantren."</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
+

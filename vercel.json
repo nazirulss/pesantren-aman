@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "website/**,perangkat-lapangan/**,media-dan-kampanye/**,brand/**,data/**",
+      "maxDuration": 15
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index"
+    }
+  ]
+}
