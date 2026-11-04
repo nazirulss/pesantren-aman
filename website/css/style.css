@@ -23,11 +23,51 @@
   --color-border-strong: #BDCDC4;
 }
 
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--color-ink-primary);
   background-color: var(--color-paper);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ==========================================================================
+   MOBILE TYPOGRAPHY OPTIMIZATION (ANTI EYE-FATIGUE)
+   Menjaga kenyamanan membaca mata pengguna pada layar ponsel / genggam:
+   - Paragraf & isi narasi minimal 14px - 16px (line-height lega 1.6)
+   - Microcopy / Tag / Label minimal 12px (tidak ada teks di bawah 12px di HP)
+   - Target sentuh & font tombol nyaman dibaca dan ditekan
+   ========================================================================== */
+@media (max-width: 640px) {
+  body {
+    font-size: 0.9375rem; /* 15px default body */
+    line-height: 1.6;
+  }
+
+  /* Naikkan otomatis micro-font lama ke batas aman mata 12px (0.75rem) */
+  .text-\[8px\],
+  .text-\[9px\],
+  .text-\[10px\],
+  .text-\[11px\] {
+    font-size: 0.75rem !important; /* 12px aman */
+    line-height: 1.45 !important;
+  }
+
+  /* Paragraf kartu dan teks deskripsi lebih nyaman dibaca */
+  p {
+    line-height: 1.6;
+  }
+
+  /* Tombol sentuh yang ramah jari dan mata */
+  .btn-primary, .btn-secondary, .btn-gold {
+    font-size: 0.8125rem !important; /* 13px */
+  }
 }
 
 h1, h2, h3, h4, h5, h6, .font-display {
